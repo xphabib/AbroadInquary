@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_11_04_191114) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "application_additional_files", force: :cascade do |t|
     t.integer "application_id"
     t.string "file_type"
