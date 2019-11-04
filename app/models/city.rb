@@ -10,4 +10,7 @@
 #
 
 class City < ApplicationRecord
+  has_many :mentors
+  belongs_to :country
+
 end

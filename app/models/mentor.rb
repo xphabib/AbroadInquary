@@ -31,5 +31,6 @@
 #
 
 class Mentor < User
-
+  has_many :schedules
+  belongs_to :city
 end
