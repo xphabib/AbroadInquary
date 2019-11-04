@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Abroadinquiry</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!--========= Basic Page Needs =========-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--========== Specific Meta ==========-->
+    <meta name="description" content="Online Education template Based on HTML5.">
+    <meta name="keywords" content="HTML5, Template, Design, Development, education, edulab, online cources, training, online education, best education template">
+
+    <!--======== Page Title===========-->
+    <title>Edulab - Education HTML Template</title>
+
+    <!--========== Favicons =========-->
+    <link rel="shortcut icon" href="edulab/images/favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= render 'shared/header' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
+    <!-- All JS files are included here.
+  ============================================== -->
+    <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>
