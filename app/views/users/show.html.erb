@@ -1,0 +1,16 @@
+<%= @user.id %>
+<%= @user.email %>
+<%= @user.full_name %>
+<%= @user.phone %>
+<%= @user.city.name if @user.city.present?%>
+<%= @user.country_name %>
+<%= @user.department_name %>
+<%= @user.university %>
+<%= @user.cgpa %>
+<%= @user.nationality %>
+<%= @user.occupation %>
+<%= @user.user_type %>
+<%= @user.role %>
+<%= @user.image %>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
