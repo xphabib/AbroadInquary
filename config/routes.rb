@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       }
   get 'home/index'
   get '/contact', to: 'home#contact'
+  get '/faq', to: 'home#faq'
+  get '/about', to: 'home#about_us'
   root 'home#index'
   resources :blogs
 
