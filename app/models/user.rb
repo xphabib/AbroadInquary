@@ -32,6 +32,7 @@
 #
 
 class User < ApplicationRecord
+  belongs_to :city, optional: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -39,13 +40,17 @@ class User < ApplicationRecord
   mount_uploader :image, AvatarUploader
 
   ROLE = {
-      head_admin: :head_admin,
-      mentor: :mentor,
-      executive_admin: :executive_admin,
-      director_admin: :director_admin,
-      meontor: :mentor,
-      sudent: :student,
-      parent: :parent
+      'head admin': 'head_admin',
+      manager: 'manager',
+      executive_admin: 'executive_admin',
+      director_admin: 'director_admin',
+      mentor: 'mentor',
+      sudent: 'student',
+      parent: 'parent'
   }
+
+  def full_name
+    "#{self.first_name} #{self.last_name} "
+  end
 
 end

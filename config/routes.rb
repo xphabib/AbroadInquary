@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 
   scope :dashboard do
     get '/', to: "dashboard#index"
+    resources :users
   end
-
 end

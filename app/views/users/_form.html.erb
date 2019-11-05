@@ -1,0 +1,16 @@
+<%= form_for @user, multiple: true do |f| %>
+  <%= f.text_field :first_name, placeholder: :first_name %>
+  <%= f.text_field :last_name, placeholder: :last_name %>
+  <%= f.text_field :email, placeholder: :email%>
+  <%= f.password_field :password, placeholder: :password%>
+  <%= f.text_field :phone, placeholder: :phone %>
+  <%= f.text_field :city_id, placeholder: :city_id %>
+  <%= f.text_field :city_name, placeholder: :city_name %>
+  <%= f.text_field :cgpa, placeholder: :cgpa %>
+  <%= f.text_field :university, placeholder: :university %>
+  <%= f.text_field :occupation, placeholder: :occupation %>
+  <%= f.text_field :user_type, placeholder: :user_type %>
+  <%= f.select :role, User::ROLE %>
+  <%= f.file_field :image, placeholder: :image %>
+  <%= f.submit %>
+<% end %>
