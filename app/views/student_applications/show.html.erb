@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @student_application.country_id %>
+</p>
+
+<p>
+  <strong>Desire program:</strong>
+  <%= @student_application.desire_program %>
+</p>
+
+<p>
+  <strong>Passport file:</strong>
+  <%= @student_application.passport_file %>
+</p>
+
+<p>
+  <strong>Motivation letter:</strong>
+  <%= @student_application.motivation_letter %>
+</p>
+
+<p>
+  <strong>Recommendation letter:</strong>
+  <%= @student_application.recommendation_letter %>
+</p>
+
+<p>
+  <strong>Cv:</strong>
+  <%= @student_application.cv %>
+</p>
+
+<p>
+  <strong>Police clearance certificate:</strong>
+  <%= @student_application.police_clearance_certificate %>
+</p>
+
+<p>
+  <strong>Birth certificate:</strong>
+  <%= @student_application.birth_certificate %>
+</p>
+
+<p>
+  <strong>Bank statement:</strong>
+  <%= @student_application.bank_statement %>
+</p>
+
+<p>
+  <strong>Bank solvency certificate:</strong>
+  <%= @student_application.bank_solvency_certificate %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_application.student_id %>
+</p>
+
+<p>
+  <strong>Mentor:</strong>
+  <%= @student_application.mentor_id %>
+</p>
+
+<p>
+  <strong>University name:</strong>
+  <%= @student_application.university_name %>
+</p>
+
+<p>
+  <strong>Application status:</strong>
+  <%= @student_application.application_status %>
+</p>
+
+<%= link_to 'Edit', edit_student_application_path(@student_application) %> |
+<%= link_to 'Back', student_applications_path %>

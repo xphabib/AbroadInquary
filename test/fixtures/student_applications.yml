@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country_id: 1
+  desire_program: MyString
+  passport_file: MyString
+  motivation_letter: MyString
+  recommendation_letter: MyString
+  cv: MyString
+  police_clearance_certificate: MyString
+  birth_certificate: MyString
+  bank_statement: MyString
+  bank_solvency_certificate: MyString
+  student_id: 1
+  mentor_id: 1
+  university_name: MyString
+  application_status: MyString
+
+two:
+  country_id: 1
+  desire_program: MyString
+  passport_file: MyString
+  motivation_letter: MyString
+  recommendation_letter: MyString
+  cv: MyString
+  police_clearance_certificate: MyString
+  birth_certificate: MyString
+  bank_statement: MyString
+  bank_solvency_certificate: MyString
+  student_id: 1
+  mentor_id: 1
+  university_name: MyString
+  application_status: MyString
