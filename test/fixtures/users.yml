@@ -23,6 +23,7 @@
 #  occupation             :string
 #  user_type              :string
 #  role                   :string
+#  image                  :string
 #
 # Indexes
 #

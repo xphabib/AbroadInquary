@@ -23,6 +23,7 @@
 #  occupation             :string
 #  user_type              :string
 #  role                   :string
+#  image                  :string
 #
 # Indexes
 #
@@ -35,4 +36,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  mount_uploader :image, AvatarUploader
+
+  ROLE = {
+      head_admin: :head_admin,
+      mentor: :mentor,
+      executive_admin: :executive_admin,
+      director_admin: :director_admin,
+      meontor: :mentor,
+      sudent: :student,
+      parent: :parent
+  }
+
 end
