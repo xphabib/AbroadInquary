@@ -1,7 +1,7 @@
 <div class="o-page__sidebar js-page-sidebar">
   <aside class="c-sidebar">
     <div class="c-sidebar__brand">
-      <a href="#">
+      <a href="/dashboard">
         <%= image_tag 'logo.svg', alt: "Neat" %>
       </a>
     </div>
@@ -12,31 +12,44 @@
       <ul class="c-sidebar__list">
         <li>
           <a class="c-sidebar__link is-active" href="">
-            <i class="c-sidebar__icon feather icon-home"></i>Dashboard 1
+            <i class="c-sidebar__icon feather icon-home"></i>Students
           </a>
         </li>
         <li>
           <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Dashboard 2
+            <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Mentor
           </a>
         </li>
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-pie-chart"></i>Dashboard 3
-          </a>
-        </li>
-      </ul>
 
-      <span class="c-sidebar__title">General</span>
-      <ul class="c-sidebar__list">
+        <li>
+          <%= link_to '#', class: "c-sidebar__link" do %>
+            <i class="c-sidebar__icon feather icon-user"></i>Schedule
+          <% end %>
+
+          <!-- Always visible submenu -->
+          <ul class="c-sidebar__list">
+            <li><%= link_to 'Booking Schedule', new_schedule_path, class: "c-sidebar__link" %></li>
+            <li><%= link_to 'Create Schedule', new_schedule_path, class: "c-sidebar__link" %></li>
+            <li><%= link_to 'Schedule List', new_schedule_path, class: "c-sidebar__link" %></li>
+            <li><%= link_to 'Schedule List', new_schedule_path, class: "c-sidebar__link" %></li>
+            <li>
+              <%= link_to schedules_path, class: "c-sidebar__link" do %>
+                Add Schedule
+              <% end %>
+            </li>
+            <li><a class="c-sidebar__link" href="#">Paid List</a></li>
+            <li><a class="c-sidebar__link" href="#">Free List</a></li>
+          </ul>
+        </li>
+
         <li>
           <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-move"></i>Pipeline
+            <i class="c-sidebar__icon feather icon-move"></i>Add Schedule
           </a>
         </li>
         <li>
           <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-calendar"></i>Calendar
+            <i class="c-sidebar__icon feather icon-calendar"></i>Schedule
           </a>
         </li>
         <li>
@@ -51,67 +64,15 @@
         </li>
         <li>
           <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-user"></i>User
+            <i class="c-sidebar__icon feather icon-user"></i>Users
           </a>
 
           <!-- Always visible submenu -->
           <ul class="c-sidebar__list">
-            <li><a class="c-sidebar__link" href="#">Onboard</a></li>
-            <li><a class="c-sidebar__link" href="#">Account Settings</a></li>
-            <li><a class="c-sidebar__link" href="#">Sign Up</a></li>
-            <li><a class="c-sidebar__link" href="#">Sign In</a></li>
-            <li><a class="c-sidebar__link" href="#">Reset Password</a></li>
-            <li><a class="c-sidebar__link" href="#">Forgot Password</a></li>
+            <li><a class="c-sidebar__link" href="#">User List</a></li>
+            <li><a class="c-sidebar__link" href="#">Role List</a></li>
+            <li><a class="c-sidebar__link" href="#">Permission List</a></li>
           </ul>
-        </li>
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-tag"></i>Pricing
-          </a>
-        </li>
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-info"></i>FAQ
-          </a>
-        </li>
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-anchor"></i>404
-          </a>
-        </li>
-
-        <li class="c-sidebar__item has-submenu">
-          <a class="c-sidebar__link" data-toggle="collapse" href="dashboard01.html#sidebar-submenu" aria-expanded="false" aria-controls="sidebar-submenu">
-            <i class="c-sidebar__icon feather icon-hash"></i>Sub Menu
-          </a>
-
-          <div>
-            <ul class="c-sidebar__list collapse" id="sidebar-submenu">
-              <li><a class="c-sidebar__link" href="#">Submenu link</a></li>
-              <li><a class="c-sidebar__link" href="#">Submenu link</a></li>
-              <li><a class="c-sidebar__link" href="#">Submenu link</a></li>
-            </ul>
-          </div>
-
-        </li>
-      </ul>
-
-      <span class="c-sidebar__title">Neat</span>
-      <ul class="c-sidebar__list">
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-layers"></i>UI Kit
-          </a>
-        </li>
-        <li>
-          <a class="c-sidebar__link" href="https://zawiastudio.com/neat/docs/">
-            <i class="c-sidebar__icon feather icon-book"></i>Documentation
-          </a>
-        </li>
-        <li>
-          <a class="c-sidebar__link" href="https://zawiastudio.com/neat/changelog/">
-            <i class="c-sidebar__icon feather icon-anchor"></i>Changelog
-          </a>
         </li>
       </ul>
     </div>

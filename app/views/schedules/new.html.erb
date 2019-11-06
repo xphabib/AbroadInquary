@@ -1,0 +1,37 @@
+<div class="row u-mt-xlarge">
+  <div class="col-12">
+    <h3 class="u-mb-small">New Schedule</h3>
+  </div>
+</div>
+<!--
+#  start_time    :datetime
+#  end_time      :datetime
+#  mentor_id     :integer
+#  created_by    :string
+#  user_id       :integer
+#  status        :string
+#  student_id    :integer
+#  is_paid       :boolean
+#  schedule_cost :float -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="row u-mb-medium">
+      <div class="col-12">
+        <div class="c-card">
+            <%= form_for @schedule do |f| %>
+
+              <div class="row u-mb-medium">
+                <div class="col-lg-3 u-mb-xsmall">
+                  <div class="c-field">
+                    <%= f.label :start_time, class: "c-field__label" %>
+                    <%= f.text_field :start_time, class: "c-input", placeholder: "start time" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
