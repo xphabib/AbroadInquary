@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   layout 'dashboard'
   def index
     @users = User.all
+    p ">>>>>>>>>>>>>>>."
+    p @users.inspect
   end
 
   def show
@@ -16,6 +18,11 @@ class UsersController < ApplicationController
   def create
     if @user = User.create(set_params)
       redirect_to @user
+    else
+      p @user.inspect
+      @user.error
+      p ">>>>>>>>>>"
+
     end
   end
 

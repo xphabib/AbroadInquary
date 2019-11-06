@@ -1,16 +1,83 @@
 <%= form_for @user, multiple: true do |f| %>
-  <%= f.text_field :first_name, placeholder: :first_name %>
-  <%= f.text_field :last_name, placeholder: :last_name %>
-  <%= f.text_field :email, placeholder: :email%>
-  <%= f.password_field :password, placeholder: :password%>
-  <%= f.text_field :phone, placeholder: :phone %>
-  <%= f.text_field :city_id, placeholder: :city_id %>
-  <%= f.text_field :city_name, placeholder: :city_name %>
-  <%= f.text_field :cgpa, placeholder: :cgpa %>
-  <%= f.text_field :university, placeholder: :university %>
-  <%= f.text_field :occupation, placeholder: :occupation %>
-  <%= f.text_field :user_type, placeholder: :user_type %>
-  <%= f.select :role, User::ROLE %>
-  <%= f.file_field :image, placeholder: :image %>
-  <%= f.submit %>
+  <div class=" student-application-form-wrap" style="background-color: #f8f9fa; padding: 25px">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%#= form.label :first_name %>
+            <%= f.text_field :first_name, placeholder: :first_name, class: 'form-control' %>
+            <%#= form.number_field :country_id,class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :last_name, placeholder: :last_name ,class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.password_field :password, placeholder: :password, class: "form-control"%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :email, placeholder: :email%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :phone, placeholder: :phone %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :city_id, placeholder: :city_id %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :city_name, placeholder: :city_name %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :cgpa, placeholder: :cgpa %>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :university, placeholder: :university %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :occupation, placeholder: :occupation %>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.text_field :user_type, placeholder: :user_type %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.select :role, User::ROLE %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.file_field :image, placeholder: :image %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+  </div>
 <% end %>
