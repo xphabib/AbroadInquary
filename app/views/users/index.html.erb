@@ -13,6 +13,7 @@
   <%= user.user_type %>
   <%= user.role %>
   <%= user.image %>
+  <%= link_to 'Show', user_path(user) %>
   <%= link_to 'Edit', edit_user_path(user) %>
   <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'are you sure'} %>
 <% end %>

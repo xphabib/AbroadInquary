@@ -1,16 +1,93 @@
-<%= @user.id %>
-<%= @user.email %>
-<%= @user.full_name %>
-<%= @user.phone %>
-<%= @user.city.name if @user.city.present?%>
-<%= @user.country_name %>
-<%= @user.department_name %>
-<%= @user.university %>
-<%= @user.cgpa %>
-<%= @user.nationality %>
-<%= @user.occupation %>
-<%= @user.user_type %>
-<%= @user.role %>
-<%= @user.image %>
+<%#= @user.id %>
+<%#= @user.email %>
+<%#= @user.full_name %>
+<%#= @user.phone %>
+<%#= @user.city.name if @user.city.present? %>
+<%#= @user.country_name %>
+<%#= @user.department_name %>
+<%#= @user.university %>
+<%#= @user.cgpa %>
+<%#= @user.nationality %>
+<%#= @user.occupation %>
+<%#= @user.user_type %>
+<%#= @user.role %>
+<%#= @user.image %>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
+
+
+
+<table class="table bg-white mt-2">
+  <tbody>
+  <tr>
+    <td> Name</td>
+    <td><%= @user.full_name %></td>
+  </tr>
+  <tr>
+    <td> Email</td>
+    <td><%= @user.full_name %></td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td> Phone</td>
+    <td><%= @user.phone.present? ? @user.phone : 'N/A' %></td>
+  </tr>
+
+
+    <tr>
+      <td> city name</td>
+      <td><%= @user.city.present? ? @user.city.name : 'N/A' %></td>
+    </tr>
+
+
+    <tr>
+      <td>  Country Name </td>
+      <td><%= @user.country_name.present? ? @user.country_name : 'N/A' %></td>
+    </tr>
+
+
+<!--    <tr>-->
+<!--      <td>  <%#= t('.img') %></td>-->
+<!--      <td><%#= @user.img.present? ? image_tag(@user.img, size: "160") : 'N/A' %></td>-->
+<!--    </tr>-->
+
+  <tr>
+    <td>  Department Name </td>
+    <td><%= @user.department_name.present? ? @user.department_name: 'N/A' %></td>
+  </tr>
+
+
+    <tr>
+      <td>  University </td>
+      <td><%= @user.university.present? ? @user.university : 'N/A' %></td>
+    </tr>
+<!--    <tr>-->
+<!--      <td>  dob</td>-->
+<!--      <td><%#= @user.date_of_birth.present? ? user.date_of_birth.strftime("%B %d, %Y") : 'N/A' %></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>  bg</td>-->
+<!--      <td><%#= @user.blood_group.present? ? user.blood_group : 'N/A' %></td>-->
+<!--    </tr>-->
+  <tr>
+    <td>  nationality </td>
+    <td><%= @user.nationality.present? ? @user.nationality : 'N/A' %></td>
+  </tr>
+  <tr>
+    <td>  occupation </td>
+    <td><%= @user.occupation.present? ? @user.occupation : 'N/A' %></td>
+  </tr>
+  <tr>
+    <td>  nationality </td>
+    <td><%= @user.nationality.present? ? @user.nationality : 'N/A' %></td>
+  </tr>
+  <tr>
+    <td>  user_type </td>
+    <td><%= @user.user_type.present? ? @user.user_type : 'N/A' %></td>
+  </tr>
+
+
+
+  </tbody>
+</table>
+
