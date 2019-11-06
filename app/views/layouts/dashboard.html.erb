@@ -4,11 +4,54 @@
     <title>Abroadinquiry</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Neat">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheet -->
+    <%= stylesheet_link_tag 'neat.min', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="o-page">
+      <%= render 'shared/dashboard/sidebar' %>
+
+      <main class="o-page__content">
+        <%= render 'shared/dashboard/header' %>
+
+        <div class="container">
+          <%= yield %>
+
+          <%= render 'shared/dashboard/footer' %>
+        </div>
+      </main>
+    </div>
+
+    <!-- Main JavaScript -->
+    <%= javascript_include_tag 'neat.min', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88739867-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-88739867-5');
+
+    </script>
   </body>
 </html>
