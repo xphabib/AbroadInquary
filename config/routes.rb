@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :student_applications
+
   devise_for :users, controllers:
       {
           sessions: 'users/sessions',
@@ -18,7 +18,13 @@ Rails.application.routes.draw do
 
   scope :dashboard do
     get '/', to: "dashboard#index"
+    resources :student_applications
     resources :users
-    resources :schedules
+    resources :schedules do
+      collection do
+        get :booking_schedule
+        get :booked_users
+      end
+    end
   end
 end

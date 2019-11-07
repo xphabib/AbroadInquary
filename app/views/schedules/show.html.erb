@@ -1,0 +1,12 @@
+<div class="col-md-12">
+  <h3 class="u-mb-small">Schedule</h3>
+  <div class="c-card" style="padding:40px;">
+    <span class="c-badge c-badge--info">Start: <%= @schedule.start_time.strftime("%H:%M") %></span>
+    <span class="c-badge c-badge--success">Start: <%= @schedule.end_time.strftime("%H:%M") %></span>
+    <span class="c-badge c-badge--warning"><%= @schedule.is_paid ? 'Paid':'Free' %></span>
+    <span class="c-badge c-badge--danger"><%= @schedule.schedule_cost %>$</span>
+    <div class="c-badge c-badge--primary">
+       <button class="c-btn c-btn--small">Booking</button>
+    </div>
+  </div>
+</div>

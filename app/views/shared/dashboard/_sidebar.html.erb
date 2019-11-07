@@ -22,23 +22,27 @@
         </li>
 
         <li>
+          <%= link_to student_applications_path, class: "c-sidebar__link" do %>
+            <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Student Applications
+          <% end %>
+        </li>
+
+
+        <li>
           <%= link_to '#', class: "c-sidebar__link" do %>
             <i class="c-sidebar__icon feather icon-user"></i>Schedule
           <% end %>
 
           <!-- Always visible submenu -->
           <ul class="c-sidebar__list">
-            <li><%= link_to 'Booking Schedule', new_schedule_path, class: "c-sidebar__link" %></li>
+            <li><%= link_to 'Booking Schedule', schedules_path, class: "c-sidebar__link" %></li>
             <li><%= link_to 'Create Schedule', new_schedule_path, class: "c-sidebar__link" %></li>
-            <li><%= link_to 'Schedule List', new_schedule_path, class: "c-sidebar__link" %></li>
-            <li><%= link_to 'Schedule List', new_schedule_path, class: "c-sidebar__link" %></li>
+            <li><%= link_to 'Schedule List', schedules_path, class: "c-sidebar__link" %></li>
             <li>
-              <%= link_to schedules_path, class: "c-sidebar__link" do %>
-                Add Schedule
+              <%= link_to booked_users_schedules_path, class: "c-sidebar__link" do %>
+                Booked User
               <% end %>
             </li>
-            <li><a class="c-sidebar__link" href="#">Paid List</a></li>
-            <li><a class="c-sidebar__link" href="#">Free List</a></li>
           </ul>
         </li>
 

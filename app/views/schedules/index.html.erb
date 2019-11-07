@@ -4,38 +4,40 @@
       <table class="c-table">
         <thead class="c-table__head">
         <tr class="c-table__row">
-          <th class="c-table__cell c-table__cell--head">Student</th>
-          <th class="c-table__cell c-table__cell--head">Country</th>
-          <th class="c-table__cell c-table__cell--head">Time Slot</th>
+          <th class="c-table__cell c-table__cell--head">Start Time</th>
+          <th class="c-table__cell c-table__cell--head">End Time</th>
+          <th class="c-table__cell c-table__cell--head">Paid / Free</th>
+          <th class="c-table__cell c-table__cell--head">ScheduleCost</th>
           <th class="c-table__cell c-table__cell--head">Date</th>
-          <th class="c-table__cell c-table__cell--head">Skype</th>
-          <th class="c-table__cell c-table__cell--head">Phone</th>
+          <th class="c-table__cell c-table__cell--head">Action</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr class="c-table__row">
-          <td class="c-table__cell">
-            <div class="o-media">
-              <div class="o-media__img u-mr-xsmall">
-                <div class="c-avatar c-avatar--small">
-                  <%= image_tag 'avatar1-72.jpg', class: "c-avatar__img", alt: "user name" %>
-                </div>
-              </div>
-              <div class="o-media__body">
-                <h6>Adam Sandler</h6>
-                <p>Graphic Designer</p>
-              </div>
-            </div>
-          </td>
-          <td class="c-table__cell">Pinterest</td>
-          <th class="c-table__cell">2:30PM - 2:45PM</th>
-          <td class="c-table__cell">19-11-2018</td>
-          <td class="c-table__cell">
-            <a class="c-badge c-badge--small c-badge--info" href="#">Habib</a>
-          </td>
-          <td class="c-table__cell"> 01729391044 </td>
-        </tr>
+        <% @schedules.each do |schedule| %>
+          <tr class="c-table__row">
+            <td class="c-table__cell">
+              <%= schedule.start_time.strftime("%H:%M") %>
+            </td>
+            <td class="c-table__cell">
+              <%= schedule.end_time.strftime("%H:%M") %>
+            </td>
+            <th class="c-table__cell">
+              <%= schedule.is_paid ? 'Paid':'Free' %>
+            </th>
+            <td class="c-table__cell">
+              <%= schedule.is_paid ? "#{schedule.schedule_cost}$":'0$' %>
+            </td>
+            <td class="c-table__cell">
+              <%= schedule.start_time.strftime("%d/%m/%y") %>
+            </td>
+            <td class="c-table__cell">
+              <%= link_to 'Show', '#', class: "c-badge c-badge--small c-badge--info"%>
+              <%= link_to 'Edit', '#', class: "c-badge c-badge--small c-badge--info"%>
+              <%= link_to 'Delete', '#', class: "c-badge c-badge--small c-badge--info"%>
+            </td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
