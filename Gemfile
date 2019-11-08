@@ -66,3 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "figaro"
 gem 'carrierwave', '~> 2.0'
+gem 'cancancan'
+gem 'friendly_id', '~> 5.2.4'

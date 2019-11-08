@@ -82,10 +82,10 @@
         </li>
       </ul>
     </div>
-
-
-    <a class="c-sidebar__footer" href="#">
-      Logout <i class="c-sidebar__footer-icon feather icon-power"></i>
-    </a>
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, method: :delete, class: "c-sidebar__footer" do %>
+        Logout <i class="c-sidebar__footer-icon feather icon-power"></i>
+      <% end %>
+    <% end %>
   </aside>
 </div>

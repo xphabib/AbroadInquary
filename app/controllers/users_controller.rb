@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   layout 'dashboard'
+
+  def my_profile ;end
+
   def index
     @users = User.all
     p ">>>>>>>>>>>>>>>."
     p @users.inspect
   end
 
-  def show
-
-  end
+  def show ;end
 
   def new
     @user = User.new
@@ -26,8 +27,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit ;end
 
   def update
     if @user.update!(set_params)
@@ -43,7 +43,8 @@ class UsersController < ApplicationController
 
   private
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def set_params

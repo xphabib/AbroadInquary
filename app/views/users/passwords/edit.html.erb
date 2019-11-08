@@ -1,25 +1,51 @@
-<h2>Change your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+<!--=======Page Heading
+   ===============================================-->
+<section class="page-heading-section before-bg bg-image" style="background-image: url(<%= asset_path('header/p-header3.jpg') %>);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="page-heading">
+          <h2 class="page-name text-capitalize">New Password</h2>
+        </div><!--/.page-heading-->
+      </div><!--/.col-md-12-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</section><!--/.page-heading-area-->
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<div class="login-page page-wrapper s-pd100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="login-form-area">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.hidden_field :reset_password_token %>
+            <div id="socila-login" class="social-login-area">
+              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+              <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
+              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+            <div class="divider-or text-center">
+              <span>or</span>
+            </div>
+            <p>
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "New Password", class: "form-control", id: "user_login" %>
+            </p>
+            <p>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "user_pass", placeholder: "Confirm Password" %>
+            </p>
+            <p>
+              <%= f.submit "Change Password", class: "btn btn-default btn-primary" %>
+            </p>
+          <% end %>
+        </div><!--/.login-form-area-->
+      </div><!--/.col-lg-4-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</div><!--/.login-page-->
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
 
 <%= render "users/shared/links" %>
+

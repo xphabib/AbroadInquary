@@ -19,7 +19,11 @@ Rails.application.routes.draw do
   scope :dashboard do
     get '/', to: "dashboard#index"
     resources :student_applications
-    resources :users
+    resources :users do
+      collection do
+        get :my_profile
+      end
+    end
     resources :schedules do
       collection do
         get :booking_schedule

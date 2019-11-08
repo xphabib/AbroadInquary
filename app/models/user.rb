@@ -40,6 +40,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :image, AvatarUploader
 
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
+
   ROLE = {
       'head admin': 'head_admin',
       manager: 'manager',
