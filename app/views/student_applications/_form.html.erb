@@ -1,112 +1,147 @@
-<%= form_with(model: student_application, local: true) do |form| %>
-  <% if student_application.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student_application.errors.count, "error") %> prohibited this student_application from being saved:</h2>
 
-      <ul>
-      <% student_application.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class=" student-application-form-wrap" style="background-color: #f8f9fa; padding: 25px">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :country_id %>
-          <%= form.select :country_id, options_for_select(Country.all.map{ |country| [country.name,country.id] }, :selected => form.object.country_id),{ include_blank: true }, {class: 'form-control'} %>
-          <%#= form.number_field :country_id,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :desire_program %>
-          <%= form.text_field :desire_program ,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :passport_file %>
-          <%= form.file_field :passport_file,class: "form-control"  %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :motivation_letter %>
-          <%= form.file_field :motivation_letter,class: "form-control"  %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :recommendation_letter %>
-          <%= form.file_field :recommendation_letter,class: "form-control"  %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :cv %>
-          <%= form.file_field :cv ,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :police_clearance_certificate %>
-          <%= form.file_field :police_clearance_certificate,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :birth_certificate %>
-          <%= form.file_field :birth_certificate,class: "form-control" %>
-        </div>
+<!-- ======================= FORMS =======================-->
+<!--<div class="row u-mt-xlarge#">-->
+<!--  <div class="col-12">-->
+<!--    <h3 class="u-mb-small">New student application elements</h3>-->
+<!--  </div>-->
+<!--</div>-->
 
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :bank_statement %>
-          <%= form.file_field :bank_statement,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :bank_solvency_certificate %>
-          <%= form.file_field :bank_solvency_certificate,class: "form-control" %>
-        </div>
-      </div>
+<div class="row">
+  <div class="col-12">
+    <div class="row u-mb-medium">
+      <div class="col-12">
+        <div class="c-card">
 
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :student_id %>
-          <%= form.number_field :student_id,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :mentor_id %>
-          <%= form.number_field :mentor_id,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :university_name %>
-          <%= form.text_field :university_name,class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <%= form.label :application_status %>
-          <%= form.text_field :application_status,class: "form-control" %>
-        </div>
-      </div>
+          <%= form_with(model: student_application, local: true) do |form| %>
+            <% if student_application.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(student_application.errors.count, "error") %> prohibited this student application from being saved:</h2>
 
+                <ul>
+                  <% student_application.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="row u-mb-medium">
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Country</label>
+                  <%= form.select :country_id, options_for_select(Country.all.map{ |country| [country.name,country.id] }, :selected => form.object.country_id),{ include_blank: true }, {class: 'c-input'} %>
+                </div>
+              </div>
+
+
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Desire Program</label>
+                  <%= form.text_field :desire_program ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Passport File</label>
+                  <%= form.file_field :passport_file ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Motivation Letter</label>
+                  <%= form.file_field :motivation_letter ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Recommendation Letter</label>
+                  <%= form.file_field :recommendation_letter ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">CV</label>
+                  <%= form.file_field :cv ,class: "c-input" %>
+                </div>
+              </div>
+
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Police Clearance Certificate</label>
+                  <%= form.file_field :police_clearance_certificate ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Birth Certificate</label>
+                  <%= form.file_field :birth_certificate ,class: "c-input" %>
+                </div>
+              </div>
+
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Bank Statement</label>
+                  <%= form.file_field :bank_statement ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Bank Solvency Certificate</label>
+                  <%= form.file_field :bank_solvency_certificate ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Student</label>
+                  <%= form.select :student_id, options_for_select(User.where('role =?','student').map{ |student| [student.first_name,student.id] }, :selected => form.object.student_id),{ include_blank: true }, {class: 'c-input'} %>
+
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Mentor</label>
+                  <%= form.select :mentor_id, options_for_select(User.where('role =?','mentor').map{ |mentor| [mentor.first_name,mentor.id] }, :selected => form.object.mentor_id),{ include_blank: true }, {class: 'c-input'} %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">University Name</label>
+                  <%= form.text_field :university_name ,class: "c-input" %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">Application Status</label>
+                  <%= form.text_field :application_status ,class: "c-input" %>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="c-field">
+              <%= link_to 'Cancel', student_applications_path, class: "c-btn c-btn--secondary u-mb-xsmall" %>
+              <%= form.submit class: "c-btn c-btn--secondary u-mb-xsmall" %>
+
+            </div>
+
+
+
+        <% end %>
+
+
+
+
+
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
-
 </div>
-<% end %>
+
+
+
+
+
+
+
+
+

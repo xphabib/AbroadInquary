@@ -10,6 +10,7 @@ class StudentApplicationsController < ApplicationController
   # GET /student_applications/1
   # GET /student_applications/1.json
   def show
+
   end
 
   # GET /student_applications/new

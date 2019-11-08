@@ -117,13 +117,18 @@
 
   <div class="c-dropdown dropdown">
     <div class="c-avatar c-avatar--xsmall dropdown-toggle" id="dropdownMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-      <%= image_tag 'avatar-72.jpg', class: "c-avatar__img", alt: "Adam Sandler" %>
+      <% if current_user.image.present?  %>
+      <%= image_tag  current_user.image_url, class: "c-avatar__img", alt: "Adam Sandler" %>
+      <%else %>
+      <%= image_tag  'avatar-72.jpg', class: "c-avatar__img", alt: "Adam Sandler" %>
+      <%end %>
     </div>
 
     <div class="c-dropdown__menu has-arrow dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
-      <a class="c-dropdown__item dropdown-item" href="#">Edit Profile</a>
-      <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
-      <a class="c-dropdown__item dropdown-item" href="#">Log out</a>
+      <a class="c-dropdown__item dropdown-item" href="<%= user_path(current_user.id) %>">View Profile</a>
+      <a class="c-dropdown__item dropdown-item" href="<%= edit_user_path(current_user.id) %>">Edit Profile</a>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "c-dropdown__item dropdown-item") if user_signed_in? %>
+<!--      <a class="c-dropdown__item dropdown-item" href="#">Log out</a>-->
     </div>
   </div>
 </header>
