@@ -1,7 +1,6 @@
 class SchedulesController < ApplicationController
   layout 'dashboard'
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
-
   def index
     @schedules = current_user.schedules
   end
@@ -15,7 +14,6 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -29,11 +27,16 @@ class SchedulesController < ApplicationController
   end
 
   def update
-
+    if @schedule.update(schedule_params)
+      redirect_to @schedule
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def destroy
-
+    @schedule.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   def booking_schedule
@@ -43,7 +46,6 @@ class SchedulesController < ApplicationController
   def booked_users
 
   end
-
 
   private
   def schedule_params
