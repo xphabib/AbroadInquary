@@ -2,7 +2,7 @@
 #
 # Table name: schedules
 #
-#  id            :integer          not null, primary key
+#  id            :bigint           not null, primary key
 #  start_time    :datetime
 #  end_time      :datetime
 #  mentor_id     :integer

@@ -2,18 +2,18 @@
 #
 # Table name: schedules
 #
-#  id            :integer          not null, primary key
-#  start_time    :datetime
-#  end_time      :datetime
-#  mentor_id     :integer
+#  id            :bigint           not null, primary key
 #  created_by    :string
-#  user_id       :integer
-#  status        :string
-#  student_id    :integer
+#  end_time      :datetime
 #  is_paid       :boolean
 #  schedule_cost :float
+#  start_time    :datetime
+#  status        :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  mentor_id     :integer
+#  student_id    :integer
+#  user_id       :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

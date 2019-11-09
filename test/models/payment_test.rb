@@ -2,7 +2,7 @@
 #
 # Table name: payments
 #
-#  id               :integer          not null, primary key
+#  id               :bigint           not null, primary key
 #  paymentable_id   :integer
 #  paymentable_type :string
 #  amount           :float

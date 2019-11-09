@@ -2,7 +2,7 @@
 #
 # Table name: application_additional_files
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  application_id :integer
 #  file_type      :string
 #  file_name      :string

@@ -2,14 +2,14 @@
 #
 # Table name: payments
 #
-#  id               :integer          not null, primary key
-#  paymentable_id   :integer
-#  paymentable_type :string
+#  id               :bigint           not null, primary key
 #  amount           :float
+#  paymentable_type :string
 #  status           :string
-#  transaction_id   :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  paymentable_id   :integer
+#  transaction_id   :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

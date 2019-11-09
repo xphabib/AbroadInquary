@@ -36,10 +36,6 @@
 #  index_users_on_slug                  (slug) UNIQUE
 #
 
-require 'test_helper'
+class Mentor < User
 
-class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 end

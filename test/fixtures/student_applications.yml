@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: student_applications
+#
+#  id                           :bigint           not null, primary key
+#  application_status           :string
+#  bank_solvency_certificate    :string
+#  bank_statement               :string
+#  birth_certificate            :string
+#  cv                           :string
+#  desire_program               :string
+#  motivation_letter            :string
+#  passport_file                :string
+#  police_clearance_certificate :string
+#  recommendation_letter        :string
+#  university_name              :string
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  country_id                   :integer
+#  mentor_id                    :integer
+#  student_id                   :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
