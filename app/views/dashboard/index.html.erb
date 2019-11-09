@@ -1,8 +1,8 @@
 <%= render 'head_admin_dashboard' %>
-<%= render 'head_admin_dashboard' if current_user.role == User::ROLE[:head_admin] %>
-<%= render 'executive_admin_dashboard' if current_user.role == User::ROLE[:executive_admin] %>
-<%= render 'director_admin_dashboard' if current_user.role == User::ROLE[:director_admin] %>
-<%= render 'manager_dashboard' if current_user.role == User::ROLE[:manager] %>
-<%= render 'mentor_dashboard' if current_user.role == User::ROLE[:mentor] %>
-<%= render 'parent_dashboard' if current_user.role == User::ROLE[:sudent] %>
-<%= render 'student_dashboard' if current_user.role == User::ROLE[:parent] %>
+<%= render 'head_admin_dashboard' if current_user.type == User::ROLE[:head_admin] %>
+<%= render 'executive_admin_dashboard' if current_user.type == User::ROLE[:executive_admin] %>
+<%= render 'director_admin_dashboard' if current_user.type == User::ROLE[:director_admin] %>
+<%= render 'manager_dashboard' if current_user.type == User::ROLE[:manager] %>
+<%= render 'mentor_dashboard' if current_user.type == User::ROLE[:mentor] %>
+<%= render 'parent_dashboard' if current_user.type == User::ROLE[:sudent] %>
+<%= render 'student_dashboard' if current_user.type == User::ROLE[:parent] %>
