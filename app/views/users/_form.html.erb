@@ -11,7 +11,7 @@
     <div class="row u-mb-medium">
       <div class="col-12">
         <div class="c-card">
-          <%= form_for @user, multiple: true do |f| %>
+          <%= form_for @user, url: url, method: submit_method, multiple: true do |f| %>
 
           <div class="row u-mb-medium">
             <div class="col-lg-3 u-mb-xsmall">

@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update!(set_params)
-      redirect_to @user
+      redirect_to user_path(@user)
     end
   end
 
@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   end
 
   def set_params
-    params.require(:user).permit!
+    params.require(:student).permit! if params[:student].present?
+    params.require(:mentor).permit! if params[:mentor].present?
   end
 end
