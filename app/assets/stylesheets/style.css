@@ -694,10 +694,15 @@ ul.dropdown-content > .dropdown-trigger:hover > ul.dropdown-content > li:hover >
     position: absolute;
 }
 .course-content {
-    border: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
     padding: 20px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
+
+
+
 .course-content > h2 {
     font-size: 20px;
     margin: 5px 0 20px;

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact'
   get '/faq', to: 'home#faq'
   get '/about', to: 'home#about_us'
-  get '/schedule-booking', to: 'schedule_booking#index'
+  get '/schedule-booking', to: 'schedule_booking#index', as: 'booking_schedule'
   root 'home#index'
   resources :blogs
 
