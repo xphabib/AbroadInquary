@@ -92,14 +92,14 @@
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
                   <label class="c-field__label" for="input1">Student</label>
-                  <%= form.select :student_id, options_for_select(User.where('role =?','student').map{ |student| [student.first_name,student.id] }, :selected => form.object.student_id),{ include_blank: true }, {class: 'c-input'} %>
+                  <%= form.select :student_id, options_for_select(Student.all.map{ |student| [student.first_name,student.id] }, :selected => form.object.student_id),{ include_blank: true }, {class: 'c-input'} %>
 
                 </div>
               </div>
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
                   <label class="c-field__label" for="input1">Mentor</label>
-                  <%= form.select :mentor_id, options_for_select(User.where('role =?','mentor').map{ |mentor| [mentor.first_name,mentor.id] }, :selected => form.object.mentor_id),{ include_blank: true }, {class: 'c-input'} %>
+                  <%= form.select :mentor_id, options_for_select(Mentor.all.map{ |mentor| [mentor.first_name,mentor.id] }, :selected => form.object.mentor_id),{ include_blank: true }, {class: 'c-input'} %>
                 </div>
               </div>
               <div class="col-lg-3 u-mb-xsmall">

@@ -86,91 +86,61 @@
         <div class="c-tabs__content tab-content" id="nav-tabContent">
           <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="c-feed">
-              <div class="c-feed__item">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Country</h6>
-                  <p><%#= @student_application.country_id %></p>
-                </div>
-                <p class="u-text-xsmall">just now</p>
-              </div>
-
-              <div class="c-feed__item c-feed__item--success">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Desire program</h6>
-                  <p> <%#= @student_application.desire_program %></p>
-                </div>
-                <p class="u-text-xsmall">30 mins ago</p>
-              </div>
 
               <div class="c-feed__item">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Passport file</h6>
                   <p>  <%#= @student_application.passport_file %></p>
-                  <p>download <a href="user-profile.html#">now</a></p>
+                  <p> <a href="<%= @student_application.passport_file_url if @student_application.police_clearance_certificate.present?%>">view</a></p>
                 </div>
-
-                <p class="u-text-xsmall">6 hours ago</p>
-              </div>
-
-              <div class="c-feed__item c-feed__item--fancy">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>  <%#= @student_application.application_status %> <a href="user-profile.html#">@adamslandler</a></p>
-                </div>
-                <p class="u-text-xsmall">2 Days ago</p>
-              </div>
-
-              <div class="c-feed__item c-feed__item--fancy">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>     <%#= @student_application.police_clearance_certificate %> <a href="user-profile.html#">@adamslandler</a></p>
-                </div>
-                <p class="u-text-xsmall">2 Days ago</p>
-              </div>
-              <div class="c-feed__item c-feed__item--fancy">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>    <%#= @student_application.recommendation_letter %> <a href="user-profile.html#">@adamslandler</a></p>
-                </div>
-                <p class="u-text-xsmall">2 Days ago</p>
-              </div>
-
-              <div class="c-feed__item c-feed__item--fancy">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>     <%#= @student_application.cv %> <a href="user-profile.html#">@adamslandler</a></p>
-                </div>
-                <p class="u-text-xsmall">2 Days ago</p>
-              </div>
-              <div class="c-feed__item c-feed__item--fancy">
-                <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>    <%#= @student_application.birth_certificate %> <a href="user-profile.html#">@adamslandler</a></p>
-                </div>
-                <p class="u-text-xsmall">2 Days ago</p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.passport_file_url %>"> Download now </a></p>
               </div>
 
 
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>     <%#= @student_application.police_clearance_certificate %> <a href="user-profile.html#">@adamslandler</a></p>
+                  <h6 class="u-text-small">Police Clearance Certificate</h6>
+                  <p>  <a href="<%=@student_application.police_clearance_certificate_url if @student_application.police_clearance_certificate.present? %>">view</a></p>
                 </div>
-                <p class="u-text-xsmall">2 Days ago</p>
+                <p class="u-text-xsmall"><a href="<%=@student_application.police_clearance_certificate_url if @student_application.police_clearance_certificate.present? %>">Download now</a></p>
               </div>
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>   <%#= @student_application.bank_statement %> <a href="user-profile.html#">@adamslandler</a></p>
+                  <h6 class="u-text-small">Recommendation Letter</h6>
+                  <p>   <a href="<%= @student_application.recommendation_letter_url %>"> View</a></p>
                 </div>
-                <p class="u-text-xsmall">2 Days ago</p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.recommendation_letter_url %>"> Download now </a></p>
+              </div>
+
+              <div class="c-feed__item c-feed__item--fancy">
+                <div class="c-feed__item-content">
+                  <h6 class="u-text-small">CV</h6>
+                  <p>  <a href="<%= @student_application.cv_url %>">View </a></p>
+                </div>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.cv_url %>"> Download now </a></p>
               </div>
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
-                  <h6 class="u-text-small">Application status</h6>
-                  <p>    <%#= @student_application.bank_solvency_certificate %> <a href="user-profile.html#">@adamslandler</a></p>
+                  <h6 class="u-text-small">Birth Certificate</h6>
+                  <p>   <a href="<%= @student_application.birth_certificate_url %>"> View </a></p>
                 </div>
-                <p class="u-text-xsmall">2 Days ago</p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.birth_certificate_url %>"> Download now </a></p>
+              </div>
+
+              <div class="c-feed__item c-feed__item--fancy">
+                <div class="c-feed__item-content">
+                  <h6 class="u-text-small">Bank Statement</h6>
+                  <p>   <a href="<%= @student_application.bank_statement_url %>"> View </a></p>
+                </div>
+
+                <p class="u-text-xsmall"> <a href="<%= @student_application.bank_statement_url %>"> Download now </a></p>
+              </div>
+              <div class="c-feed__item c-feed__item--fancy">
+                <div class="c-feed__item-content">
+                  <h6 class="u-text-small">Bank Solvency Certificate</h6>
+                  <p>   <a href="<%= @student_application.bank_solvency_certificate_url %>"> View</a></p>
+                </div>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.bank_solvency_certificate_url %>"> Download now </a></p>
               </div>
 
             </div><!-- // .c-feed -->
@@ -185,32 +155,44 @@
       <div class="c-card">
         <div class="u-text-center">
           <div class="c-avatar c-avatar--large u-mb-small u-inline-flex">
-            <%if current_user.image.present?  %>
-              <img class="c-avatar__img" src="<%= current_user.image %>" alt="Avatar">
+            <%if @student_application.student.image.present?  %>
+              <img class="c-avatar__img" src="<%= @student_application.student.image %>" alt="Avatar">
             <%else %>
               <img class="c-avatar__img" src="<%= asset_path('avatar.jpeg') %>" alt="Avatar">
             <%end%>
 
           </div>
-          <%if current_user.first_name.present? || current_user.last_name.present? %>
+          <%if @student_application.student.first_name.present? || @student_application.student.last_name.present? %>
 
-            <h5> <%= current_user.first_name %> <%= current_user.last_name %> </h5>
+            <h5> <%= @student_application.student.first_name %> <%= @student_application.student.last_name %> </h5>
           <%else %>
             <h5> Na</h5>
           <%end %>
-          <p><%= current_user.occupation.present? ? current_user.occupation : 'Na' %></p>
+          <p><%=@student_application.student.occupation.present? ? @student_application.student.occupation : 'Na' %></p>
         </div>
 
         <span class="c-divider u-mv-small"></span>
 
         <span class="c-text--subtitle">Email Address</span>
-        <p class="u-mb-small u-text-large"><%= current_user.email.present? ? current_user.email : 'Na' %></p>
+        <p class="u-mb-small u-text-large"><%= @student_application.student.email.present? ? @student_application.student.email : 'Na' %></p>
 
         <span class="c-text--subtitle">Phone NUMBER</span>
-        <p class="u-mb-small u-text-large"><%= current_user.phone.present? ? current_user.phone : 'Na' %></p>
+        <p class="u-mb-small u-text-large"><%= @student_application.student.phone.present? ? @student_application.student.phone : 'Na' %></p>
 
         <span class="c-text--subtitle">Address</span>
-        <p class="u-mb-small u-text-large"><%= current_user.address.present? ? current_user.address : 'Na' %></p>
+        <p class="u-mb-small u-text-large"><%= @student_application.student.address.present? ? @student_application.student.address : 'Na' %></p>
+
+        <span class="c-text--subtitle">Country</span>
+        <p class="u-mb-small u-text-large"><%= @student_application.country.name.present? ? @student_application.country.name : 'Na' %></p>
+
+
+        <span class="c-text--subtitle">desire program</span>
+        <p class="u-mb-small u-text-large"><%= @student_application.desire_program.present? ? @student_application.desire_program : 'Na' %></p>
+
+
+        <span class="c-text--subtitle">Application status</span>
+        <p class="u-mb-small u-text-large"><%= @student_application.application_status.present? ? @student_application.application_status: 'Na' %></p>
+
 
         <span class="c-text--subtitle u-block">Tags</span>
         <a class="c-badge c-badge--small c-badge--info u-mb-xsmall" href="user-profile.html#">Sketch</a>

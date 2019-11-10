@@ -37,5 +37,5 @@
 #
 
 class Mentor < User
-
+  has_many :student_applications
 end
