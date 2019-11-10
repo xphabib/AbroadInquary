@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   layout 'dashboard'
   def index
-    @users = User.all
+    @students = Student.all
+    @mentors = Mentor.all
   end
 end

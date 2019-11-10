@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @mentors = Mentor.all
+    @students = Student.all
     p ">>>>>>>>>>>>>>>."
     p @users.inspect
   end

@@ -8,12 +8,18 @@
           <div class="tb-cell">
             <h1>Learn anything to anyone from anywhere</h1>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint.</p>
-            <form class="product-search-form" action="#" method="get">
+
+            <%= form_tag booking_schedule_path, class: "product-search-form", method: :get do%>
               <div class="form-group">
-                <input class="form-controllar" name="search" placeholder="Search here" type="text">
-                <button class="btn btn-default btn-primary" type="submit">search</button>
+                <%= text_field_tag :search, '', class: "form-controllar", placeholder: "Which country you want to go" %>
+                <%= submit_tag :search, class: "btn btn-default btn-primary" %>
               </div>
+            <% end %>
+
+            <form class="product-search-form" action="#" method="get">
+
             </form><!--/.product-search-form-->
+
           </div><!--/.tb-cell-->
         </div><!--/.welcome-text-->
       </div><!--/.col-lg-12-->
