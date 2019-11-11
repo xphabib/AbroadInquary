@@ -52,12 +52,25 @@ class User < ApplicationRecord
       executive_admin: 'executive_admin',
       director_admin: 'director_admin',
       mentor: 'mentor',
-      sudent: 'student',
+      student: 'Student',
       parent: 'parent'
   }
 
+  def mentor?
+    self.type == User::ROLE[:mentor]? true : false
+  end
+
+  def student?
+    self.type == User::ROLE[:student]? true : false
+  end
+
   def full_name
-    "#{self.first_name} #{self.last_name} "
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  private
+  def self_type()
+
   end
 
 end

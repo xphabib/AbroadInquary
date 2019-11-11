@@ -37,5 +37,7 @@
 #
 
 class Student < User
-has_many :student_applications
+  has_many :student_applications
+  belongs_to :city, optional: true
+  has_many :schedules
 end
