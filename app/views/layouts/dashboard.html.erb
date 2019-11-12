@@ -18,6 +18,8 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <%= stylesheet_link_tag 'neat.min', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'dashboard.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'neat.min', 'data-turbolinks-track': 'reload' %>
@@ -37,6 +39,16 @@
         </div>
       </main>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        $(".datetimepicker").flatpickr(
+            {
+                enableTime: true,
+                dateFormat: "d-m-Y H:i",
+            }
+        );
+    </script>
 
     <!-- Main JavaScript -->
     <%#= javascript_include_tag 'neat.min', 'data-turbolinks-track': 'reload' %>
