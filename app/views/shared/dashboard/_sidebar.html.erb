@@ -8,31 +8,75 @@
 
     <!-- Scrollable -->
     <div class="c-sidebar__body">
-      <span class="c-sidebar__title">Dashboards</span>
+<!--      <span class="c-sidebar__title">Dashboards</span>-->
       <ul class="c-sidebar__list">
         <li>
-          <a class="c-sidebar__link is-active" href="">
-            <i class="c-sidebar__icon feather icon-home"></i>Students
+          <a class="c-sidebar__link is-active" href="/dashboard">
+            <i class="c-sidebar__icon feather icon-home"></i>Dashboards
+          </a>
+        </li>
+
+        <li>
+          <a class="c-sidebar__link is-active" href="<%= users_path(:type => 'mentor') %>">
+            <i class="c-sidebar__icon feather icon-users"></i>Mentors
+          </a>
+        </li>
+<!--        <li>-->
+<!--          <a class="c-sidebar__link" href="<%#= student_applications_path %>">-->
+<!--            <i class="c-sidebar__icon feather icon-file-text"></i>Student Applications-->
+<!--          </a>-->
+<!--        </li>-->
+        <li>
+          <%= link_to '#', class: "c-sidebar__link" do %>
+            <i class="c-sidebar__icon feather icon-file-text"></i>Student Applications
+          <% end %>
+
+          <!-- Always visible submenu -->
+          <ul class="c-sidebar__list">
+            <li><%= link_to 'Make Application', new_student_application_path, class: "c-sidebar__link" %></li>
+            <li><%= link_to 'Application List', student_applications_path, class: "c-sidebar__link" %></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="c-sidebar__link is-active" href="<%= users_path(:type => 'student') %>">
+            <i class="c-sidebar__icon feather icon-users"></i>Student
+          </a>
+        </li>
+
+        <li>
+          <a class="c-sidebar__link" href="#">
+            <i class="c-sidebar__icon feather icon-calendar"></i>Booked Schedule
           </a>
         </li>
         <li>
           <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Mentor
+            <i class="c-sidebar__icon feather icon-calendar"></i>My Booked Schedule List
           </a>
         </li>
+        <li>
+          <a class="c-sidebar__link" href="#">
+            <i class="c-sidebar__icon feather icon-calendar"></i>My Accepted Schedule List
+          </a>
+        </li>
+<!--        <li>-->
+<!--          <a class="c-sidebar__link" href="#">-->
+<!--            <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Mentor-->
+<!--          </a>-->
+<!--        </li>-->
 
-        <% if can? :index, StudentApplication %>
-          <li>
-            <%= link_to student_applications_path, class: "c-sidebar__link" do %>
-              <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Student Applications
-            <% end %>
-          </li>
-        <% end %>
+        <%# if can? :index, StudentApplication %>
+<!--          <li>-->
+            <%#= link_to student_applications_path, class: "c-sidebar__link" do %>
+<!--              <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Student Applications-->
+            <%# end %>
+<!--          </li>-->
+        <%# end %>
 
 
         <li>
           <%= link_to '#', class: "c-sidebar__link" do %>
-            <i class="c-sidebar__icon feather icon-user"></i>Schedule
+            <i class="c-sidebar__icon feather icon-calendar"></i>Schedule
           <% end %>
 
           <!-- Always visible submenu -->

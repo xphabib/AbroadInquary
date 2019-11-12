@@ -5,11 +5,17 @@ class UsersController < ApplicationController
   def my_profile ;end
 
   def index
-    @users = User.all
-    @mentors = Mentor.all
-    @students = Student.all
-    p ">>>>>>>>>>>>>>>."
-    p @users.inspect
+    if params[:type].present? && params[:type] == 'student'
+      @users = Student.all
+    elsif params[:type].present? && params[:type] == 'mentor'
+      @users = Mentor.all
+    else
+      @users = User.all
+    end
+    #
+    # @mentors = Mentor.all
+    # @students = Student.all
+
   end
 
   def show ;end
