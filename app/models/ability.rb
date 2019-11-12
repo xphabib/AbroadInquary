@@ -4,12 +4,21 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Schedule, public: true
+    # can :read, Schedule, public: true
+    #
+    # if user.present?
+    #   can :read, Schedule
+    # end
 
-    if user.present?
+
+    user ||= User.new # guest user (not logged in)
+    if user.mentor?
+      can :manage, :all
+    elsif user.student?
+      can :read, Country
       can :read, Schedule
+      can :read, StudentApplication
     end
-
 
     # Define abilities for the passed in user here. For example:
     #

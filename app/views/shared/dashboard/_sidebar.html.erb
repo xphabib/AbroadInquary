@@ -21,11 +21,13 @@
           </a>
         </li>
 
-        <li>
-          <%= link_to student_applications_path, class: "c-sidebar__link" do %>
-            <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Student Applications
-          <% end %>
-        </li>
+        <% if can? :index, StudentApplication %>
+          <li>
+            <%= link_to student_applications_path, class: "c-sidebar__link" do %>
+              <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Student Applications
+            <% end %>
+          </li>
+        <% end %>
 
 
         <li>
