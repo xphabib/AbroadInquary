@@ -43,6 +43,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :image, AvatarUploader
 
+  # enum :type %i[ 'head_admin' 'manager' 'executive_admin' 'director_admin' 'mentor' 'student' 'parent']
   extend FriendlyId
   friendly_id :full_name, use: :slugged
 
@@ -51,7 +52,7 @@ class User < ApplicationRecord
       manager: 'manager',
       executive_admin: 'executive_admin',
       director_admin: 'director_admin',
-      mentor: 'mentor',
+      mentor: 'Mentor',
       student: 'Student',
       parent: 'parent'
   }

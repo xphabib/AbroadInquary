@@ -115,7 +115,7 @@
                 </div>
               </div>
             </td>
-            <td class="c-table__cell"><%= user.country_name.truncate(25) %></td>
+            <td class="c-table__cell"><%= user.country_name.truncate(25) if user.country_name.present?%></td>
             <th class="c-table__cell"><%= user.phone %></th>
             <td class="c-table__cell"><%= user.university %></td>
             <td class="c-table__cell">
