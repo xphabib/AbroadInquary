@@ -99,25 +99,25 @@
                 <%end%>
 
               </div>
-             <%if current_user.first_name.present? || current_user.last_name.present? %>
+             <%if @user.first_name.present? || @user.last_name.present? %>
 
-              <h5> <%= current_user.first_name %> <%= current_user.last_name %> </h5>
+              <h5> <%= @user.full_name %> </h5>
                 <%else %>
                 <h5> Na</h5>
                 <%end %>
-              <p><%= current_user.occupation.present? ? current_user.occupation : 'Na' %></p>
+              <p><%= @user.occupation.present? ? @user.occupation : 'Na' %></p>
             </div>
 
             <span class="c-divider u-mv-small"></span>
 
             <span class="c-text--subtitle">Email Address</span>
-            <p class="u-mb-small u-text-large"><%= current_user.email.present? ? current_user.email : 'Na' %></p>
+            <p class="u-mb-small u-text-large"><%= @user.email.present? ? @user.email : 'Na' %></p>
 
             <span class="c-text--subtitle">Phone NUMBER</span>
-            <p class="u-mb-small u-text-large"><%= current_user.phone.present? ? current_user.phone : 'Na' %></p>
+            <p class="u-mb-small u-text-large"><%= @user.phone.present? ? @user.phone : 'Na' %></p>
 
             <span class="c-text--subtitle">Address</span>
-            <p class="u-mb-small u-text-large"><%= current_user.address.present? ? current_user.address : 'Na' %></p>
+            <p class="u-mb-small u-text-large"><%= @user.address.present? ? @user.address : 'Na' %></p>
 
             <span class="c-text--subtitle u-block">Tags</span>
             <a class="c-badge c-badge--small c-badge--info u-mb-xsmall" href="user-profile.html#">Sketch</a>

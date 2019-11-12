@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    if @user = User.create(set_params)
-      redirect_to @user
+    if @user = User.create!(set_params)
+      redirect_to user_path(@user)
     else
       p @user.inspect
       @user.error
@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   end
 
   def set_params
+    params.require(:user).permit! if params[:user].present?
     params.require(:student).permit! if params[:student].present?
     params.require(:mentor).permit! if params[:mentor].present?
   end
