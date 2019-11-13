@@ -9,7 +9,7 @@
             <h1>Learn anything to anyone from anywhere</h1>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint.</p>
 
-            <%= form_tag booking_schedule_path, class: "product-search-form", method: :get do%>
+            <%= form_tag mentor_schedules_path, class: "product-search-form", method: :get do%>
               <div class="form-group">
                 <%= text_field_tag :search, '', class: "form-controllar", placeholder: "Which country you want to go" %>
                 <%= submit_tag :search, class: "btn btn-default btn-primary" %>

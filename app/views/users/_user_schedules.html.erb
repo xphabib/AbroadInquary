@@ -1,0 +1,42 @@
+<nav class="c-tabs">
+  <div class="c-tabs__list nav nav-tabs" id="myTab" role="tablist">
+    <a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Schedules</a>
+  </div>
+  <div class="c-tabs__content tab-content" id="nav-tabContent">
+    <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="c-feed">
+        <% @user.schedules.each do |schedule| %>
+          <% unless schedule.is_paid %>
+            <div class="c-feed__item">
+              <div class="c-feed__item-content">
+                <h6 class="u-text-small">Free Schedule</h6>
+                <p><%= schedule.start_time.strftime("%H:%M") %> - <%= schedule.end_time.strftime("%H:%M") %> - <%= schedule.start_time.strftime("%d/%m/%y") %></p>
+              </div>
+              <% if schedule.student.present? %>
+                <p class="u-text-xsmall">Schedule is booked by <%= schedule.student.full_name %></p>
+              <% else %>
+                <%= link_to 'Book now', booking_schedule_path(schedule_id: schedule.id), id: "schedule_id_#{schedule.id}", class: "u-text-xsmall", remote: true%>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+        <% @user.schedules.each do |schedule| %>
+          <% if schedule.is_paid %>
+            <div class="c-feed__item c-feed__item--success">
+              <div class="c-feed__item-content">
+                <h6 class="u-text-small">Paid Schedule</h6>
+                <p><%= schedule.start_time.strftime("%H:%M") %> - <%= schedule.end_time.strftime("%H:%M") %> - <%= schedule.start_time.strftime("%d/%m/%y") %></p>
+                <p>Schedul cost:<%= schedule.schedule_cost %> $ </p>
+              </div>
+              <% if schedule.student.present? %>
+                <p class="u-text-xsmall">Schedule is booked by <%= schedule.student.full_name %></p>
+              <% else %>
+                <%= link_to 'Book now', "#", id: "schedule_id_#{schedule.id}", class: "u-text-xsmall", remote: true%>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div><!-- // .c-feed -->
+    </div>
+  </div>
+</nav>

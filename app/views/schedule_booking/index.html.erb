@@ -42,7 +42,12 @@
                             <h3><%= mentor.full_name %></h3>
                             <p><%= mentor.dob %></p>
                           </div>
-                          <div class="course-cat text-capitalize text-right"><a href="courses.html#">Development</a></div>
+                          <div class="course-cat text-capitalize text-right">
+<!--                            <a href="courses.html#">Schedules</a>-->
+                            <%= link_to user_path(mentor) do %>
+                              Schedules
+                            <% end %>
+                          </div>
                         </div><!--/.trainer-profile-->
                       </div><!--/.course-content-->
                     </div><!--/.single-course-item-end-->
@@ -51,23 +56,14 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <nav class="courses-navigation default-pager text-center">
-                    <%#= paginate @mentors, 'Next Page' %>
-                    <%#= path_to_next_page @mentors%>
-
+                  <div class="courses-navigation default-pager text-center">
                     <%= link_to path_to_prev_page @mentors do %>
                       <i class="fa fa-angle-left"></i>
                     <% end %>
                     <%= link_to path_to_next_page @mentors do %>
                       <i class="fa fa-angle-right"></i>
                     <% end %>
-<!--                    <a href="#" rel="prev">-->
-<!--                      <i class="fa fa-angle-left"></i>-->
-<!--                    </a>-->
-<!--                    <a href="#" rel="prev">-->
-<!--                      <i class="fa fa-angle-right"></i>-->
-<!--                    </a>-->
-                  </nav>
+                  </div>
                 </div>
               </div>
             </div>

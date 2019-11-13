@@ -18,7 +18,6 @@
 
 class Schedule < ApplicationRecord
   has_many :payments, as: :paymentable
-  # belongs_to :mentor,
-   belongs_to :mentor
-  # belongs_to :student
+  belongs_to :mentor
+  belongs_to :student, optional: true
 end
