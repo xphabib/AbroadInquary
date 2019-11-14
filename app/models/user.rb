@@ -22,8 +22,8 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :integer
 #  slug                   :string
-#  type                   :string
 #  university             :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -37,33 +37,23 @@
 #
 
 class User < ApplicationRecord
+  has_many :student_applications, foreign_key: :student_id
+  has_many :mentor_applications, class_name: 'StudentApplication', foreign_key: :mentor_id
+  belongs_to :city, optional: true
+  has_many :student_schedules, foreign_key: :student_id, class_name: 'Schedule'
+  has_many :mentor_schedules, foreign_key: :mentor_id, class_name: 'Schedule'
+
+  scope :student, -> { where(role: 'student') }
+  scope :mentor, -> { where(role: 'mentor') }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :image, AvatarUploader
-
-  # enum :type %i[ 'head_admin' 'manager' 'executive_admin' 'director_admin' 'mentor' 'student' 'parent']
   extend FriendlyId
   friendly_id :full_name, use: :slugged
-
-  ROLE = {
-      'head admin': 'head_admin',
-      manager: 'manager',
-      executive_admin: 'executive_admin',
-      director_admin: 'director_admin',
-      mentor: 'Mentor',
-      student: 'Student',
-      parent: 'parent'
-  }
-
-  def mentor?
-    self.type == User::ROLE[:mentor]? true : false
-  end
-
-  def student?
-    self.type == User::ROLE[:student]? true : false
-  end
+  enum role: %i[head_admin teacher manager executive_admin director_admin mentor student]
 
   def full_name
     "#{self.first_name} #{self.last_name}"

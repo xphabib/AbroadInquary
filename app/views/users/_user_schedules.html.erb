@@ -5,7 +5,7 @@
   <div class="c-tabs__content tab-content" id="nav-tabContent">
     <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
       <div class="c-feed">
-        <% @user.schedules.each do |schedule| %>
+        <% @user.mentor_schedules.each do |schedule| %>
           <% unless schedule.is_paid %>
             <div class="c-feed__item">
               <div class="c-feed__item-content">
@@ -20,7 +20,7 @@
             </div>
           <% end %>
         <% end %>
-        <% @user.schedules.each do |schedule| %>
+        <% @user.mentor_schedules.each do |schedule| %>
           <% if schedule.is_paid %>
             <div class="c-feed__item c-feed__item--success">
               <div class="c-feed__item-content">

@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def index
     if params[:type].present? && params[:type] == 'student'
-      @users = Student.all
+      @users = User.student.order(:first_name).page(params[:page]).per(10)
     elsif params[:type].present? && params[:type] == 'mentor'
-      @users = Mentor.all
+      @users = User.mentor.order(:first_name).page(params[:page]).per(10)
     else
-      @users = User.all
+      @users = User.all.order(:first_name).page(params[:page]).per(10)
     end
     #
     # @mentors = Mentor.all
@@ -56,8 +56,6 @@ class UsersController < ApplicationController
   end
 
   def set_params
-    params.require(:user).permit! if params[:user].present?
-    params.require(:student).permit! if params[:student].present?
-    params.require(:mentor).permit! if params[:mentor].present?
+    params.require(:user).permit!
   end
 end

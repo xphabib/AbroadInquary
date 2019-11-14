@@ -23,8 +23,8 @@
 
 class StudentApplication < ApplicationRecord
   belongs_to :country
-  belongs_to :student
-  belongs_to :mentor
+  belongs_to :mentor, class_name: 'User'
+  belongs_to :student, class_name: 'User'
   mount_uploader :passport_file, ApplicationAttachmentUploader
   mount_uploader :motivation_letter, ApplicationAttachmentUploader
   mount_uploader :recommendation_letter, ApplicationAttachmentUploader

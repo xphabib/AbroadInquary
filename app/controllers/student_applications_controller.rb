@@ -28,7 +28,7 @@ class StudentApplicationsController < ApplicationController
     @student_application = StudentApplication.new(student_application_params)
 
     respond_to do |format|
-      if @student_application.save
+      if @student_application.save!
         format.html { redirect_to @student_application, notice: 'Student application was successfully created.' }
         format.json { render :show, status: :created, location: @student_application }
       else
