@@ -14,54 +14,24 @@
             </div><!--/.logo-->
             <nav class="menu">
               <ul id="nav">
-                <li class="dropdown-trigger"><a href="#">home</a>
-                  <ul class="dropdown-content">
-                    <li><a href="#">home one</a></li>
-                    <li><a href="#">home two</a></li>
-                  </ul>
+                <li>
+                  <%= link_to 'Home', root_path %>
                 </li>
-                <li class="dropdown-trigger"><a href="#">Courses</a>
-                  <ul class="dropdown-content">
-                    <li><a href="#">courses</a></li>
-                    <li><a href="#">course Details</a></li>
-                  </ul>
+
+                <li>
+                  <%= link_to 'Blog', blogs_path %>
                 </li>
-                <li class="dropdown-trigger"><a href="#">Events</a>
-                  <ul class="dropdown-content">
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Events Details</a></li>
-                  </ul>
+
+                <li>
+                  <%= link_to 'Event', '#' %>
                 </li>
-                <li class="dropdown-trigger"><a href="#">Pages</a>
-                  <ul class="dropdown-content">
-                    <li><a href="<%= about_path %>">about us</a></li>
-                    <li><a href="#">Learning courses</a></li>
-                    <li><a href="#">Album</a></li>
-                    <li><a href="<%= faq_path %>">FAQ</a></li>
-                    <li><a href="#">pricing</a></li>
-                    <li><a href="#">login</a></li>
-                    <li><a href="#">register</a></li>
-                    <li class="dropdown-trigger"><a href="#">gallery</a>
-                      <ul class="dropdown-content">
-                        <li><a href="#">gallery one</a></li>
-                        <li><a href="#">gallery two</a></li>
-                        <li><a href="#">gallery three</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">contact us</a></li>
-                    <li><a href="#">coming soon</a></li>
-                    <li><a href="#">404</a></li>
-                  </ul>
+
+                <li>
+                  <%= link_to 'About Us', about_path %>
                 </li>
-                <li class="dropdown-trigger"><a href="#">blog</a>
-                  <ul class="dropdown-content">
-                    <li><a href="#">Blog Grid</a></li>
-                    <li><a href="#">Blog Grid Masonry</a></li>
-                    <li><a href="#">Blog Grid 3</a></li>
-                    <li><a href="#">Blog Grid 3 Masonry</a></li>
-                    <li><a href="#">Blog List</a></li>
-                    <li><a href="#">Single Blog</a></li>
-                  </ul>
+
+                <li>
+                  <%= link_to 'FAQ', faq_path %>
                 </li>
               </ul>
             </nav><!--/.menu-->

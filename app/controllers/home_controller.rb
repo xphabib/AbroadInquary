@@ -1,17 +1,13 @@
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!
-  def index
-  end
+  def index ;end
 
-  def contact
-  end
+  def contact ;end
 
-  def faq
+  def faq ;end
 
-  end
+  def about_us ;end
 
-  def about_us
-
-  end
+  def privacy_and_policy; end
 
 end

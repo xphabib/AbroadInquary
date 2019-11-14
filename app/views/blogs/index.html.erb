@@ -34,11 +34,16 @@
                       <span class="blog__category">Category <a href="#">Travel</a></span>
                     </div>
                     <div class="blog-title">
-                      <h3><a href="#">9 Ridiculous Rules About Tweets</a></h3>
+                      <h3>
+                        <%= link_to blog_path(1) do%>
+                          9 Ridiculous Rules About Tweets
+                        <% end %>
+                      </h3>
+
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
                     <div class="blog-more">
-                      <a href="#" class="btn btn-default">Read More</a>
+                      <%= link_to 'Read More', blog_path(1), class: "btn btn-default" %>
                       <span class="blog-comments"><a href="#">6 comments</a></span>
                     </div>
                   </div>
