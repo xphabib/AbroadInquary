@@ -77,7 +77,9 @@
             <div class="col-lg-3 u-mb-xsmall">
               <div class="c-field">
                 <label class="c-field__label" for="input3">User Type</label>
-                <%= f.select :type, options_for_select(['Mentor', 'Student']), {}, {placeholder: :user_type, class: 'c-input'} %>
+                <%#= f.select :type, options_for_select(['Mentor', 'Student']), {}, {placeholder: :user_type, class: 'c-input'} %>
+                <%= f.select :role,  options_for_select(['head_admin', 'teacher', 'manager', 'executive_admin', 'director_admin', 'mentor', 'student']), {}, {placeholder: :user_type, class: 'c-input'} %>
+
               </div>
             </div>
 

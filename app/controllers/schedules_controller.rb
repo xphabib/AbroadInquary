@@ -19,8 +19,12 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    @schedule = current_user.schedules.new(schedule_params)
-    @schedule.mentor_id = current_user.id
+    if current_user.mentor?
+      @schedule = current_user.mentor_schedulesschedules.new(schedule_params)
+    elsif current_user.head_admin?
+      @schedule = Schedule.new(schedule_params)
+      @schedule.mentor_id = params[:schedule][:mentor_id]
+    end
     if @schedule.save!
       redirect_to @schedule
     else
@@ -51,7 +55,7 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit!
+    params.require(:schedule).permit(:start_time, :end_time, :schedule_cost, :is_paid)
   end
 
   def set_schedule
