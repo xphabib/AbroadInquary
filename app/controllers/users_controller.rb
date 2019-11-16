@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
   def index
     if params[:type].present? && params[:type] == 'student'
-      @users = User.student.order(:first_name).page(params[:page]).per(10)
+      @users = User.students.order(:first_name).page(params[:page]).per(10)
     elsif params[:type].present? && params[:type] == 'mentor'
-      @users = User.mentor.order(:first_name).page(params[:page]).per(10)
+      @users = User.mentors.order(:first_name).page(params[:page]).per(10)
     else
       @users = User.all.order(:first_name).page(params[:page]).per(10)
     end

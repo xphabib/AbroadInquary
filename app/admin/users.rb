@@ -52,7 +52,7 @@ ActiveAdmin.register User do
       f.input :address
       f.input :city_name
       f.input :country_name
-      f.input :type, as: :select, collection: ['Student','Mentor']
+      f.input :role, as: :select, collection: ['head_admin', 'teacher', 'manager', 'executive_admin', 'director_admin', 'mentor', 'student']
     end
     para "Press cancel to return to the list without saving."
     actions
@@ -69,5 +69,5 @@ ActiveAdmin.register User do
   end
 
 
-  permit_params :email, :password, :first_name, :last_name, :phone, :city_id, :country_name, :city_name, :department_name, :university, :cgpa, :nationality, :occupation, :image, :dob, :nid, :address, :passport, :slug, :type
+  permit_params :email, :password, :first_name, :last_name, :phone, :city_id, :country_name, :city_name, :department_name, :university, :cgpa, :nationality, :occupation, :image, :dob, :nid, :address, :passport, :slug, :role
 end

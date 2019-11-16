@@ -2,7 +2,9 @@ class SchedulesController < ApplicationController
   layout 'dashboard'
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
   def index
-    @schedules = current_user.schedules
+    @schedules = current_user.mentor_schedules if current_user.mentor?
+    @schedules = Schedule.mentor_schedules if current_user.head_admin?
+    @schedules = current_user.student_schedules if current_user.student?
   end
 
   def new
