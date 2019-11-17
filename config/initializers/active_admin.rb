@@ -320,10 +320,10 @@ ActiveAdmin.setup do |config|
   # config.footer = 'my custom footer text'
 
   # == Sorting
-  #
+
   # By default ActiveAdmin::OrderClause is used for sorting logic
   # You can inherit it with own class and inject it for all resources
-  #
+  Rails.application.config.assets.precompile += %w[ckeditor]
   # config.order_clause = MyOrderClause
 end
 

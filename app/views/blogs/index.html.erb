@@ -23,148 +23,43 @@
           <div class="blog-contect-area blog-grid">
             <div class="row">
               <!-- Start single blog -->
+              <% if @blogs.present?  %>
+              <% @blogs.each do |blog| %>
               <div class="col-md-6 col-sm-12">
                 <div class="blog">
                   <div class="blog-thumb">
-                    <%= image_tag 'blog/post-1.jpg', alt: "blog image" %>
+                    <%= image_tag image_url(blog.image), alt: "blog image" %>
                   </div>
                   <div class="blog-details">
                     <div class="blog-time">
-                      <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-                      <span class="blog__category">Category <a href="#">Travel</a></span>
+                      <span class="blog-date"><%= blog.created_at.strftime("%B %d %Y  %I:%M %P") %> By <a href="#"> <%= blog.admin_user.full_name %> </a></span>
+                      <span class="blog__category">Category <a href="#"><%= blog.category.name %></a></span>
                     </div>
                     <div class="blog-title">
                       <h3>
-                        <%= link_to blog_path(1) do%>
-                          9 Ridiculous Rules About Tweets
+                        <%= link_to blog_path(blog.id) do%>
+<!--                          9 Ridiculous Rules About Tweets -->
+                          <%= blog.title %>
                         <% end %>
                       </h3>
 
                     </div>
+                    <p> <%#= raw blog.content %></p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
                     <div class="blog-more">
-                      <%= link_to 'Read More', blog_path(1), class: "btn btn-default" %>
-                      <span class="blog-comments"><a href="#">6 comments</a></span>
+                      <%= link_to 'Read More', blog_path(blog.id), class: "btn btn-default" %>
+                      <span class="blog-comments"><a href="#"><%= blog.comments.count %> comments</a></span>
                     </div>
                   </div>
                 </div>
-              </div><!-- End single blog -->
+              </div>
+                <%end %>
+                <%else %>
+              <div style="text-align: center; font-size: medium"> No Blog Found </div>
+                <%end %>
+                <!-- End single blog -->
 
-              <!-- Start single blog -->
-              <div class="col-md-6 col-sm-12">
-                <div class="blog">
-                  <div class="blog-thumb">
-                    <%= image_tag 'blog/post-2.jpg', alt: "blog image" %>
-                  </div>
-                  <div class="blog-details">
-                    <div class="blog-time">
-                      <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-                      <span class="blog__category">Category <a href="#">Travel</a></span>
-                    </div>
-                    <div class="blog-title">
-                      <h3><a href="#">9 Ridiculous Rules About Tweets</a></h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-                    <div class="blog-more">
-                      <a href="#" class="btn btn-default">Read More</a>
-                      <span class="blog-comments"><a href="#">6 comments</a></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End single blog -->
-              <!-- Start single blog -->
-              <div class="col-md-6 col-sm-12">
-                <div class="blog">
-                  <div class="blog-thumb">
-                    <%= image_tag 'blog/post-3.jpg', alt: "blog image" %>
-                  </div>
-                  <div class="blog-details">
-                    <div class="blog-time">
-                      <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-                      <span class="blog__category">Category <a href="#">Travel</a></span>
-                    </div>
-                    <div class="blog-title">
-                      <h3><a href="#">9 Ridiculous Rules About Tweets</a></h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-                    <div class="blog-more">
-                      <a href="#" class="btn btn-default">Read More</a>
-                      <span class="blog-comments"><a href="#">6 comments</a></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End single blog -->
-              <!-- Start single blog -->
-              <div class="col-md-6 col-sm-12">
-                <div class="blog">
-                  <div class="blog-thumb">
-                    <%= image_tag 'blog/post-1.jpg', alt: "blog image" %>
-                  </div>
-                  <div class="blog-details">
-                    <div class="blog-time">
-                      <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-                      <span class="blog__category">Category <a href="#">Travel</a></span>
-                    </div>
-                    <div class="blog-title">
-                      <h3><a href="#">9 Ridiculous Rules About Tweets</a></h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-                    <div class="blog-more">
-                      <a href="#" class="btn btn-default">Read More</a>
-                      <span class="blog-comments"><a href="#">6 comments</a></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End single blog -->
-              <!-- Start single blog -->
-              <div class="col-md-6 col-sm-12">
-                <div class="blog">
-                  <div class="blog-thumb">
-                    <%= image_tag 'blog/post-2.jpg', alt: "blog image" %>
-                  </div>
-                  <div class="blog-details">
-                    <div class="blog-time">
-                      <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-                      <span class="blog__category">Category <a href="#">Travel</a></span>
-                    </div>
-                    <div class="blog-title">
-                      <h3><a href="#">9 Ridiculous Rules About Tweets</a></h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-                    <div class="blog-more">
-                      <a href="#" class="btn btn-default">Read More</a>
-                      <span class="blog-comments"><a href="#">6 comments</a></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End single blog -->
-              <!-- Start single blog -->
-              <div class="col-md-6 col-sm-12">
-                <div class="blog">
-                  <div class="blog-thumb">
-                    <%= image_tag 'blog/post-3.jpg', alt: "blog image" %>
-                  </div>
-                  <div class="blog-details">
-                    <div class="blog-time">
-                      <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-                      <span class="blog__category">Category <a href="#">Travel</a></span>
-                    </div>
-                    <div class="blog-title">
-                      <h3><a href="#">9 Ridiculous Rules About Tweets</a></h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-                    <div class="blog-more">
-                      <a href="#" class="btn btn-default">Read More</a>
-                      <span class="blog-comments"><a href="#">6 comments</a></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End single blog -->
+
             </div><!--/.row-->
           </div><!--/.blog-contect-area-->
           <div class="pagination blog-pagination text-center">
@@ -191,12 +86,21 @@
             <aside class="widget widget-category">
               <h2>Categories</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Players <span>(04)</span></a></li>
-                <li><a href="#">Documents <span>(12)</span></a></li>
-                <li><a href="#">Tools <span>(15)</span></a></li>
-                <li><a href="#">Photo edit <span>(08)</span></a></li>
-                <li><a href="#">Video <span>(05)</span></a></li>
-                <li><a href="#">Social messeging <span>(14)</span></a></li>
+                <% if @categories.present?  %>
+                <% @categories.each do |category| %>
+                  <li>
+                    <%= link_to category.name, '#' %>
+                  </li>
+                <%end %>
+                  <%else %>
+                  <div style="text-align: center; font-size: medium"> Not  Found </div>
+                <%end %>
+<!--                <li><a href="#">Players <span>(04)</span></a></li>-->
+<!--                <li><a href="#">Documents <span>(12)</span></a></li>-->
+<!--                <li><a href="#">Tools <span>(15)</span></a></li>-->
+<!--                <li><a href="#">Photo edit <span>(08)</span></a></li>-->
+<!--                <li><a href="#">Video <span>(05)</span></a></li>-->
+<!--                <li><a href="#">Social messeging <span>(14)</span></a></li>-->
               </ul>
             </aside><!--/.widget-category-->
             <aside class="widget widget-tag-cloud">
@@ -217,71 +121,23 @@
             </aside><!--/.widget-tag-cloud-->
             <aside class="widget widget-recent-post">
               <h2>Recent post</h2>
-              <div class="sidebar__single-post">
-                <div class="single-post__thumb">
-                  <a href="#">
-                    <%= image_tag 'blog/recent.jpg', alt: "blog thumb" %>
-                  </a>
-                </div>
-                <div class="single-post__details">
-                  <h5><a href="#">9 Ridiculous Rules About Tweets Rules About Tweets</a></h5>
-                  <div class="single-post__more">
-                    <span class="date"><span class="blog__date">April 19th, 2017 By <a href="#">Alex Doe</a></span></span>
+              <% @resent_posts.each do |post| %>
+                <div class="sidebar__single-post">
+                  <div class="single-post__thumb">
+                    <a href="<%=blog_path(post.id)%>">
+                      <%= image_tag image_url(post.image),size: 60, alt: 'blog thumb' %>
+                    </a>
+                  </div>
+                  <div class="single-post__details">
+                    <h5><a href="<%=blog_path(post.id) %>"><%= post.title %></a></h5>
+                    <div class="single-post__more">
+                      <span class="date"><span class="blog__date"><%= post.created_at.strftime("%B %d %Y   %I:%M %P") %> By <a href="#"><%= post.admin_user.full_name.present? ? post.admin_user.full_name : "Na" %></a></span></span>
+                    </div>
                   </div>
                 </div>
-              </div><!--/.sidebar__single-post-->
-              <div class="sidebar__single-post">
-                <div class="single-post__thumb">
-                  <a href="#">
-                    <%= image_tag 'blog/recent.jpg', alt: "blog thumb" %>
-                  </a>
-                </div>
-                <div class="single-post__details">
-                  <h5><a href="#">9 Ridiculous Rules About Tweets Rules About Tweets</a></h5>
-                  <div class="single-post__more">
-                    <span class="date"><span class="blog__date">April 19th, 2017 By <a href="#">Alex Doe</a></span></span>
-                  </div>
-                </div>
-              </div><!--/.sidebar__single-post-->
-              <div class="sidebar__single-post">
-                <div class="single-post__thumb">
-                  <a href="#">
-                    <%= image_tag 'blog/recent.jpg', alt: "blog thumb" %>
-                  </a>
-                </div>
-                <div class="single-post__details">
-                  <h5><a href="#">9 Ridiculous Rules About Tweets Rules About Tweets</a></h5>
-                  <div class="single-post__more">
-                    <span class="date"><span class="blog__date">April 19th, 2017 By <a href="#">Alex Doe</a></span></span>
-                  </div>
-                </div>
-              </div><!--/.sidebar__single-post-->
-              <div class="sidebar__single-post">
-                <div class="single-post__thumb">
-                  <a href="#">
-                    <%= image_tag 'blog/recent.jpg', alt: "blog thumb" %>
-                  </a>
-                </div>
-                <div class="single-post__details">
-                  <h5><a href="#">9 Ridiculous Rules About Tweets Rules About Tweets</a></h5>
-                  <div class="single-post__more">
-                    <span class="date"><span class="blog__date">April 19th, 2017 By <a href="#">Alex Doe</a></span></span>
-                  </div>
-                </div>
-              </div><!--/.sidebar__single-post-->
-              <div class="sidebar__single-post">
-                <div class="single-post__thumb">
-                  <a href="#">
-                    <%= image_tag 'blog/recent.jpg', alt: "blog thumb" %>
-                  </a>
-                </div>
-                <div class="single-post__details">
-                  <h5><a href="#">9 Ridiculous Rules About Tweets Rules About Tweets</a></h5>
-                  <div class="single-post__more">
-                    <span class="date"><span class="blog__date">April 19th, 2017 By <a href="#">Alex Doe</a></span></span>
-                  </div>
-                </div>
-              </div><!--/.sidebar__single-post-->
+              <%end %>
+
+
             </aside><!--/.widget-recent-post-->
           </div><!--/.blog-sidebar-->
         </div><!--/.col-lg-4-->

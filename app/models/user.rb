@@ -42,7 +42,7 @@ class User < ApplicationRecord
   belongs_to :city, optional: true
   has_many :student_schedules, foreign_key: :student_id, class_name: 'Schedule'
   has_many :mentor_schedules, foreign_key: :mentor_id, class_name: 'Schedule'
-
+  has_many :comments
   scope :students, -> { where(role: 'student') }
   scope :mentors, -> { where(role: 'mentor') }
 

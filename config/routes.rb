@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, controllers:
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/booking-schedule', to: 'schedule_booking#booking_schedule', as: 'booking_schedule'
   root 'home#index'
   resources :blogs
+  resources :comments
 
   scope :dashboard do
     get '/', to: "dashboard#index"
