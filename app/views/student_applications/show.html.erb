@@ -1,87 +1,9 @@
-<!--<p id="notice"><%#= notice %></p>-->
-
-<!--<p>-->
-<!--  <strong>Country:</strong>-->
-  <%#= @student_application.country_id %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Desire program:</strong>-->
-  <%#= @student_application.desire_program %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Passport file:</strong>-->
-  <%#= @student_application.passport_file %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Motivation letter:</strong>-->
-  <%#= @student_application.motivation_letter %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Recommendation letter:</strong>-->
-  <%#= @student_application.recommendation_letter %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Cv:</strong>-->
-  <%#= @student_application.cv %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Police clearance certificate:</strong>-->
-  <%#= @student_application.police_clearance_certificate %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Birth certificate:</strong>-->
-  <%#= @student_application.birth_certificate %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Bank statement:</strong>-->
-  <%#= @student_application.bank_statement %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Bank solvency certificate:</strong>-->
-  <%#= @student_application.bank_solvency_certificate %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Student:</strong>-->
-  <%#= @student_application.student_id %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Mentor:</strong>-->
-  <%#= @student_application.mentor_id %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>University name:</strong>-->
-  <%#= @student_application.university_name %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Application status:</strong>-->
-  <%#= @student_application.application_status %>
-<!--</p>-->
-
-<!--<%#= link_to 'Edit', edit_student_application_path(@student_application) %> |-->
-<%#= link_to 'Back', student_applications_path %>
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-7">
       <nav class="c-tabs">
         <div class="c-tabs__list nav nav-tabs" id="myTab" role="tablist">
-<!--          <a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="user-profile.html#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Activity</a>-->
           <a class="c-tabs__link" id="nav-profile-tab" data-toggle="tab" href="user-profile.html#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Documents</a>
-<!--          <a class="c-tabs__link" id="nav-contact-tab" data-toggle="tab" href="user-profile.html#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Notes</a>-->
         </div>
         <div class="c-tabs__content tab-content" id="nav-tabContent">
           <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -91,56 +13,65 @@
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Passport file</h6>
                   <p>  <%#= @student_application.passport_file %></p>
-                  <p> <a href="<%= @student_application.passport_file_url if @student_application.police_clearance_certificate.present?%>">view</a></p>
+                  <p> <a href="<%= @student_application.passport_file_url if @student_application.police_clearance_certificate.present?%>" target="_blank">view</a></p>
                 </div>
-                <p class="u-text-xsmall"> <a href="<%= @student_application.passport_file_url %>"> Download now </a></p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.passport_file_url %>" target="_blank"> Download now </a></p>
               </div>
 
 
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Police Clearance Certificate</h6>
-                  <p>  <a href="<%=@student_application.police_clearance_certificate_url if @student_application.police_clearance_certificate.present? %>">view</a></p>
+                  <p>  <a href="<%=@student_application.police_clearance_certificate_url if @student_application.police_clearance_certificate.present? %>" target="_blank">view</a></p>
                 </div>
-                <p class="u-text-xsmall"><a href="<%=@student_application.police_clearance_certificate_url if @student_application.police_clearance_certificate.present? %>">Download now</a></p>
+                <p class="u-text-xsmall"><a href="<%=@student_application.police_clearance_certificate_url if @student_application.police_clearance_certificate.present? %>" target="_blank">Download now</a></p>
               </div>
+
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Recommendation Letter</h6>
-                  <p>   <a href="<%= @student_application.recommendation_letter_url %>"> View</a></p>
+                  <p>   <a href="<%= @student_application.recommendation_letter_url %>" target="_blank"> View</a></p>
                 </div>
-                <p class="u-text-xsmall"> <a href="<%= @student_application.recommendation_letter_url %>"> Download now </a></p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.recommendation_letter_url %>" target="_blank"> Download now </a></p>
+              </div>
+
+              <div class="c-feed__item c-feed__item--fancy">
+                <div class="c-feed__item-content">
+                  <h6 class="u-text-small">Motivation Letter</h6>
+                  <p>   <a href="<%= @student_application.motivation_letter_url %>" target="_blank"> View</a></p>
+                </div>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.motivation_letter_url %>" target="_blank"> Download now </a></p>
               </div>
 
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">CV</h6>
-                  <p>  <a href="<%= @student_application.cv_url %>">View </a></p>
+                  <p>  <a href="<%= @student_application.cv_url %>" target="_blank">View </a></p>
                 </div>
-                <p class="u-text-xsmall"> <a href="<%= @student_application.cv_url %>"> Download now </a></p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.cv_url %>" target="_blank"> Download now </a></p>
               </div>
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Birth Certificate</h6>
-                  <p>   <a href="<%= @student_application.birth_certificate_url %>"> View </a></p>
+                  <p>   <a href="<%= @student_application.birth_certificate_url %>" target="_blank"> View </a></p>
                 </div>
-                <p class="u-text-xsmall"> <a href="<%= @student_application.birth_certificate_url %>"> Download now </a></p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.birth_certificate_url %>" target="_blank"> Download now </a></p>
               </div>
 
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Bank Statement</h6>
-                  <p>   <a href="<%= @student_application.bank_statement_url %>"> View </a></p>
+                  <p>   <a href="<%= @student_application.bank_statement_url %>" target="_blank"> View </a></p>
                 </div>
 
-                <p class="u-text-xsmall"> <a href="<%= @student_application.bank_statement_url %>"> Download now </a></p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.bank_statement_url %>" target="_blank"> Download now </a></p>
               </div>
               <div class="c-feed__item c-feed__item--fancy">
                 <div class="c-feed__item-content">
                   <h6 class="u-text-small">Bank Solvency Certificate</h6>
-                  <p>   <a href="<%= @student_application.bank_solvency_certificate_url %>"> View</a></p>
+                  <p>   <a href="<%= @student_application.bank_solvency_certificate_url %>" target="_blank" target="_blank"> View</a></p>
                 </div>
-                <p class="u-text-xsmall"> <a href="<%= @student_application.bank_solvency_certificate_url %>"> Download now </a></p>
+                <p class="u-text-xsmall"> <a href="<%= @student_application.bank_solvency_certificate_url %>" target="_blank"> Download now </a></p>
               </div>
 
             </div><!-- // .c-feed -->

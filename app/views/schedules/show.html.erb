@@ -1,6 +1,10 @@
 <div class="col-md-12">
   <h3 class="u-mb-small">Schedule</h3>
   <div class="c-card" style="padding:40px;">
+    <% if current_user.head_admin? %>
+      <span class="c-badge c-badge--primary">Mentor Name: <%= @schedule.mentor.full_name %></span>
+      <span class="c-badge c-badge--primary">Mentor Id: <%= 'Demo - 1222' %></span>
+    <% end %>
     <span class="c-badge c-badge--primary">Date: <%= @schedule.start_time.strftime("%d/%b/%Y") %></span>
     <span class="c-badge c-badge--info">Start: <%= @schedule.start_time.strftime("%H:%M") %></span>
     <span class="c-badge c-badge--success">Start: <%= @schedule.end_time.strftime("%H:%M") %></span>

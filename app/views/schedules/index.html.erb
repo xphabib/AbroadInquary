@@ -4,6 +4,10 @@
       <table class="c-table">
         <thead class="c-table__head">
         <tr class="c-table__row">
+          <% if current_user.head_admin? %>
+            <th class="c-table__cell c-table__cell--head">Mentor Name</th>
+            <th class="c-table__cell c-table__cell--head">Mentor ID</th>
+          <% end %>
           <th class="c-table__cell c-table__cell--head">Start Time</th>
           <th class="c-table__cell c-table__cell--head">End Time</th>
           <th class="c-table__cell c-table__cell--head">Paid / Free</th>
@@ -16,6 +20,15 @@
         <tbody>
         <% @schedules.each do |schedule| %>
           <tr class="c-table__row">
+            <% if current_user.head_admin? %>
+              <td class="c-table__cell">
+                <%= schedule.mentor.full_name %>
+              </td>
+
+              <td class="c-table__cell">
+                <%= 'Demo - 1222' %>
+              </td>
+            <% end %>
             <td class="c-table__cell">
               <%= schedule.start_time.strftime("%H:%M") %>
             </td>
