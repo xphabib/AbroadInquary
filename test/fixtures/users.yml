@@ -6,6 +6,9 @@
 #  address                :text
 #  cgpa                   :float
 #  city_name              :string
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
 #  country_name           :string
 #  department_name        :string
 #  dob                    :date

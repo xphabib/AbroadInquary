@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_183603) do
+ActiveRecord::Schema.define(version: 2019_11_19_183404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,25 +48,6 @@ ActiveRecord::Schema.define(version: 2019_11_17_183603) do
     t.integer "application_id"
     t.string "file_type"
     t.string "file_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "applications", force: :cascade do |t|
-    t.integer "country_id"
-    t.string "desire_program"
-    t.string "passport_file"
-    t.string "motivation_letter"
-    t.string "recommendation_letter"
-    t.string "cv"
-    t.string "police_clearance_certificate"
-    t.string "birth_certificate"
-    t.string "bank_statement"
-    t.string "bank_solvency_certificate"
-    t.integer "student_id"
-    t.integer "mentor_id"
-    t.string "university_name"
-    t.string "application_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -210,6 +191,9 @@ ActiveRecord::Schema.define(version: 2019_11_17_183603) do
     t.string "passport"
     t.string "slug"
     t.integer "role"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

@@ -6,6 +6,9 @@
 #  address                :text
 #  cgpa                   :float
 #  city_name              :string
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
 #  country_name           :string
 #  department_name        :string
 #  dob                    :date
@@ -49,7 +52,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   mount_uploader :image, AvatarUploader
   extend FriendlyId
   friendly_id :full_name, use: :slugged

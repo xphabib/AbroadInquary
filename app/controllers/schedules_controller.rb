@@ -20,7 +20,7 @@ class SchedulesController < ApplicationController
 
   def create
     if current_user.mentor?
-      @schedule = current_user.mentor_schedulesschedules.new(schedule_params)
+      @schedule = current_user.mentor_schedules.new(schedule_params)
     elsif current_user.head_admin?
       @schedule = Schedule.new(schedule_params)
       @schedule.mentor_id = params[:schedule][:mentor_id]
