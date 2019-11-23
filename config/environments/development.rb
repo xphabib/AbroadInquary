@@ -58,29 +58,29 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
   #for mailer root url
-  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
-  config.action_mailer.asset_host = 'https://www.abroadinquary.com'
+  # config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+  # config.action_mailer.asset_host = 'https://www.abroadinquary.com'
 
   # Sending mail configuration.
   # config.action_mailer.asset_host = "https://56baa40a.ngrok.io"
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: 'bequent.com',
-      user_name: 'xsendermaildriver@gmail.com',
-      password: 'rubel422427',
-      :authentication => :login,
-      :enable_starttls_auto => true,
-      :openssl_verify_mode => 'none'
-
-      # authentication: 'plain',
-      # enable_starttls_auto: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     address: 'smtp.gmail.com',
+  #     port: 587,
+  #     domain: 'bequent.com',
+  #     user_name: 'example@gmail.com',
+  #     password: 'password',
+  #     :authentication => :login,
+  #     :enable_starttls_auto => true,
+  #     :openssl_verify_mode => 'none'
+  #
+  #     # authentication: 'plain',
+  #     # enable_starttls_auto: true
+  # }
 
 end
