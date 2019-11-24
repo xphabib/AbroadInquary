@@ -47,6 +47,7 @@ class User < ApplicationRecord
   has_many :mentor_schedules, foreign_key: :mentor_id, class_name: 'Schedule'
   has_many :comments
   scope :students, -> { where(role: 'student') }
+  scope :admins, -> { where.not(role: 'student') }
   scope :mentors, -> { where(role: 'mentor') }
 
   # Include default devise modules. Others available are:

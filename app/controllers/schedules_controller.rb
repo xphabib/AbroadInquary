@@ -55,7 +55,7 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit(:start_time, :end_time, :schedule_cost, :is_paid)
+    params.require(:schedule).permit(:start_time, :end_time, :schedule_cost, :is_paid, :student_id, :mentor_id)
   end
 
   def set_schedule

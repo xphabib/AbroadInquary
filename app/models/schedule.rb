@@ -22,4 +22,9 @@ class Schedule < ApplicationRecord
   belongs_to :mentor, class_name: 'User'
   scope :mentor_schedules, -> { where.not(mentor_id: nil) }
   scope :student_schedules, -> { where.not(student_id: nil) }
+  scope :todays_schedules, -> { where("updated_at = ?", Date.today) }
+
+
+
+
 end

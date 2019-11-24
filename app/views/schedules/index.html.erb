@@ -22,7 +22,7 @@
           <tr class="c-table__row">
             <% if current_user.head_admin? %>
               <td class="c-table__cell">
-                <%= schedule.mentor.full_name %>
+                <%= schedule.mentor.full_name if schedule.mentor.present?%>
               </td>
 
               <td class="c-table__cell">
