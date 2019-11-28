@@ -50,6 +50,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "letter_opener"
   gem 'annotate'
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 end
 
 group :test do
