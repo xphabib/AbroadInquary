@@ -28,7 +28,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -95,7 +95,7 @@ Rails.application.configure do
 
 
   #for mailer root url
-  config.action_mailer.default_url_options = {protocl: 'https', host: 'xphabib.ga'}
+  config.action_mailer.default_url_options = {protocl: 'https', host: 'abroadinquary.com'}
   config.action_mailer.asset_host = 'https://www.abroadinquary.com'
 
   # Sending mail configuration.
