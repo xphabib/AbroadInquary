@@ -95,12 +95,13 @@ Rails.application.configure do
 
 
   #for mailer root url
-  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+  config.action_mailer.default_url_options = {protocl: 'https', host: 'xphabib.ga'}
   config.action_mailer.asset_host = 'https://www.abroadinquary.com'
 
   # Sending mail configuration.
   # config.action_mailer.asset_host = "https://56baa40a.ngrok.io"
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
