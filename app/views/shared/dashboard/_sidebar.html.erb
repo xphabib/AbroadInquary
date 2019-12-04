@@ -20,60 +20,64 @@
           </a>
         </li>
 
-        <li>
-          <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'student') %>" href="<%= users_path(:type => 'student') %>">
-            <i class="c-sidebar__icon fas fa-user-friends"></i>Students
-          </a>
-        </li>
+        <% if current_user.mentor? or current_user.head_admin?%>
+          <li>
+            <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'student') %>" href="<%= users_path(:type => 'student') %>">
+              <i class="c-sidebar__icon fas fa-user-friends"></i>Students
+            </a>
+          </li>
 
-        <li>
-          <%= link_to student_applications_path, class: "c-sidebar__link #{current_class?(student_applications_path)}" do %>
-            <i class="c-sidebar__icon feather icon-file-text"></i>Student Applications
-          <% end %>
-        </li>
-        <li>
-        <li>
-          <%= link_to new_student_application_path, class: "c-sidebar__link #{current_class?(new_student_application_path)}" do %>
-            <i class="c-sidebar__icon fab fa-artstation"></i>Make Application
-          <% end %>
-        </li>
-        </li>
+          <li>
+            <%= link_to student_applications_path, class: "c-sidebar__link #{current_class?(student_applications_path)}" do %>
+              <i class="c-sidebar__icon feather icon-file-text"></i>Student Applications
+            <% end %>
+          </li>
 
-        <li>
-          <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
-            <i class="c-sidebar__icon feather icon-calendar"></i>Schedules
-          <% end %>
-        </li>
+          <li>
+            <%= link_to new_student_application_path, class: "c-sidebar__link #{current_class?(new_student_application_path)}" do %>
+              <i class="c-sidebar__icon fab fa-artstation"></i>Make Application
+            <% end %>
+          </li>
 
-        <li>
-          <%= link_to new_schedule_path, class: "c-sidebar__link #{current_class?(new_schedule_path)} " do %>
-            <i class="c-sidebar__icon fas fa-arrows-alt"></i>New Schedule
-          <% end %>
-        </li>
+          <li>
+            <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
+              <i class="c-sidebar__icon feather icon-calendar"></i>Schedules
+            <% end %>
+          </li>
 
-        <li>
-          <%= link_to booked_users_schedules_path, class: "c-sidebar__link #{current_class?(booked_users_schedules_path)}" do %>
-            <i class="c-sidebar__icon fas fa-user-clock"></i>Booked User
-          <% end %>
-        </li>
+          <li>
+            <%= link_to new_schedule_path, class: "c-sidebar__link #{current_class?(new_schedule_path)} " do %>
+              <i class="c-sidebar__icon fas fa-arrows-alt"></i>New Schedule
+            <% end %>
+          </li>
 
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon far fa-clock"></i>Booked Schedule
-          </a>
-        </li>
+          <li>
+            <%= link_to booked_users_schedules_path, class: "c-sidebar__link #{current_class?(booked_users_schedules_path)}" do %>
+              <i class="c-sidebar__icon fas fa-user-clock"></i>Booked User
+            <% end %>
+          </li>
+        <% end %>
 
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon fab fa-accusoft"></i>My Booked Schedule List
-          </a>
-        </li>
+        <% if current_user.student? %>
 
-        <li>
-          <a class="c-sidebar__link" href="#">
-            <i class="c-sidebar__icon fab fa-avianex"></i>Accepted Schedule List
-          </a>
-        </li>
+          <li>
+            <a class="c-sidebar__link" href="#">
+              <i class="c-sidebar__icon far fa-clock"></i>Booked Schedule
+            </a>
+          </li>
+
+          <li>
+            <a class="c-sidebar__link" href="#">
+              <i class="c-sidebar__icon fab fa-accusoft"></i>My Booked Schedule List
+            </a>
+          </li>
+
+          <li>
+            <a class="c-sidebar__link" href="#">
+              <i class="c-sidebar__icon fab fa-avianex"></i>Accepted Schedule List
+            </a>
+          </li>
+        <% end %>
 
         <li>
           <%= link_to users_path, class: "c-sidebar__link #{current_class_same_path?(users_path, params[:type], nil)}" do %>
