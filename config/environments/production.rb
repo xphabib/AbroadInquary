@@ -107,7 +107,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
-      domain: 'abroadinquary.com',
+      domain: 'http://128.199.232.100', #'abroadinquary.com',
       user_name: 'sharifahmedbd96@gmail.com',
       password: 'Sharifbd1996.',
       :enable_starttls_auto => true,
