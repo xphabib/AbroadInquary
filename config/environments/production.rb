@@ -110,12 +110,9 @@ Rails.application.configure do
       domain: 'abroadinquary.com',
       user_name: 'sharifahmedbd96@gmail.com',
       password: 'Sharifbd1996.',
-      :authentication => :login,
       :enable_starttls_auto => true,
-      :openssl_verify_mode => 'none'
-
-      # authentication: 'plain',
-      # enable_starttls_auto: true
+      :openssl_verify_mode => 'none',
+      authentication: 'plain',
   }
 
 end
