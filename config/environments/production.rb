@@ -98,7 +98,7 @@ Rails.application.configure do
 
   #for mailer root url
   config.action_mailer.default_url_options = {protocl: 'https', host: 'abroadinquary.com'}
-  config.action_mailer.asset_host = 'https://www.abroadinquary.com'
+  config.action_mailer.asset_host = 'https://abroadinquiry.com'
 
   # Sending mail configuration.
   # config.action_mailer.asset_host = "https://56baa40a.ngrok.io"
@@ -107,9 +107,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
-      domain: 'http://128.199.232.100', #'abroadinquary.com',
-      user_name: 'sharifahmedbd96@gmail.com',
-      password: 'Sharifbd1996.',
+      domain: 'abroadinquiry.com',
+      user_name: 'abroadinquiry7@gmail.com',
+      password: 'abroadinquiry2019',
       :enable_starttls_auto => true,
       :openssl_verify_mode => 'none',
       authentication: 'plain',
