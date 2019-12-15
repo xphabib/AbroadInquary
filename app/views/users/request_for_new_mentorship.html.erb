@@ -1,0 +1,58 @@
+<!--=======Page Heading
+   =================================-->
+<section class="page-heading-section before-bg bg-image" style="background-image: url(<%= asset_path('header/p-header3.jpg') %>);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="page-heading">
+          <h2 class="page-name text-capitalize">Register as a Mentor</h2>
+        </div><!--/.page-heading-->
+      </div><!--/.col-md-12-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</section><!--/.page-heading-area-->
+
+
+<div class="register-page page-wrapper s-pd100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="login-form-area register-form-area">
+          <%= form_for @user, url: create_request_for_new_mentorship_users_path do |f| %>
+            <h2>MENTER REGISTER</h2>
+            <div id="socila-register" class="social-login-area">
+              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+              <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
+              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+            </div><!--/.social-login-area-->
+            <div class="divider-or text-center">
+              <span>or</span>
+            </div>
+            <p>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "First Name", class: "form-control", id: "user-first-name", placeholder: "First Name"%>
+            </p>
+            <p>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "Last Name", class: "form-control", id: "user-last-name", placeholder: "Last Name"%>
+            </p>
+            <p>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "user-email", placeholder: "Email"%>
+            </p>
+            <p>
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control", id: "user-pass", placeholder: "Password"%>
+            </p>
+            <p>
+              <%= f.submit "Sign up new account", class: "btn btn-default btn-primary" %>
+            </p>
+            <div class="login-form-register-now">
+              <p> Have an account?
+                <%= link_to "LOGIN NOW", new_user_session_path %>
+              </p>
+            </div>
+          <% end %>
+        </div><!--/.register-form-area-->
+      </div><!--/.col-lg-4-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</div><!--/.login-page-->
+

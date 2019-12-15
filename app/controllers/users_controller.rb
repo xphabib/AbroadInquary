@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:request_for_new_mentorship, :create_request_for_new_mentorship]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   layout 'dashboard'
+  layout 'application', only: [:request_for_new_mentorship]
 
   def my_profile ;end
 
@@ -16,6 +18,20 @@ class UsersController < ApplicationController
     # @mentors = Mentor.all
     # @students = Student.all
 
+  end
+
+  def request_for_new_mentorship
+    @user = User.new
+  end
+
+  def create_request_for_new_mentorship
+    @user = User.new(mentor_request_params)
+    @user.role = 'mentor'
+    if @user.save
+      redirect_to root_path
+    else
+      redirect_to request_for_new_mentorship_users_path
+    end
   end
 
   def show ;end
@@ -58,4 +74,9 @@ class UsersController < ApplicationController
   def set_params
     params.require(:user).permit!
   end
+
+  def mentor_request_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
+  end
+
 end
