@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:request_for_new_mentorship, :create_request_for_new_mentorship]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   layout 'dashboard'
-  layout 'application', only: [:request_for_new_mentorship]
+  # layout 'application', only: [:request_for_new_mentorship]
 
   def my_profile ;end
 
@@ -22,6 +22,9 @@ class UsersController < ApplicationController
 
   def request_for_new_mentorship
     @user = User.new
+    respond_to do |format|
+      format.html {render :layout => 'application'}
+    end
   end
 
   def create_request_for_new_mentorship
