@@ -4,6 +4,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  address                :text
+#  admin_confirmation     :boolean          default(FALSE)
 #  cgpa                   :float
 #  city_name              :string
 #  confirmation_sent_at   :datetime
