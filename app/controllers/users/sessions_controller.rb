@@ -26,10 +26,12 @@ class Users::SessionsController < Devise::SessionsController
           yield resource if block_given?
           respond_with resource, location: after_sign_in_path_for(resource)
         else
-          redirect_to root_path
+          flash[:info] = 'Your account is under confirmation.'
+          redirect_to new_user_session_path
         end
       end
     else
+      flash[:warning] = 'Invalid Email or password.'
       redirect_to new_user_session_path
     end
   end
