@@ -11,14 +11,26 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     user = User.find_by_email(params[:user][:email])
-    if user.admin_confirmation
-      self.resource = warden.authenticate!(auth_options)
-      set_flash_message!(:notice, :signed_in)
-      sign_in(resource_name, resource)
-      yield resource if block_given?
-      respond_with resource, location: after_sign_in_path_for(resource)
+    if user.present?
+      if user.student?
+        self.resource = warden.authenticate!(auth_options)
+        set_flash_message!(:notice, :signed_in)
+        sign_in(resource_name, resource)
+        yield resource if block_given?
+        respond_with resource, location: after_sign_in_path_for(resource)
+      else
+        if user.admin_confirmation
+          self.resource = warden.authenticate!(auth_options)
+          set_flash_message!(:notice, :signed_in)
+          sign_in(resource_name, resource)
+          yield resource if block_given?
+          respond_with resource, location: after_sign_in_path_for(resource)
+        else
+          redirect_to root_path
+        end
+      end
     else
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
   end
 

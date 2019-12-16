@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     column :last_name
     column :email
     column :phone
+    column :role
     column :department_name
     column :university
     column :cgpa
@@ -34,6 +35,7 @@ ActiveAdmin.register User do
       row :last_name
       row :email
       row :phone
+      row :role
       row :department_name
       row :university
       row :cgpa
