@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get :my_profile
-        get :request_for_new_mentorship
-        post :create_request_for_new_mentorship
+        # get :request_for_new_mentorship
+        # post :create_request_for_new_mentorship
       end
     end
     resources :schedules do
@@ -39,4 +39,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'request-mentorship', to: 'users#request_for_new_mentorship', as: :request_for_new_mentorship
+  post 'create-mentorship', to: 'users#create_request_for_new_mentorship', as: :create_request_for_new_mentorship
+
 end

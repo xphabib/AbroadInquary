@@ -33,7 +33,11 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      redirect_to request_for_new_mentorship_users_path
+      p '<<<<<<<<<<<<<<<@user.inspect>>>>>>>>>>>>>>>'
+      p @user.errors.full_messages.to_sentence
+      p ">>>>>>>>>>"
+      flash[:error] = @user.errors.full_messages.to_sentence
+      redirect_to request_for_new_mentorship_path
     end
   end
 
@@ -48,7 +52,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       p @user.inspect
-      @user.error
+      p @user.errors.full_messages.to_sentence
       p ">>>>>>>>>>"
 
     end
