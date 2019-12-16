@@ -2,7 +2,7 @@
   <aside class="c-sidebar">
     <div class="c-sidebar__brand">
       <a href="/dashboard">
-        <%= image_tag 'logo.svg', alt: "Neat" %>
+        <%= image_tag 'abroad-inquery-logo.png', style: 'width: 52px; height: 50px; margin-left: 70px', alt: "Neat" %>
       </a>
     </div>
 
@@ -16,14 +16,14 @@
 
         <li>
           <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'mentor') %>" href="<%= users_path(:type => 'mentor') %>">
-            <i class="c-sidebar__icon feather icon-users"></i>Mentors
+            <i class="c-sidebar__icon feather icon-user-check"></i>Mentors
           </a>
         </li>
 
         <% if current_user.mentor? or current_user.head_admin?%>
           <li>
             <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'student') %>" href="<%= users_path(:type => 'student') %>">
-              <i class="c-sidebar__icon fas fa-user-friends"></i>Students
+              <i class="c-sidebar__icon feather icon-user"></i>Students
             </a>
           </li>
 
@@ -35,25 +35,25 @@
 
           <li>
             <%= link_to new_student_application_path, class: "c-sidebar__link #{current_class?(new_student_application_path)}" do %>
-              <i class="c-sidebar__icon fab fa-artstation"></i>Make Application
+              <i class="c-sidebar__icon feather icon-file-plus"></i>Make Application
             <% end %>
           </li>
 
           <li>
             <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
-              <i class="c-sidebar__icon feather icon-calendar"></i>Schedules
+              <i class="c-sidebar__icon feather icon-clock"></i>Schedules
             <% end %>
           </li>
 
           <li>
             <%= link_to new_schedule_path, class: "c-sidebar__link #{current_class?(new_schedule_path)} " do %>
-              <i class="c-sidebar__icon fas fa-arrows-alt"></i>New Schedule
+              <i class="c-sidebar__icon feather icon-edit"></i>New Schedule
             <% end %>
           </li>
 
           <li>
             <%= link_to booked_users_schedules_path, class: "c-sidebar__link #{current_class?(booked_users_schedules_path)}" do %>
-              <i class="c-sidebar__icon fas fa-user-clock"></i>Booked User
+              <i class="c-sidebar__icon feather icon-users"></i>Booked User
             <% end %>
           </li>
         <% end %>
@@ -81,7 +81,7 @@
 
         <li>
           <%= link_to users_path, class: "c-sidebar__link #{current_class_same_path?(users_path, params[:type], nil)}" do %>
-            <i class="c-sidebar__icon far fa-address-card"></i></i>Users
+            <i class="c-sidebar__icon feather icon-user"></i></i>Users
           <% end %>
         </li>
       </ul>

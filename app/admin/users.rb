@@ -16,6 +16,15 @@ ActiveAdmin.register User do
     column :address
     column :city_name
     column :country_name
+    column :login_as do |user|
+      link_to "Login", login_as_admin_user_path(user)
+    end
+    # if user.admin_confirmation == false
+    #
+    # end
+    column :confirm_user do |user|
+      link_to "Confirm User", confirm_user_admin_user_path(user)
+    end
     actions
   end
 
@@ -68,6 +77,17 @@ ActiveAdmin.register User do
     end
   end
 
+  member_action :login_as, :method => :get do
+    # sign_out current_admin_user
+    sign_in(:user, User.friendly.find(params[:id]), { :bypass => true })
+    redirect_to root_path
+  end
+
+  member_action :confirm_user, :method => :get do
+    user = User.friendly.find(params[:id])
+    user.update(admin_confirmation: true)
+    redirect_to admin_users_path
+  end
 
   permit_params :email, :password, :first_name, :last_name, :phone, :city_id, :country_name, :city_name, :department_name, :university, :cgpa, :nationality, :occupation, :image, :dob, :nid, :address, :passport, :slug, :role
 end

@@ -13,6 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     resource.role = 'student'
+    resource.admin_confirmation = true
     resource.save!
     yield resource if block_given?
     if resource.persisted?
