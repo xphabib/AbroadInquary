@@ -5,6 +5,17 @@ class UsersController < ApplicationController
   # layout 'application', only: [:request_for_new_mentorship]
 
   def my_profile ;end
+  def edit_my_profile
+  end
+
+  def update_my_profile
+    current_user.admin_confirmation = false
+    if current_user.update!(set_params)
+      flash[:warning] = 'Your Account is Under Review'
+      redirect_to root_path
+    end
+  end
+
 
   def index
     if params[:type].present? && params[:type] == 'student'

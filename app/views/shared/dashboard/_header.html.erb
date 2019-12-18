@@ -30,7 +30,7 @@
 
     <div class="c-dropdown__menu has-arrow dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
       <a class="c-dropdown__item dropdown-item" href="<%= my_profile_users_path %>">View Profile</a>
-      <a class="c-dropdown__item dropdown-item" href="<%= edit_user_path(current_user.id) %>">Edit Profile</a>
+      <a class="c-dropdown__item dropdown-item" href="<%= edit_my_profile_users_path %>">Edit Profile</a>
       <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "c-dropdown__item dropdown-item") if user_signed_in? %>
     </div>
   </div>

@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get :my_profile
+        get :edit_my_profile
+        post :update_my_profile
         # get :request_for_new_mentorship
         # post :create_request_for_new_mentorship
       end

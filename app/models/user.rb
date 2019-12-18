@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  about                  :text
 #  address                :text
 #  admin_confirmation     :boolean          default(FALSE)
 #  cgpa                   :float

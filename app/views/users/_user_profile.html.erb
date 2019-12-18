@@ -4,7 +4,7 @@
       <%if @user.image.present?  %>
         <img class="c-avatar__img" src="<%= @user.image_url %>" alt="Avatar">
       <%else %>
-        <img class="c-avatar__img" src="<%= asset_path('avatar.jpeg') %>" alt="Avatar">
+        <img class="c-avatar__img" src="<%= asset_path('user.png') %>" alt="Avatar">
       <%end%>
 
     </div>

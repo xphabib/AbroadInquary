@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    flash[:success] = 'hi there'
   end
 
   def contact ;end
