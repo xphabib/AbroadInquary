@@ -11,10 +11,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    # super
     build_resource(sign_up_params)
     resource.role = 'student'
     resource.admin_confirmation = true
     resource.save
+    messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
+    flash[:success] = messages
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

@@ -2,7 +2,9 @@
 //= require activestorage
 //= require turbolinks
 //= require modernizr-2.8.3.min
+//= require jquery-v3.2.1.min.js
 //= require toastr
+// require notifier
 
 toastr.options = ({
     "closeButton": false,
