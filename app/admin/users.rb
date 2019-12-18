@@ -20,11 +20,19 @@ ActiveAdmin.register User do
     column :login_as do |user|
       link_to "Login", login_as_admin_user_path(user)
     end
-    # if user.admin_confirmation == false
-    #
-    # end
+    column :lock_user do |user|
+      if user.admin_confirmation
+        link_to "Lock User", lock_user_admin_user_path(user)
+      else
+        link_to "Unlock User", unlock_user_admin_user_path(user)
+      end
+    end
     column :confirm_user do |user|
-      link_to "Confirm User", confirm_user_admin_user_path(user)
+      if user.admin_confirmation
+        "Confirmed"
+      else
+        link_to "Confirm User", confirm_user_admin_user_path(user)
+      end
     end
     actions
   end
@@ -86,6 +94,19 @@ ActiveAdmin.register User do
   end
 
   member_action :confirm_user, :method => :get do
+    user = User.friendly.find(params[:id])
+    user.update(admin_confirmation: true)
+    redirect_to admin_users_path
+  end
+
+  member_action :lock_user, :method => :get do
+    user = User.friendly.find(params[:id])
+    user.update(admin_confirmation: false)
+    redirect_to admin_users_path
+  end
+
+
+  member_action :unlock_user, :method => :get do
     user = User.friendly.find(params[:id])
     user.update(admin_confirmation: true)
     redirect_to admin_users_path
