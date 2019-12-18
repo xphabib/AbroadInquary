@@ -11,5 +11,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w(home.js neat.min.css neat.min.js dashboard.js toastr.scss toastr.js )
+Rails.application.config.assets.precompile += %w(home.js neat.min.css neat.min.js dashboard.js toastr.scss toastr.js notifier.js)
 Rails.application.config.assets.precompile += %w[ckeditor/*]
