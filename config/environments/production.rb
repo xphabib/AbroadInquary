@@ -97,7 +97,7 @@ Rails.application.configure do
 
 
   #for mailer root url
-  config.action_mailer.default_url_options = {protocl: 'https', host: 'abroadinquiry.com'}
+  config.action_mailer.default_url_options = {protocl: 'https', host: 'https://abroadinquiry.com'}
   config.action_mailer.asset_host = 'https://abroadinquiry.com'
 
   # Sending mail configuration.
