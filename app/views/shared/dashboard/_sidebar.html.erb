@@ -26,6 +26,7 @@
               <i class="c-sidebar__icon feather icon-user"></i>Students
             </a>
           </li>
+          <% end %>
 
           <li>
             <%= link_to student_applications_path, class: "c-sidebar__link #{current_class?(student_applications_path)}" do %>
@@ -38,7 +39,7 @@
               <i class="c-sidebar__icon feather icon-file-plus"></i>Make Application
             <% end %>
           </li>
-
+        <% if current_user.mentor? or current_user.head_admin? %>
           <li>
             <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
               <i class="c-sidebar__icon feather icon-clock"></i>Schedules
@@ -79,11 +80,11 @@
           </li>
         <% end %>
 
-        <li>
-          <%= link_to users_path, class: "c-sidebar__link #{current_class_same_path?(users_path, params[:type], nil)}" do %>
-            <i class="c-sidebar__icon feather icon-user"></i></i>Users
-          <% end %>
-        </li>
+<!--        <li>-->
+          <%#= link_to users_path, class: "c-sidebar__link #{current_class_same_path?(users_path, params[:type], nil)}" do %>
+<!--            <i class="c-sidebar__icon feather icon-user"></i></i>Users-->
+          <%# end %>
+<!--        </li>-->
       </ul>
     </div>
     <% if user_signed_in? %>

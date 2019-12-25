@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def request_for_new_mentorship
     @user = User.new
     respond_to do |format|
-      format.html {render :layout => 'application'}
+      format.html {render :layout => 'dashboard'}
     end
   end
 

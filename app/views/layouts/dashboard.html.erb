@@ -36,11 +36,11 @@
 
   <body>
     <div class="o-page">
-      <%= render 'shared/dashboard/sidebar' %>
+      <%= render 'shared/dashboard/sidebar' unless controller.controller_name == 'users' && controller.action_name == 'request_for_new_mentorship'  %>
 
-      <main class="o-page__content">
-        <%= render 'shared/dashboard/header' %>
-
+      <main class="<%= header_class_define %>">
+        <%= render 'shared/dashboard/header' unless controller.controller_name == 'users' && controller.action_name == 'request_for_new_mentorship' %>
+        <%= yield :header_for_mentor %>
         <div class="container">
           <%= yield %>
 

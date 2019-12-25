@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :comments
 
   scope :dashboard do
-    get '/', to: "dashboard#index"
+    get '/', to: "dashboard#index", as: :dashboard
     resources :student_applications
     resources :users do
       collection do
