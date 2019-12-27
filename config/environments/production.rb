@@ -97,7 +97,8 @@ Rails.application.configure do
 
   config.force_ssl = true
   #for mailer root url
-  config.action_mailer.default_url_options = {protocl: 'https', host: 'https://abroadinquiry.com'}
+  config.action_mailer.default_url_options = {host: 'http://abroadinquiry.com'}
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.asset_host = 'https://abroadinquiry.com'
 
   # Sending mail configuration.
@@ -111,7 +112,6 @@ Rails.application.configure do
       user_name: 'abroadinquiry7@gmail.com',
       password: 'abroadinquiry2019',
       :enable_starttls_auto => true,
-      :openssl_verify_mode => 'none',
       authentication: 'plain',
   }
 
