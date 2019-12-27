@@ -20,7 +20,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
       set_flash_message!(:notice, :confirmed)
       respond_with_navigational(resource){ redirect_to new_user_session_path }
     else
-      respond_with_navigational(resource.errors, status: :unprocessable_entity){ redirect_to new_user_session_path }
+      respond_with_navigational(resource.errors, status: :unprocessable_entity){ render :new }
     end
   end
 
