@@ -2,5 +2,7 @@
 <h1>New Student Application</h1>
 
 <div class="container#">
-  <%= render 'form', student_application: @student_application %>
+  <%= render 'form', student_application: @student_application if current_user.head_admin?%>
+  <%= render 'form_for_mentor', student_application: @student_application if current_user.mentor?%>
+  <%= render 'form_for_student', student_application: @student_application if current_user.student?%>
 </div>

@@ -62,22 +62,22 @@
         <% if current_user.student? %>
 
           <li>
-            <a class="c-sidebar__link" href="#">
+            <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
               <i class="c-sidebar__icon far fa-clock"></i>Booked Schedule
-            </a>
+            <% end %>
           </li>
 
-          <li>
-            <a class="c-sidebar__link" href="#">
-              <i class="c-sidebar__icon fab fa-accusoft"></i>My Booked Schedule List
-            </a>
-          </li>
+<!--          <li>-->
+<!--            <a class="c-sidebar__link" href="#">-->
+<!--              <i class="c-sidebar__icon fab fa-accusoft"></i>My Booked Schedule List-->
+<!--            </a>-->
+<!--          </li>-->
 
-          <li>
-            <a class="c-sidebar__link" href="#">
-              <i class="c-sidebar__icon fab fa-avianex"></i>Accepted Schedule List
-            </a>
-          </li>
+<!--          <li>-->
+<!--            <a class="c-sidebar__link" href="#">-->
+<!--              <i class="c-sidebar__icon fab fa-avianex"></i>Accepted Schedule List-->
+<!--            </a>-->
+<!--          </li>-->
         <% end %>
 
 <!--        <li>-->

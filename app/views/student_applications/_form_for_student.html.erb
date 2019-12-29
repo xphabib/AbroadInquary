@@ -16,6 +16,7 @@
                 </ul>
               </div>
             <% end %>
+            <%= hidden_field 'student_application[student_id]', current_user.id %>
             <div class="row u-mb-medium">
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
@@ -27,7 +28,7 @@
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
                   <label class="c-field__label" for="input1">Desire Program</label>
-                  <%= form.text_field :desire_program ,class: "c-input" %>
+                  <%= form.text_field :desire_program, placeholder: 'Program Name', class: "c-input" %>
                 </div>
               </div>
               <div class="col-lg-3 u-mb-xsmall">
@@ -82,13 +83,6 @@
               </div>
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input1">Student</label>
-                  <%= form.select :student_id, options_for_select(User.student.map{ |student| [student.full_name, student.id] }, :selected => form.object.student_id),{prompt: 'Select Student'}, {class: 'c-input'} %>
-
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
                   <label class="c-field__label" for="input1">Mentor</label>
                   <%= form.select :mentor_id, options_for_select(User.mentor.map{ |mentor| [mentor.full_name, mentor.id] }, :selected => form.object.mentor_id), {prompt: 'Select Mentor'}, {class: 'c-input'} %>
                 </div>
@@ -96,13 +90,13 @@
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
                   <label class="c-field__label" for="input1">University Name</label>
-                  <%= form.text_field :university_name ,class: "c-input" %>
+                  <%= form.text_field :university_name, placeholder: 'University Name', class: "c-input" %>
                 </div>
               </div>
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
                   <label class="c-field__label" for="input1">Application Status</label>
-                  <%= form.text_field :application_status ,class: "c-input" %>
+                  <%= form.select :application_status, options_for_select(StudentApplication::APPLICATION_STATUS), {prompt: 'Select Status'}, {class: 'c-input'} %>
                 </div>
               </div>
             </div>

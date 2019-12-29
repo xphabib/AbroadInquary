@@ -4,7 +4,9 @@ class StudentApplicationsController < ApplicationController
   # GET /student_applications
   # GET /student_applications.json
   def index
-    @student_applications = StudentApplication.all
+    @student_applications = StudentApplication.all if current_user.head_admin?
+    @my_applications = current_user.student_applications if current_user.student?
+    @my_applications = current_user.mentor_applications if current_user.mentor?
   end
 
   # GET /student_applications/1

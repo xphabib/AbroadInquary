@@ -1,1 +1,4 @@
-$("#schedule_id_<%= @schedule.id %>").replaceWith("Booked by <%= @schedule.student.full_name %>");
+//$("#schedule_id_<%#= @schedule.id %>").replaceWith("Booked by <%#= @schedule.student.full_name %>");
+$("#modal").find("#modal-title").html("New Schedule Booking")
+$("#modal").find("#modal-content-body").html('<%= escape_javascript(render "schedule_form").html_safe %>');
+$("#modal").modal('show');

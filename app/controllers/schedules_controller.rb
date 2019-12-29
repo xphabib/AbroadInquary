@@ -50,7 +50,7 @@ class SchedulesController < ApplicationController
   end
 
   def booked_users
-
+    @schedules = current_user.mentor_schedules.where.not(student_id: nil)
   end
 
   private

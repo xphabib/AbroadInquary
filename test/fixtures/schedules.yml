@@ -9,6 +9,8 @@
 #  schedule_cost :float
 #  start_time    :datetime
 #  status        :string
+#  user_phone_no :string
+#  user_skype    :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  mentor_id     :integer

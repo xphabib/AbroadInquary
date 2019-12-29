@@ -40,3 +40,11 @@
     </div>
   </div>
 </nav>
+
+<%= content_for :custom_js do %>
+  <script type="text/javascript" charset="utf-8">
+      $("#modal-submit").click(function () {
+          $("#schedule-booking-form").submit();
+      })
+  </script>
+<% end %>

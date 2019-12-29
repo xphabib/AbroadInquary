@@ -9,7 +9,13 @@ class ScheduleBookingController < ApplicationController
   end
 
   def booking_schedule
+    # @schedule = Schedule.find(params[:schedule_id])
+    # @schedule.update(student_id: current_user.id)
+  end
+
+  def update_schedule_booking
     @schedule = Schedule.find(params[:schedule_id])
-    @schedule.update(student_id: current_user.id)
+    @schedule.update(student_id: current_user.id, user_skype: params[:skype],  user_phone_no: params[:phone])
+    redirect_to schedule_path(@schedule)
   end
 end

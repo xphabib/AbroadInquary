@@ -11,7 +11,11 @@
     <span class="c-badge c-badge--warning"><%= @schedule.is_paid ? 'Paid':'Free' %></span>
     <span class="c-badge c-badge--danger"><%= @schedule.schedule_cost %>$</span>
     <div class="c-badge c-badge--primary">
-       <button class="c-btn c-btn--small">Booking</button>
+      <% if @schedule.student.present? %>
+        <p class="u-text-xsmall">Schedule is booked by <%= @schedule.student.full_name %></p>
+      <% else %>
+        <%= link_to 'Book now', booking_schedule_path(schedule_id: schedule.id), id: "schedule_id_#{schedule.id}", class: "u-text-xsmall", remote: true if current_user.student?%>
+      <% end %>
     </div>
   </div>
 </div>

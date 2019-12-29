@@ -33,4 +33,10 @@ class StudentApplication < ApplicationRecord
   mount_uploader :birth_certificate, ApplicationAttachmentUploader
   mount_uploader :bank_statement, ApplicationAttachmentUploader
   mount_uploader :bank_solvency_certificate, ApplicationAttachmentUploader
+
+  APPLICATION_STATUS = [
+      'File Open',
+      'Acceptence Later',
+      'Visa Reject'
+  ]
 end
