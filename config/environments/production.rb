@@ -97,9 +97,9 @@ Rails.application.configure do
 
   config.force_ssl = true
   #for mailer root url
-  config.action_mailer.default_url_options = {host: 'http://abroadinquiry.com'}
+  config.action_mailer.default_url_options = {host: 'http://www.abroadinquiry.com'}
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.asset_host = 'https://abroadinquiry.com'
+  config.action_mailer.asset_host = 'https://www.abroadinquiry.com'
 
   # Sending mail configuration.
   # config.action_mailer.asset_host = "https://56baa40a.ngrok.io"
