@@ -48,9 +48,8 @@
   <div class="col-md-6">
     <div class="c-card u-ph-zero u-pb-zero text-center">
       <div class="u-ph-medium">
-        <h4>Today's Schedules</h4>
-        <p>Activity from <%= Time.now.strftime("%d/%h/%y") %> 12:00 AM To <%= Time.now.strftime("%H:%M %P")  %></p>
-        <span class="u-h1">5</span>
+        <h4>Your total schedules</h4>
+        <span class="u-h1"><%= @student_total_applications %></span>
       </div>
       <div class="u-p-medium">
         <div class="c-chart">
@@ -63,9 +62,8 @@
   <div class="col-md-6">
     <div class="c-card u-ph-zero u-pb-zero text-center">
       <div class="u-ph-medium">
-        <h4>Today's Applications</h4>
-        <p>Activity from <%= Time.now.strftime("%d/%h/%y") %> 12:00 AM To <%= Time.now.strftime("%H:%M %P")  %></p>
-        <span class="u-h1">3</span>
+        <h4>Your total applications</h4>
+        <span class="u-h1"><%= @student_total_schedules %></span>
       </div>
       <div class="u-p-medium">
         <div class="c-chart">

@@ -75,13 +75,6 @@
               </div>
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input3">User Type</label>
-                  <%= f.select :role, options_for_select(['mentor', 'student']), {}, {placeholder: :user_type, class: 'c-input'} %>
-                </div>
-              </div>
-
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
                   <label class="c-field__label" for="input3">Image</label>
                   <%= f.file_field :image, placeholder: :image, class: 'c-input' %>
                 </div>

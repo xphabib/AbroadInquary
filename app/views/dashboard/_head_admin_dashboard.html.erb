@@ -1,10 +1,9 @@
 <div class="row">
   <div class="col-md-6 col-xl-3">
     <div class="c-card">
-                  <span class="c-icon c-icon--info u-mb-small">
-                    <i class="feather icon-activity"></i>
-                  </span>
-
+      <span class="c-icon c-icon--info u-mb-small">
+        <i class="feather icon-activity"></i>
+      </span>
       <h3 class="c-text--subtitle">Total Schedule</h3>
       <h1><%= @total_schedules %></h1>
     </div>
@@ -12,10 +11,9 @@
 
   <div class="col-md-6 col-xl-3">
     <div class="c-card">
-                  <span class="c-icon c-icon--danger u-mb-small">
-                    <i class="feather icon-shopping-cart"></i>
-                  </span>
-
+      <span class="c-icon c-icon--danger u-mb-small">
+        <i class="feather icon-shopping-cart"></i>
+      </span>
       <h3 class="c-text--subtitle">Total Application</h3>
       <h1><%= @total_applications %></h1>
     </div>
@@ -23,10 +21,9 @@
 
   <div class="col-md-6 col-xl-3">
     <div class="c-card">
-                  <span class="c-icon c-icon--success u-mb-small">
-                    <i class="feather icon-users"></i>
-                  </span>
-
+      <span class="c-icon c-icon--success u-mb-small">
+        <i class="feather icon-users"></i>
+      </span>
       <h3 class="c-text--subtitle">Total Students</h3>
       <h1><%= @total_students %></h1>
     </div>
@@ -34,10 +31,9 @@
 
   <div class="col-md-6 col-xl-3">
     <div class="c-card">
-                  <span class="c-icon c-icon--warning u-mb-small">
-                    <i class="feather icon-zap"></i>
-                  </span>
-
+      <span class="c-icon c-icon--warning u-mb-small">
+        <i class="feather icon-zap"></i>
+      </span>
       <h3 class="c-text--subtitle">Head Admin</h3>
       <h1><%= @total_admins %></h1>
     </div>
@@ -52,7 +48,9 @@
         <h4>Today's Schedules</h4>
         <p>Activity from <%= Time.now.strftime("%d/%h/%y") %> 12:00 AM To <%= Time.now.strftime("%H:%M %P")  %></p>
 
-        <span class="u-h1">5</span>
+        <span class="u-h1">
+          <%= @todays_schedules %>
+        </span>
       </div>
 
       <div class="u-p-medium">
