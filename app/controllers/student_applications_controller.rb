@@ -28,6 +28,8 @@ class StudentApplicationsController < ApplicationController
   # POST /student_applications.json
   def create
     @student_application = StudentApplication.new(student_application_params)
+    @student_application.student_id = current_user.id if current_user.student?
+    @student_application.mentor_id = current_user.id if current_user.mentor?
 
     respond_to do |format|
       if @student_application.save!
