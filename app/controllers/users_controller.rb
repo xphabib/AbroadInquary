@@ -94,7 +94,7 @@ class UsersController < ApplicationController
   end
 
   def mentor_request_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit!#(:first_name, :last_name, :email, :password)
   end
 
 end
