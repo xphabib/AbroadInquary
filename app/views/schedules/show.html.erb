@@ -10,13 +10,21 @@
     <span class="c-badge c-badge--success">Start: <%= @schedule.end_time.strftime("%H:%M") %></span>
     <span class="c-badge c-badge--warning"><%= @schedule.is_paid ? 'Paid':'Free' %></span>
     <span class="c-badge c-badge--danger"><%= @schedule.schedule_cost %>$</span>
-    <div class="c-badge c-badge--primary">
-      <% if @schedule.student.present? %>
+    <% if @schedule.student.present? %>
+      <div class="c-badge c-badge--primary">
         <p class="u-text-xsmall">Schedule is booked by <%= @schedule.student.full_name %></p>
-      <% else %>
+      </div>
+      <div class="c-badge c-badge--primary">
+        <p class="u-text-xsmall">Skype: <b><%= @schedule.user_skype %></b></p>
+      </div>
+      <div class="c-badge c-badge--primary">
+        <p class="u-text-xsmall">Phone: <b><%= @schedule.user_phone_no %></b></p>
+      </div>
+    <% else %>
+      <div class="c-badge c-badge--primary">
         <%= link_to 'Book now', booking_schedule_path(schedule_id: schedule.id), id: "schedule_id_#{schedule.id}", class: "u-text-xsmall", remote: true if current_user.student?%>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

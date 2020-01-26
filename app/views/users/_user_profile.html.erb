@@ -28,11 +28,40 @@
   <span class="c-text--subtitle">Address</span>
   <p class="u-mb-small u-text-large"><%= @user.address.present? ? @user.address : 'Na' %></p>
 
-<!--  <span class="c-text--subtitle u-block">Tags</span>-->
-<!--  <a class="c-badge c-badge--small c-badge--info u-mb-xsmall" href="user-profile.html#">Sketch</a>-->
-<!--  <a class="c-badge c-badge--small c-badge--info u-mb-xsmall" href="user-profile.html#">Photoshop</a>-->
-<!--  <a class="c-badge c-badge--small c-badge--danger u-mb-xsmall" href="user-profile.html#">HTML</a>-->
-<!--  <a class="c-badge c-badge--small c-badge--success u-mb-xsmall" href="user-profile.html#">CSS</a>-->
-<!--  <a class="c-badge c-badge--small c-badge--fancy u-mb-xsmall" href="user-profile.html#">Figma</a>-->
-<!--  <a class="c-badge c-badge--small c-badge--danger" href="user-profile.html#">AE</a>-->
+
+  <span class="c-text--subtitle">City</span>
+  <p class="u-mb-small u-text-large"><%= @user.city_name.present? ? @user.city_name : 'Na' %></p>
+
+  <span class="c-text--subtitle">Country</span>
+  <p class="u-mb-small u-text-large"><%= @user.country_name.present? ? @user.country_name : 'Na' %></p>
+
+  <span class="c-text--subtitle">Department</span>
+  <p class="u-mb-small u-text-large"><%= @user.department_name.present? ? @user.department_name : 'Na' %></p>
+
+  <span class="c-text--subtitle">Date of birth</span>
+  <p class="u-mb-small u-text-large"><%= @user.dob.present? ? @user.dob : 'Na' %></p>
+
+  <span class="c-text--subtitle">Nationality</span>
+  <p class="u-mb-small u-text-large"><%= @user.nationality.present? ? @user.nationality : 'Na' %></p>
+
+  <span class="c-text--subtitle">Nid</span>
+  <p class="u-mb-small u-text-large"><%= @user.nid.present? ? @user.nid : 'Na' %></p>
+
+  <span class="c-text--subtitle">Occupation</span>
+  <p class="u-mb-small u-text-large"><%= @user.occupation.present? ? @user.occupation : 'Na' %></p>
+
+  <span class="c-text--subtitle">Passport</span>
+  <p class="u-mb-small u-text-large"><%= @user.passport.present? ? @user.passport : 'Na' %></p>
+
+  <span class="c-text--subtitle">Date of birth</span>
+  <p class="u-mb-small u-text-large"><%= @user.dob.present? ? @user.dob : 'Na' %></p>
+
+  <span class="c-text--subtitle">Phone</span>
+  <p class="u-mb-small u-text-large"><%= @user.phone.present? ? @user.phone : 'Na' %></p>
+
+  <span class="c-text--subtitle">Pole</span>
+  <p class="u-mb-small u-text-large"><%= @user.role.present? ? @user.role : 'Na' %></p>
+
+  <span class="c-text--subtitle">Refer code</span>
+  <p class="u-mb-small u-text-large"><%= @user.slug.present? ? @user.slug : 'Na' %></p>
 </div>

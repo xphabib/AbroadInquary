@@ -110,63 +110,53 @@
         <span class="c-text--subtitle">Email Address</span>
         <p class="u-mb-small u-text-large"><%= current_user.email.present? ? current_user.email : 'Na' %></p>
 
+        <span class="c-text--subtitle">University</span>
+        <p class="u-mb-small u-text-large"><%= current_user.university.present? ? current_user.university : 'Na' %></p>
+
         <span class="c-text--subtitle">Phone NUMBER</span>
         <p class="u-mb-small u-text-large"><%= current_user.phone.present? ? current_user.phone : 'Na' %></p>
 
         <span class="c-text--subtitle">Address</span>
         <p class="u-mb-small u-text-large"><%= current_user.address.present? ? current_user.address : 'Na' %></p>
 
-<!--        <span class="c-text--subtitle u-block">Tags</span>-->
-<!--        <a class="c-badge c-badge--small c-badge--info u-mb-xsmall" href="user-profile.html#">Sketch</a>-->
-<!--        <a class="c-badge c-badge--small c-badge--info u-mb-xsmall" href="user-profile.html#">Photoshop</a>-->
-<!--        <a class="c-badge c-badge--small c-badge--danger u-mb-xsmall" href="user-profile.html#">HTML</a>-->
-<!--        <a class="c-badge c-badge--small c-badge--success u-mb-xsmall" href="user-profile.html#">CSS</a>-->
-<!--        <a class="c-badge c-badge--small c-badge--fancy u-mb-xsmall" href="user-profile.html#">Figma</a>-->
-<!--        <a class="c-badge c-badge--small c-badge--danger" href="user-profile.html#">AE</a>-->
+        <span class="c-text--subtitle">City</span>
+        <p class="u-mb-small u-text-large"><%= current_user.city_name.present? ? current_user.city_name : 'Na' %></p>
+
+        <span class="c-text--subtitle">Country</span>
+        <p class="u-mb-small u-text-large"><%= current_user.country_name.present? ? current_user.country_name : 'Na' %></p>
+
+        <span class="c-text--subtitle">Department</span>
+        <p class="u-mb-small u-text-large"><%= current_user.department_name.present? ? current_user.department_name : 'Na' %></p>
+
+        <span class="c-text--subtitle">Date of birth</span>
+        <p class="u-mb-small u-text-large"><%= current_user.dob.present? ? current_user.dob : 'Na' %></p>
+
+        <span class="c-text--subtitle">Nationality</span>
+        <p class="u-mb-small u-text-large"><%= current_user.nationality.present? ? current_user.nationality : 'Na' %></p>
+
+        <span class="c-text--subtitle">Nid</span>
+        <p class="u-mb-small u-text-large"><%= current_user.nid.present? ? current_user.nid : 'Na' %></p>
+
+        <span class="c-text--subtitle">Occupation</span>
+        <p class="u-mb-small u-text-large"><%= current_user.occupation.present? ? current_user.occupation : 'Na' %></p>
+
+        <span class="c-text--subtitle">Passport</span>
+        <p class="u-mb-small u-text-large"><%= current_user.passport.present? ? current_user.passport : 'Na' %></p>
+
+        <span class="c-text--subtitle">Date of birth</span>
+        <p class="u-mb-small u-text-large"><%= current_user.dob.present? ? current_user.dob : 'Na' %></p>
+
+        <span class="c-text--subtitle">Phone</span>
+        <p class="u-mb-small u-text-large"><%= current_user.phone.present? ? current_user.phone : 'Na' %></p>
+
+        <span class="c-text--subtitle">Pole</span>
+        <p class="u-mb-small u-text-large"><%= current_user.role.present? ? current_user.role : 'Na' %></p>
+
+        <span class="c-text--subtitle">Refer code</span>
+        <p class="u-mb-small u-text-large"><%= current_user.slug.present? ? current_user.slug : 'Na' %></p>
       </div>
-
-<!--      <div class="c-card">-->
-<!--        <h4>Payments</h4>-->
-<!--        <p class="u-mb-medium">Add or remove a payout method</p>-->
-
-<!--        <div class="o-media u-mb-small">-->
-<!--          <div class="o-media__img u-mr-xsmall">-->
-<!--            <img src="<%#= asset_path('paypal.svg') %>" alt="PayPal">-->
-<!--          </div>-->
-
-<!--          <div class="o-media__body u-flex u-justify-between">-->
-<!--            <p>adam@sandler.com</p>-->
-<!--            <a class="u-text-small" href="user-profile.html#">Remove</a>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="o-media u-mb-small">-->
-<!--          <div class="o-media__img u-mr-xsmall">-->
-<!--            <img src="<%#= asset_path('stripe.svg') %>" alt="Stripe">-->
-<!--          </div>-->
-
-<!--          <div class="o-media__body u-flex u-justify-between">-->
-<!--            <p>adam@sandler.com</p>-->
-<!--            <a class="u-text-small" href="user-profile.html#">Remove</a>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="o-media">-->
-<!--          <div class="o-media__img u-mr-xsmall">-->
-<!--            <img src="<%#= asset_path('bank.svg') %>" alt="Bank">-->
-<!--          </div>-->
-
-<!--          <div class="o-media__body u-flex u-justify-between">-->
-<!--            <p>xxxx-5623</p>-->
-<!--            <a class="u-text-small" href="user-profile.html#">Remove</a>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      </div>-->
     </div>
   </div>
-
-
 </div>
 
 

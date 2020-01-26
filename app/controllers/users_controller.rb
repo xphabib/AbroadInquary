@@ -9,10 +9,17 @@ class UsersController < ApplicationController
   end
 
   def update_my_profile
-    current_user.admin_confirmation = false
-    if current_user.update!(set_params)
-      flash[:warning] = 'Your Account is Under Review'
-      redirect_to root_path
+    unless current_user.student?
+      current_user.admin_confirmation = false
+      if current_user.update!(set_params)
+        flash[:warning] = 'Your Account is Under Review'
+        redirect_to root_path
+      end
+    else
+      if current_user.update!(set_params)
+        flash[:warning] = 'Your Accout is updated'
+        redirect_to my_profile_users_path
+      end
     end
   end
 

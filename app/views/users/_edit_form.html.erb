@@ -82,12 +82,55 @@
 
               <div class="col-lg-3 u-mb-xsmall">
                 <div class="c-field">
+                  <label class="c-field__label" for="input3">Address</label>
+                  <%= f.text_field :address, placeholder: :address, class: 'c-input' %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input3">Department Name</label>
+                  <%= f.text_field :department_name, placeholder: :department_name, class: 'c-input' %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input3">Date of birth</label>
+                  <%= f.text_field :dob, placeholder: 'Date of birth', class: 'c-input datetimepicker' %>
+                </div>
+              </div>
+
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input3">Nationality</label>
+                  <%= f.text_field :nationality, placeholder: :nationality, class: 'c-input' %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input3">Nid</label>
+                  <%= f.text_field :nid, placeholder: :nid, class: 'c-input' %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input3">Passport</label>
+                  <%= f.text_field :passport, placeholder: 'Passport', class: 'c-input' %>
+                </div>
+              </div>
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input3">University</label>
+                  <%= f.text_field :university, placeholder: 'University', class: 'c-input' %>
+                </div>
+              </div>
+
+              <div class="col-lg-3 u-mb-xsmall">
+                <div class="c-field">
                   <label class="c-field__label" for="input3">Image</label>
                   <%= f.file_field :image, placeholder: :image, class: 'c-input' %>
                 </div>
               </div>
             </div>
-
 
             <div class="c-field">
               <%= link_to 'Cancel', users_path, class: "c-btn c-btn--secondary u-mb-xsmall" %>
