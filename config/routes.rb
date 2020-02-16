@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'editor_images', to: 'editor_images#index'
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
