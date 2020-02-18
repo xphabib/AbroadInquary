@@ -13,4 +13,5 @@
 class Country < ApplicationRecord
   has_many :cities
   has_many :student_applications
+  has_many :users
 end

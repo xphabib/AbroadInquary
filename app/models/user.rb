@@ -33,6 +33,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  city_id                :integer
+#  country_id             :integer
 #
 # Indexes
 #
@@ -45,6 +46,7 @@ class User < ApplicationRecord
   has_many :student_applications, foreign_key: :student_id
   has_many :mentor_applications, class_name: 'StudentApplication', foreign_key: :mentor_id
   belongs_to :city, optional: true
+  belongs_to :country
   has_many :student_schedules, foreign_key: :student_id, class_name: 'Schedule'
   has_many :mentor_schedules, foreign_key: :mentor_id, class_name: 'Schedule'
   has_many :comments

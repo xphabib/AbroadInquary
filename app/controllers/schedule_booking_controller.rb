@@ -3,9 +3,11 @@ class ScheduleBookingController < ApplicationController
 
   def index
     # @mentors = Mentor.all.order(:first_name).page(params[:page]).per(10)
-    search_param = params[:search].downcase if params[:search].present?
-    @mentors = User.mentor.where(["LOWER(country_name) LIKE ?","%#{search_param}%"]).order(:first_name).page(params[:page]).per(10)
+    # search_param = params[:search].downcase if params[:search].present?
+    # @mentors = User.mentor.where(["LOWER(country_name) LIKE ?","%#{search_param}%"]).order(:first_name).page(params[:page]).per(10)
     # @mentors = Mentor.where(country_name: params[:search]).order(:first_name).page(params[:page]).per(10)
+    @country = Country.find_by(id: params[:country])
+    @mentors = @country.users.mentor
   end
 
   def booking_schedule

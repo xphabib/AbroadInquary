@@ -11,7 +11,8 @@
 
             <%= form_tag mentor_schedules_path, class: "product-search-form", method: :get do%>
               <div class="form-group">
-                <%= text_field_tag :search, '', class: "form-controllar", placeholder: "Which country you want to go" %>
+                <%#= text_field_tag :search, '', class: "form-controllar", placeholder: "Which country you want to go" %>
+                <%= select_tag :country, options_from_collection_for_select(@countries, "id", "name"), class: "form-controllar", prompt: "Which country you want to go" %>
                 <%= submit_tag :search, class: "btn btn-default btn-primary" %>
               </div>
             <% end %>
