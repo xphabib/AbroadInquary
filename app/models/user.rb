@@ -4,31 +4,41 @@
 #
 #  id                     :bigint           not null, primary key
 #  about                  :text
+#  activities             :string
 #  address                :text
 #  admin_confirmation     :boolean          default(FALSE)
 #  cgpa                   :float
 #  city_name              :string
+#  comment                :string
+#  community              :string
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
+#  consultancy            :string
 #  country_name           :string
 #  department_name        :string
 #  dob                    :date
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
+#  full_name              :string
 #  image                  :string
 #  last_name              :string
 #  nationality            :string
 #  nid                    :string
 #  occupation             :string
+#  other_consultancy      :string
+#  other_working_policy   :string
 #  passport               :string
 #  phone                  :string
+#  privacy_policy         :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
+#  scholarship            :string
 #  slug                   :string
+#  social                 :string
 #  university             :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -63,9 +73,9 @@ class User < ApplicationRecord
   friendly_id :full_name, use: :slugged
   enum role: %i[head_admin teacher manager executive_admin director_admin mentor student]
 
-  def full_name
-    "#{self.first_name} #{self.last_name}"
-  end
+  # def full_name
+  #   "#{self.first_name} #{self.last_name}"
+  # end
 
   private
   def self_type()

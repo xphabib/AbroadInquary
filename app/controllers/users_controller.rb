@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def request_for_new_mentorship
-    @countries = Country.all
+    @countries = Country.all.order(:name)
     @user = User.new
     respond_to do |format|
       format.html {render :layout => 'dashboard'}

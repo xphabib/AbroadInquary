@@ -94,14 +94,8 @@
             <%else %>
               <img class="c-avatar__img" src="<%= asset_path('avatar.jpeg') %>" alt="Avatar">
             <%end%>
-
           </div>
-          <%if current_user.first_name.present? || current_user.last_name.present? %>
-
-            <h5> <%= current_user.first_name %> <%= current_user.last_name %> </h5>
-          <%else %>
-            <h5> Na</h5>
-          <%end %>
+            <h5> <%= current_user.full_name %> </h5>
           <p><%= current_user.occupation.present? ? current_user.occupation : 'Na' %></p>
         </div>
 

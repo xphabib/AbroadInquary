@@ -10,7 +10,7 @@ ActiveAdmin.register Blog do
       f.input :category
       f.input :image, :as => :file,
               :hint => 'Preferable Image dimension (1200/600)px'
-      f.input :content,:as => :ckeditor#label: false
+      f.input :content#,:as => :ckeditor#label: false
       f.input :admin_user_id,  :input_html => { :value => current_admin_user.id }, as: :hidden
       # f.cktext_area :content, ckeditor: {language: 'us', label: true, :ckeditor => {:toolbar => 'Full'}, removeDialogTabs: 'image:Upload'}
       f.input :fb_link, input_html: { placeholder: "example: facebook.com/username" }

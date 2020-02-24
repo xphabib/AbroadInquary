@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @countries = Country.all
+    @countries = Country.all.order(:name)
   end
 
   def contact ;end
