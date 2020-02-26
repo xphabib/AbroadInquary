@@ -4,5 +4,6 @@
  *= require plugins
  *= require style
  *= require toastr
+ *= require home
  *= require_self
  */

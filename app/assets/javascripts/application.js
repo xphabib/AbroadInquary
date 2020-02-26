@@ -4,6 +4,7 @@
 //= require modernizr-2.8.3.min
 //= require jquery-v3.2.1.min.js
 //= require toastr
+//= require home_page
 // require notifier
 
 toastr.options = ({
