@@ -1,9 +1,9 @@
 class BlogsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-     @blogs = Blog.all
+    @blogs = Blog.all
     @categories = Category.all
-     @resent_posts = Blog.last(10)
+    @resent_posts = Blog.last(10)
   end
 
   def show

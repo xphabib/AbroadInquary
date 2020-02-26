@@ -1,0 +1,97 @@
+<!--=======Page Heading
+    ==================================-->
+<section class="page-heading-section page-heading-one before-bg bg-image" style="background-image: url(<%= asset_path('header/p-header3.jpg') %>);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="page-heading">
+          <h2 class="page-name text-capitalize">Services</h2>
+          <!--          <a href="#" class="btn btn-default btn-primary">back to home</a>-->
+          <%= link_to "Back to Home", root_path, class: "btn btn-default btn-primary" %>
+        </div><!--/.page-heading-->
+      </div><!--/.col-md-12-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</section><!--/.page-heading-area-->
+<!--====Services Section
+====================================-->
+<section id="services-section" class="services-section-area s-pd1">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-8">
+        <div class="section-heading-area text-center">
+          <h2 class="section-heading text-capitalize">This is what we offer</h2>
+          <p>
+            Informing to the aspirants the factual information of a country and providing admission,
+            scholarship and visa services for study abroad through expert mentors who already went through the process, became successful and living the country.
+          </p>
+
+        </div><!--/.section-heading-area-->
+      </div><!--/.col-lg-8-->
+    </div><!--/.row-->
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="single-service text-center">
+          <div class="icon">
+            <%= image_tag 'icon/s-icon1.png', alt: 'icon' %>
+          </div>
+          <h3>Online Guidance Service</h3>
+          <p class="services">Here you will get the full guidance and information for your selected country and you can book an
+            appointment with our expert mentors from different countries.
+            Later, you will talk with your chosen mentor over Skype for thirty minutes.
+            The mentor will inform you of the factual information related to your subject, universities,
+            country and part-time job facilities, financial matters, scholarships and relevant information. In addition, the mentor will analyze
+            your profile and guide you to which university & scholarship suits your profile. Besides, you can ask as much as relevant questions.
+            Does it seem like interested in talking with your desire mentor?
+            Then you can <a href="/contact">contact us</a>
+            or choose a <%= link_to :country, countries_path %> and select a mentor <a href="#">here</a>.
+          </p>
+        </div><!--/.single-service-->
+      </div><!--/.col-lg-4-->
+      <div class="col-lg-4 col-md-4">
+        <div class="single-service text-center">
+          <div class="icon">
+            <%= image_tag 'icon/s-icon2.png', alt: 'icon' %>
+          </div><!--/.row-->
+          <h3>Admission and Visa Service</h3>
+          <p class="services">
+            After meeting with your mentor, if you decided to further work with Abroad Inquiry, then you can apply through us.
+            We will further guide you on how to arrange your paper, how to prepare your document for application. Consequently,
+            we will apply for your admission and visa on behalf of you. Until you get your visa,
+            we will take all of your responsibility to fulfill your higher study abroad dream.
+            If you are interested, you can <a href="/contact">contact us</a> or request it <a href="#">here</a>.
+          </p>
+        </div><!--/.single-service-->
+      </div><!--/.col-lg-4-->
+      <div class="col-lg-4 col-md-4">
+        <div class="single-service text-center">
+          <div class="icon">
+            <%= image_tag 'icon/s-icon3.png', alt: 'icon' %>
+          </div><!--/.row-->
+          <h3>Scholarship and Visa Service</h3>
+          <p class="services">
+            Once you have decided to apply abroad with scholarship, our awarded scholars will assist you until you get your admission, scholarship and visa.
+            As our mentors are living your desire country and have got the real life experiences from their field of interest and became successful,
+            they will inform and guide you in all aspects such as how to write a killer motivation letter for scholarship,
+            documents you need to arrange for scholarship, costs of application and so on.
+            If you would like to apply for scholarship, then you can select a  <%= link_to :scholarship, scholarships_path %> and feel free to <a href="/contact">contact us</a>.
+          </p>
+        </div><!--/.single-service-->
+      </div><!--/.col-lg-4-->
+    </div><!--/.row-->
+  </div><!--/.container-->
+</section><!--/#services-section-->
+
+
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $(".services").shorten({
+              "showChars" : 150,
+              "moreText"	: "See More",
+              "lessText"	: "Less",
+          });
+      });
+  </script>
+<% end %>

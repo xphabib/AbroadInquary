@@ -11,7 +11,6 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new
   end
 
-
   def show
   end
 

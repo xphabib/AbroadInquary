@@ -1,4 +1,9 @@
 ActiveAdmin.setup do |config|
+
+  ActiveAdmin::BaseController.class_eval do
+    skip_before_action :authenticate_user!
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -325,8 +330,4 @@ ActiveAdmin.setup do |config|
   # You can inherit it with own class and inject it for all resources
   Rails.application.config.assets.precompile += %w[ckeditor]
   # config.order_clause = MyOrderClause
-end
-
-ActiveAdmin::BaseController.class_eval do
-  skip_before_action :authenticate_user!
 end

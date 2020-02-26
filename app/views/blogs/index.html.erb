@@ -24,101 +24,70 @@
             <div class="row">
               <!-- Start single blog -->
               <% if @blogs.present?  %>
-              <% @blogs.each do |blog| %>
-              <div class="col-md-6 col-sm-12">
-                <div class="blog">
-                  <div class="blog-thumb">
-                    <%= image_tag image_url(blog.image), alt: "blog image" %>
+                <% @blogs.each do |blog| %>
+                  <div class="col-md-6 col-sm-12">
+                    <div class="blog">
+                      <div class="blog-thumb">
+                        <%= image_tag image_url(blog.image), alt: "blog image", style: 'height: 200px' %>
+                      </div>
+                      <div class="blog-details">
+                        <div class="blog-time">
+                          <span class="blog-date"><%= blog.created_at.strftime("%B %d %Y  %I:%M %P") %> By <a href="#"> <%= blog.admin_user.full_name %> </a></span>
+                          <span class="blog__category">Category <a href="#"><%= blog.category.name %></a></span>
+                        </div>
+                        <div class="blog-title">
+                          <h3>
+                            <%= link_to blog_path(blog.id) do%>
+                              <!--                          9 Ridiculous Rules About Tweets -->
+                              <%= truncate(blog.title, length: 30) %>
+                            <% end %>
+                          </h3>
+
+                        </div>
+                        <p> <%= truncate(blog.short_body, length: 80)%></p>
+                        <div class="blog-more">
+                          <%= link_to 'Read More', blog_path(blog.id), class: "btn btn-default" %>
+                          <span class="blog-comments"><a href="#"><%= blog.comments.count %> comments</a></span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="blog-details">
-                    <div class="blog-time">
-                      <span class="blog-date"><%= blog.created_at.strftime("%B %d %Y  %I:%M %P") %> By <a href="#"> <%= blog.admin_user.full_name %> </a></span>
-                      <span class="blog__category">Category <a href="#"><%= blog.category.name %></a></span>
-                    </div>
-                    <div class="blog-title">
-                      <h3>
-                        <%= link_to blog_path(blog.id) do%>
-<!--                          9 Ridiculous Rules About Tweets -->
-                          <%= blog.title %>
-                        <% end %>
-                      </h3>
-
-                    </div>
-                    <p> <%#= raw blog.content %></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-                    <div class="blog-more">
-                      <%= link_to 'Read More', blog_path(blog.id), class: "btn btn-default" %>
-                      <span class="blog-comments"><a href="#"><%= blog.comments.count %> comments</a></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
                 <%end %>
-                <%else %>
-              <div style="text-align: center; font-size: medium"> No Blog Found </div>
-                <%end %>
-                <!-- End single blog -->
-
-
+              <%else %>
+                <div style="text-align: center; font-size: medium"> No Blog Found </div>
+              <%end %>
+              <!-- End single blog -->
             </div><!--/.row-->
           </div><!--/.blog-contect-area-->
-          <div class="pagination blog-pagination text-center">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul>
-          </div><!--/.blog-pagination-->
+<!--          <div class="pagination blog-pagination text-center">-->
+<!--            <ul class="list-unstyled">-->
+<!--              <li><a href="#"><i class="fa fa-angle-left"></i></a></li>-->
+<!--              <li class="active"><a href="#">1</a></li>-->
+<!--              <li><a href="#">2</a></li>-->
+<!--              <li><a href="#">3</a></li>-->
+<!--              <li><a href="#">4</a></li>-->
+<!--              <li><a href="#">5</a></li>-->
+<!--              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
+<!--            </ul>-->
+<!--          </div>/.blog-pagination-->
         </div><!--/.col-lg-8-->
 
         <div class="col-lg-4 col-md-12">
           <div class="blog-sidebar">
-            <aside class="widget widget-search">
-              <form action="#">
-                <input placeholder="Search....." type="text">
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
-            </aside><!--/.widget-search-->
             <aside class="widget widget-category">
               <h2>Categories</h2>
               <ul class="list-unstyled">
                 <% if @categories.present?  %>
-                <% @categories.each do |category| %>
-                  <li>
-                    <%= link_to category.name, '#' %>
-                  </li>
-                <%end %>
-                  <%else %>
+                  <% @categories.each do |category| %>
+                    <li>
+                      <%= link_to category.name, '#' %>
+                    </li>
+                  <%end %>
+                <%else %>
                   <div style="text-align: center; font-size: medium"> Not  Found </div>
                 <%end %>
-<!--                <li><a href="#">Players <span>(04)</span></a></li>-->
-<!--                <li><a href="#">Documents <span>(12)</span></a></li>-->
-<!--                <li><a href="#">Tools <span>(15)</span></a></li>-->
-<!--                <li><a href="#">Photo edit <span>(08)</span></a></li>-->
-<!--                <li><a href="#">Video <span>(05)</span></a></li>-->
-<!--                <li><a href="#">Social messeging <span>(14)</span></a></li>-->
               </ul>
             </aside><!--/.widget-category-->
-            <aside class="widget widget-tag-cloud">
-              <h2>Tags</h2>
-              <ul class="list-unstyled">
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Player</a></li>
-                <li><a href="#">Social</a></li>
-                <li><a href="#">Photo</a></li>
-                <li><a href="#">Video</a></li>
-                <li><a href="#">Images</a></li>
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tools</a></li>
-                <li><a href="#">Images</a></li>
-                <li><a href="#">Video</a></li>
-              </ul>
-            </aside><!--/.widget-tag-cloud-->
             <aside class="widget widget-recent-post">
               <h2>Recent post</h2>
               <% @resent_posts.each do |post| %>
@@ -136,8 +105,6 @@
                   </div>
                 </div>
               <%end %>
-
-
             </aside><!--/.widget-recent-post-->
           </div><!--/.blog-sidebar-->
         </div><!--/.col-lg-4-->

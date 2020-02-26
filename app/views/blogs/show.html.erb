@@ -31,24 +31,9 @@
               </div>
               <div class="sa-blog__content">
                 <p> <%= raw @blog.content %></p>
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium fugiat, beatae dolor possimus deleniti, a harum corporis iusto, adipisci quia reprehenderit numquam? Error autem cupiditate debitis nisi eum consequuntur maiores?</p>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dolorem facilis dolores maiores repudiandae enim odit illum quibusdam magni, quidem repellat dolor soluta suscipit pariatur ipsa a dicta eius ducimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nostrum animi, in vero ducimus culpa neque explicabo saepe fugiat.</p>-->
-<!--                <p class="sa-blog__content__marked">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quisquam accusantium porro molestiae dolor ullam adipisci reprehenderit corrupti.</p>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, culpa dignissimos pariatur, sequi magni expedita! Porro minima similique quisquam, provident, tempora Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolore non iusto soluta labore voluptates iste, expedita ipsa. Minima voluptates autem, in a, quibusdam debitis recusandae harum! Maxime, praesentium deleniti.</p>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dolorem facilis dolores maiores repudiandae enim odit illum</p>-->
-<!--              <--/.sa-blog__content-->
               </div>
-              </div><!--/.sa-blog__details-->
+            </div><!--/.sa-blog__details-->
             <div class="sa-blog__share-wrap">
-              <div class="sa-blog__tags">
-                <span>Tags:</span>
-                <ul>
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">Media</a></li>
-                  <li><a href="#">Edit</a></li>
-                  <li><a href="#">Photo</a></li>
-                </ul>
-              </div>
               <div class="sa-blog__share">
                 <ul class="list-unstyled">
                   <li><a href="http://www.<%=@blog.fb_link  %>" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -65,67 +50,44 @@
             </div>
             <div class="sa-blog__comments">
               <span class="comments__count"><%= @comments.count %> comments</span>
-            <% @comments .each do |comment| %>
-              <div class="comment">
-                <div class="comment__thumb">
-                  <%if comment.user.present? && comment.user.image.present? %>
-                  <%= image_tag image_url(comment.user.image), alt: 'comment'  %>
+              <% @comments .each do |comment| %>
+                <div class="comment">
+                  <div class="comment__thumb">
+                    <%if comment.user.present? && comment.user.image.present? %>
+                      <%= image_tag image_url(comment.user.image), alt: 'comment'  %>
                     <%else %>
-                  <%=  image_tag 'comments/1.jpg', alt: 'comment' %>
-                  <% end %>
+                      <%=  image_tag 'comments/1.jpg', alt: 'comment' %>
+                    <% end %>
+                  </div>
+                  <div class="comment__details">
+                    <h5 class="comment__author-name"><a href="#"><%= comment.user.present? ? comment.user.first_name : comment.user_name %></a></h5>
+                    <span class="comment__time"><%= time_ago_in_words(comment.created_at) %></span>
+                    <p> <%= comment.body %></p>
+                    <!---->
+                    <!--                  <a class="reply-option" href="#">Reply</a>-->
+                  </div>
                 </div>
-                <div class="comment__details">
-                  <h5 class="comment__author-name"><a href="#"><%= comment.user.present? ? comment.user.first_name : comment.user_name %></a></h5>
-                  <span class="comment__time"><%= time_ago_in_words(comment.created_at) %></span>
-                  <p> <%= comment.body %></p>
-<!---->
-<!--                  <a class="reply-option" href="#">Reply</a>-->
-                </div>
-              </div>
-           <%end %>
-<!--              <div class="comment reply">-->
-<!--                <div class="comment__thumb">-->
-                  <%#= image_tag 'comments/2.jpg', alt: 'comment' %>
-<!--                </div>-->
-<!--                <div class="comment__details">-->
-<!--                  <h5 class="comment__author-name"><a href="#">Alex Doe</a></h5>-->
-<!--                  <span class="comment__time">Auguest 11, 2017, 12:21pm</span>-->
-<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde alias quibusdam adipisci quia quod quisquam nesciunt eligendi dicta reiciendis, facere laborum commodi minus.</p>-->
-<!--                  <a class="reply-option" href="#">Reply</a>-->
-<!--                </div>-->
-<!--              </div>-->
-
-<!--              <div class="comment">-->
-<!--                <div class="comment__thumb">-->
-                  <%#= image_tag 'comments/1.jpg', alt: 'comment' %>
-<!--                </div>-->
-<!--                <div class="comment__details">-->
-<!--                  <h5 class="comment__author-name"><a href="#">Alex Doe</a></h5>-->
-<!--                  <span class="comment__time">Auguest 11, 2017, 12:21pm</span>-->
-<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde alias quibusdam adipisci quia quod quisquam nesciunt eligendi dicta reiciendis, facere laborum commodi minus.</p>-->
-<!--                  <a class="reply-option" href="#">Reply</a>-->
-<!--                </div>-->
-<!--              </div>-->
+              <%end %>
             </div>
             <div class="sa-blog__leave-comment">
               <h4 class="leave-comment__title">Leave a comment</h4>
               <%= form_tag comments_path do %>
-<!--              <form action="#">-->
+                <!--              <form action="#">-->
                 <div class="row">
 
-                    <% unless current_user.present?  %>
+                  <% unless current_user.present?  %>
                     <div class="col-md-6">
-                    <div class="single-box">
-                      <%#= text_field_tag  :body %>
-                      <input class="form-control" name ="comment[user_name]" type="text" placeholder="Enter your name...">
+                      <div class="single-box">
+                        <%#= text_field_tag  :body %>
+                        <input class="form-control" name ="comment[user_name]" type="text" placeholder="Enter your name...">
+                      </div>
                     </div>
+                    <div class="col-md-6">
+                      <div class="single-box">
+                        <input class="form-control" name ="comment[user_email]" type="email" placeholder="Enter your email...">
+                      </div>
                     </div>
-                  <div class="col-md-6">
-                    <div class="single-box">
-                      <input class="form-control" name ="comment[user_email]" type="email" placeholder="Enter your email...">
-                    </div>
-                  </div>
-                      <%end %>
+                  <%end %>
                   <div class="col-md-12">
                     <div class="single-box">
                       <textarea name ="comment[body]" class="form-control" cols="30" rows="10" placeholder="Your messege"></textarea>
@@ -138,71 +100,30 @@
                     </div>
                   </div>
                 </div>
-<!--              </form>-->
+                <!--              </form>-->
               <% end %>
             </div>
           </div>
         </div><!--/.col-lg-8-->
         <div class="col-lg-4 col-md-12">
           <div class="blog-sidebar">
-            <aside class="widget widget-search">
-              <form action="#">
-                <input placeholder="Search....." type="text">
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
-            </aside><!--/.widget-search-->
-            <aside class="widget widget-category">
-              <h2>Categories</h2>
-              <ul class="list-unstyled">
-
-                  <% @categories.each do |category| %>
-                  <li>
-                    <%= link_to category.name, '#' %>
-                  </li>
-                    <%end %>
-
-<!--                <li><a href="#">Documents <span>(12)</span></a></li>-->
-<!--                <li><a href="#">Tools <span>(15)</span></a></li>-->
-<!--                <li><a href="#">Photo edit <span>(08)</span></a></li>-->
-<!--                <li><a href="#">Video <span>(05)</span></a></li>-->
-<!--                <li><a href="#">Social messeging <span>(14)</span></a></li>-->
-              </ul>
-            </aside>
-            <aside class="widget widget-tag-cloud">
-              <h2>Tags</h2>
-              <ul class="list-unstyled">
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Player</a></li>
-                <li><a href="#">Social</a></li>
-                <li><a href="#">Photo</a></li>
-                <li><a href="#">Video</a></li>
-                <li><a href="#">Images</a></li>
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tools</a></li>
-                <li><a href="#">Images</a></li>
-                <li><a href="#">Video</a></li>
-              </ul>
-            </aside><!--/.widget-tag-cloud-->
             <aside class="widget widget-recent-post">
               <h2>Recent post</h2>
               <% @resent_posts.each do |post| %>
-              <div class="sidebar__single-post">
-                <div class="single-post__thumb">
-                  <a href="<%=blog_path(post.id)%>">
-                    <%= image_tag image_url(post.image),size: 60, alt: 'blog thumb' %>
-                  </a>
-                </div>
-                <div class="single-post__details">
-                  <h5><a href="<%= post.id %>"><%= post.title %></a></h5>
-                  <div class="single-post__more">
-                    <span class="date"><span class="blog__date"><%= post.created_at.strftime("%B %d %Y   %I:%M %P") %> By <a href="#"><%= post.admin_user.full_name.present? ? post.admin_user.full_name : "Na" %></a></span></span>
+                <div class="sidebar__single-post">
+                  <div class="single-post__thumb">
+                    <a href="<%=blog_path(post.id)%>">
+                      <%= image_tag image_url(post.image),size: 60, alt: 'blog thumb' %>
+                    </a>
+                  </div>
+                  <div class="single-post__details">
+                    <h5><a href="<%= post.id %>"><%= post.title %></a></h5>
+                    <div class="single-post__more">
+                      <span class="date"><span class="blog__date"><%= post.created_at.strftime("%B %d %Y   %I:%M %P") %> By <a href="#"><%= post.admin_user.full_name.present? ? post.admin_user.full_name : "Na" %></a></span></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-                <%end %>
-
-
+              <%end %>
             </aside><!--/.widget-recent-post-->
           </div><!--/.blog-sidebar-->
         </div><!--/.col-lg-4-->

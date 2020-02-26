@@ -8,6 +8,7 @@
 #  g_plus_link   :string
 #  image         :string
 #  ln_link       :string
+#  short_body    :string
 #  title         :string
 #  tw_link       :string
 #  youtube_link  :string

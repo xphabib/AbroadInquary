@@ -50,13 +50,15 @@
             <%= image_tag 'icon/s-icon1.png', alt: 'icon' %>
           </div>
           <h3>Online Guidance Service</h3>
-          <p class="addReadMore showlesscontent">Here you will get the full guidance and information for your selected country and you can book an
+          <p class="services">Here you will get the full guidance and information for your selected country and you can book an
             appointment with our expert mentors from different countries.
             Later, you will talk with your chosen mentor over Skype for thirty minutes.
             The mentor will inform you of the factual information related to your subject, universities,
             country and part-time job facilities, financial matters, scholarships and relevant information. In addition, the mentor will analyze
             your profile and guide you to which university & scholarship suits your profile. Besides, you can ask as much as relevant questions.
-            Does it seem like interested in talking with your desire mentor? Then you can contact us or choose a country and select a mentor here.
+            Does it seem like interested in talking with your desire mentor?
+            Then you can <a href="/contact">contact us</a>
+            or choose a <%= link_to :country, countries_path %> and select a mentor <a href="#">here</a>.
           </p>
         </div><!--/.single-service-->
       </div><!--/.col-lg-4-->
@@ -66,12 +68,12 @@
             <%= image_tag 'icon/s-icon2.png', alt: 'icon' %>
           </div><!--/.row-->
           <h3>Admission and Visa Service</h3>
-          <p class="addReadMore showlesscontent">
+          <p class="services">
             After meeting with your mentor, if you decided to further work with Abroad Inquiry, then you can apply through us.
             We will further guide you on how to arrange your paper, how to prepare your document for application. Consequently,
             we will apply for your admission and visa on behalf of you. Until you get your visa,
             we will take all of your responsibility to fulfill your higher study abroad dream.
-            If you are interested, you can contact us or request it here.
+            If you are interested, you can <a href="/contact">contact us</a> or request it <a href="#">here</a>.
           </p>
         </div><!--/.single-service-->
       </div><!--/.col-lg-4-->
@@ -81,12 +83,12 @@
             <%= image_tag 'icon/s-icon3.png', alt: 'icon' %>
           </div><!--/.row-->
           <h3>Scholarship and Visa Service</h3>
-          <p class="addReadMore showlesscontent">
+          <p class="services">
             Once you have decided to apply abroad with scholarship, our awarded scholars will assist you until you get your admission, scholarship and visa.
             As our mentors are living your desire country and have got the real life experiences from their field of interest and became successful,
             they will inform and guide you in all aspects such as how to write a killer motivation letter for scholarship,
             documents you need to arrange for scholarship, costs of application and so on.
-            If you would like to apply for scholarship, then you can select a scholarship and feel free to contact us.
+            If you would like to apply for scholarship, then you can select a  <%= link_to :scholarship, scholarships_path %> and feel free to <a href="/contact">contact us</a>.
           </p>
         </div><!--/.single-service-->
       </div><!--/.col-lg-4-->
@@ -172,81 +174,60 @@
     </div><!--/.row-->
     <div class="row">
       <!-- Start single blog -->
-      <div class="col-lg-4 col-sm-12">
-        <div class="blog">
-          <div class="blog-thumb">
-            <%= image_tag 'blog/post-1.jpg', alt: 'blog image' %>
-          </div>
-          <div class="blog-details">
-            <div class="blog-time">
-              <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-              <span class="blog__category">Category <a href="#">Travel</a></span>
-            </div>
-            <div class="blog-title">
-              <h3><a href="#">Excepteur sint occaecat cupidatat</a></h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-            <div class="blog-more">
-              <a href="#" class="btn btn-default">Read More</a>
-              <span class="blog-comments"><a href="#">6 comments</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End single blog -->
-      <!-- Start single blog -->
-      <div class="col-lg-4 col-sm-12">
-        <div class="blog">
-          <div class="blog-thumb">
-            <%= image_tag 'blog/post-2.jpg', alt: 'blog image' %>
-          </div>
-          <div class="blog-details">
-            <div class="blog-time">
-              <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-              <span class="blog__category">Category <a href="#">Travel</a></span>
-            </div>
-            <div class="blog-title">
-              <h3><a href="#">Duis aute irure in reprehenderit</a></h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-            <div class="blog-more">
-              <a href="#" class="btn btn-default">Read More</a>
-              <span class="blog-comments"><a href="#">6 comments</a></span>
+
+      <% if @blogs.present?  %>
+        <% @blogs.each do |blog| %>
+          <div class="col-md-4 col-sm-12">
+            <div class="blog">
+              <div class="blog-thumb">
+                <%= image_tag image_url(blog.image), alt: "blog image", style: 'height: 200px' %>
+              </div>
+              <div class="blog-details">
+                <div class="blog-time">
+                  <span class="blog-date"><%= blog.created_at.strftime("%B %d %Y  %I:%M %P") %> By <a href="#"> <%= blog.admin_user.full_name %> </a></span>
+                  <span class="blog__category">Category <a href="#"><%= blog.category.name %></a></span>
+                </div>
+                <div class="blog-title">
+                  <h3>
+                    <%= link_to blog_path(blog.id) do%>
+                      <!--                          9 Ridiculous Rules About Tweets -->
+                      <%= truncate(blog.title, length: 30) %>
+                    <% end %>
+                  </h3>
+
+                </div>
+                <p> <%= truncate(blog.short_body, length: 80)%></p>
+                <div class="blog-more">
+                  <%= link_to 'Read More', blog_path(blog.id), class: "btn btn-default" %>
+                  <span class="blog-comments"><a href="#"><%= blog.comments.count %> comments</a></span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- End single blog -->
-      <!-- Start single blog -->
-      <div class="col-lg-4 col-sm-12">
-        <div class="blog">
-          <div class="blog-thumb">
-            <%= image_tag 'blog/post-3.jpg', alt: 'blog image' %>
-          </div>
-          <div class="blog-details">
-            <div class="blog-time">
-              <span class="blog-date">April 19th, 2017 By <a href="#">Alex Doe</a></span>
-              <span class="blog__category">Category <a href="#">Travel</a></span>
-            </div>
-            <div class="blog-title">
-              <h3><a href="#">Officia deserunt mollit dolor anim</a></h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quisquam, et laboriosam beatae. Voluptate omni.</p>
-            <div class="blog-more">
-              <a href="#" class="btn btn-default">Read More</a>
-              <span class="blog-comments"><a href="#">6 comments</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
+        <%end %>
+      <%else %>
+        <div style="text-align: center; font-size: medium"> No Blog Found </div>
+      <%end %>
       <!-- End single blog -->
     </div><!--/.row-->
     <div class="row">
       <div class="col-lg-12">
         <div class="blog-button text-center">
-          <a href="#" class="btn btn-default btn-primary">go to blog</a>
+          <%= link_to 'go to blog', blogs_path, class: "btn btn-default btn-primary" %>
         </div>
       </div><!--/.col-lg-12-->
     </div><!--/.row-->
   </div><!--/.container-->
 </section><!-- End blog area -->
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $(".services").shorten({
+              "showChars" : 150,
+              "moreText"	: "See More",
+              "lessText"	: "Less",
+          });
+      });
+  </script>
+<% end %>

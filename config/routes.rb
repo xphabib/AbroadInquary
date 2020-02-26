@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get '/booking-schedule', to: 'schedule_booking#booking_schedule', as: 'booking_schedule'
   post 'update_schedule_booking', to: 'schedule_booking#update_schedule_booking', as: 'update_schedule_booking'
   root 'home#index'
+
+  resources :scholarships, only: [:index, :show]
+  resources :services, only: [:index, :show]
+  resources :countries, only: [:index, :show]
   resources :blogs
   resources :comments
 

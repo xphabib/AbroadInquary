@@ -1,7 +1,7 @@
 ActiveAdmin.register Blog do
 
   filter :title
-  permit_params :title, :content, :image, :admin_user_id, :category_id, :fb_link, :tw_link, :g_plus_link, :ln_link, :youtube_link
+  permit_params :title, :content, :short_body, :image, :admin_user_id, :category_id, :fb_link, :tw_link, :g_plus_link, :ln_link, :youtube_link
 
 
   form do |f|
@@ -10,6 +10,7 @@ ActiveAdmin.register Blog do
       f.input :category
       f.input :image, :as => :file,
               :hint => 'Preferable Image dimension (1200/600)px'
+      f.input :short_body
       f.input :content#,:as => :ckeditor#label: false
       f.input :admin_user_id,  :input_html => { :value => current_admin_user.id }, as: :hidden
       # f.cktext_area :content, ckeditor: {language: 'us', label: true, :ckeditor => {:toolbar => 'Full'}, removeDialogTabs: 'image:Upload'}

@@ -29,6 +29,7 @@
 <!--      crossorigin="anonymous"></script>-->
     <%#= javascript_include_tag 'notifier', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://www.viralpatel.net/demo/jquery/jquery.shorten.1.0.js"></script>
   </head>
 
   <body>
@@ -40,5 +41,6 @@
     <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
     <%= custom_bootstrap_flash %>
 <!--    <script src="//code.tidio.co/sbeuihqrrp3esp3hayk0vlfk34yeojdm.js" async></script>-->
+    <%= yield :javascript %>
   </body>
 </html>
