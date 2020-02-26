@@ -17,13 +17,14 @@ Rails.application.routes.draw do
   get '/faq', to: 'home#faq'
   get '/about-us', to: 'home#about_us', as: 'about_us'
   get '/privacy_and_policy', to: 'home#privacy_and_policy'
+  get '/terms_and_conditions', to: 'home#terms_and_condition'
   get '/mentor-schedules', to: 'schedule_booking#index', as: 'mentor_schedules'
   get '/booking-schedule', to: 'schedule_booking#booking_schedule', as: 'booking_schedule'
   post 'update_schedule_booking', to: 'schedule_booking#update_schedule_booking', as: 'update_schedule_booking'
   root 'home#index'
 
   resources :scholarships, only: [:index, :show]
-  resources :services, only: [:index, :show]
+  resources :services, only: :index
   resources :countries, only: [:index, :show]
   resources :blogs
   resources :comments

@@ -9,7 +9,7 @@
         <div class="col-lg-12 text-center">
           <%= link_to "get started As a Mentor", request_for_new_mentorship_path, class: "btn btn-default"%>
           <%= link_to "Apply for Study Abroad", '/users/sign_up', class: "btn btn-default"%>
-          <%= link_to "Apply with Scholarship", '#', class: "btn btn-default"%>
+          <%= link_to "Apply with Scholarship", '/scholarships', class: "btn btn-default"%>
         </div><!--/.col-lg-3-->
       </div><!--/.row-->
     </div><!--/.container-->
@@ -22,12 +22,12 @@
         <div class="col-lg-12 col-sm-12 col-12">
           <div class="footer-newsletter footer-widget">
             <h4 class="footer-title">Disclaimer</h4>
-            <p>
+            <p class="disclamer">
               Due to the immigration policy and periodic changes of the immigration rules, Abroad Inquiry is not assuring or confirming to the aspirants to get visa. In addition, to get admission, scholarship and visa depends on admission board, embassy or particular countries immigration policy. However, Abroad Inquiry’s aspirants have a higher chance to be successful because of our expert mentors are able to guide the aspirants in all aspects to get the admission and visa. As getting admission, scholarship and visa depends on candidate’s academic and professional profile, financial documents, motivation of application and embassy interview. Therefore, Abroad Inquiry is only guiding to the candidates through expert mentors so that the applicants get a better result of their application.
 
               Provided information of various countries through the website is not fully accurate. Therefore, Abroad Inquiry advises to the applicants to check the information from the relevant website.
 
-              Last but not least, before aspirants apply through Abroad Inquiry, candidates are strongly advised to double check of our refund policy & trams and conditions.
+              Last but not least, before aspirants apply through Abroad Inquiry, candidates are strongly advised to double check of our <%= link_to 'refund policy', privacy_and_policy_path %> & <%= link_to 'trams and conditions', '/terms_and_conditions' %>.
             </p>
           </div><!--/.footer-newsletter-->
         </div>
@@ -63,7 +63,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="copyright text-center">
-            &copy; Copyrighted by <a href="https://www.abroadinquiry.com">Abroad Inquiry.</a>
+            &copy; Copyrighted by <a href="https://www.abroadinquiry.com">Abroad Inquiry.</a> | <%= link_to 'Privacy and Policy', privacy_and_policy_path %> | <%= link_to 'Terms and Conditions', '/terms_and_conditions' %>
           </div>
         </div>
       </div><!--/.row-->

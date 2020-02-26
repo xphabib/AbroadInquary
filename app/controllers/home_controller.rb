@@ -12,5 +12,6 @@ class HomeController < ApplicationController
   def about_us ;end
 
   def privacy_and_policy; end
+  def terms_and_condition; end
 
 end

@@ -126,12 +126,9 @@
             <div class="course-content">
               <h2>
                 <%= link_to country.name, mentor_schedules_path(country: country.id) %>
-                <!--                <a href="#"><%#= country.name %></a>-->
               </h2>
-              <!--              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>-->
               <% if country.users.present? %>
                 <div class="trainer-profile clearfix">
-
                   <%= image_tag "author/author-1.jpg", class: "rounded-circle", alt: "img" %>
                   <div class="trainer-info">
                     <h3><%= country.users.mentors.first.full_name %></h3>
@@ -144,6 +141,13 @@
                     <% end %>
                   </div>
                 </div><!--/.trainer-profile-->
+              <% else %>
+                <div class="trainer-profile clearfix">
+                  <%= image_tag "author/author-1.jpg", class: "rounded-circle", alt: "img" %>
+                  <div class="trainer-info">
+                    <h3>Country has no Mentor</h3>
+                  </div>
+                </div><!--/.trainer-profile-->
               <% end %>
             </div><!--/.course-content-->
           </div><!--/.single-course-item-end-->
@@ -154,7 +158,7 @@
       <div class="col-lg-12">
         <div class="group-btn text-center">
           <a href="/users/sign_up" class="btn btn-default btn-primary">Apply for Study Abroad</a>
-          <a href="#" class="btn btn-default">Apply with Scholarship</a>
+          <a href="/scholarships" class="btn btn-default">Apply with Scholarship</a>
         </div><!--/.form-group-btn-->
       </div><!--/.col-lg-12-->
     </div><!--/.row-->
