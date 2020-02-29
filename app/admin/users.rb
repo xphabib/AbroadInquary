@@ -3,12 +3,12 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
-    column :first_name
-    column :last_name
+    column :full_name
     column :email
     column :phone
     column :role
     column :department_name
+    column :nationality
     column :university
     column :cgpa
     column :occupation
@@ -17,6 +17,18 @@ ActiveAdmin.register User do
     column :address
     column :city_name
     column :country_name
+    column :skype
+    column :whatsapp
+    column :scholarship
+    column :social
+    column :activities
+    column :community
+    column :consultancy
+    column :other_consultancy
+    column :comment
+    column :privacy_policy
+    column :other_working_policy
+    column :passport
     column :login_as do |user|
       link_to "Login", login_as_admin_user_path(user)
     end
@@ -39,38 +51,64 @@ ActiveAdmin.register User do
 
   show do
     attributes_table do
-      row :first_name
-      row :last_name
+      row :full_name
       row :email
       row :phone
       row :role
       row :department_name
+      row :nationality
       row :university
       row :cgpa
       row :occupation
       row :dob
+      row :nid
       row :address
       row :city_name
       row :country_name
+      row :skype
+      row :whatsapp
+      row :scholarship
+      row :social
+      row :activities
+      row :community
+      row :consultancy
+      row :other_consultancy
+      row :comment
+      row :privacy_policy
+      row :other_working_policy
+      row :passport
     end
   end
 
   form title: 'User Create' do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs 'Details of User' do
-      f.input :first_name
-      f.input :last_name
+      f.input :full_name
       f.input :email
       f.input :password
       f.input :phone
       f.input :department_name
+      f.input :nationality
       f.input :university
       f.input :cgpa
       f.input :occupation
       f.input :dob
+      f.input :nid
       f.input :address
       f.input :city_name
       f.input :country_name
+      f.input :skype
+      f.input :whatsapp
+      f.input :scholarship
+      f.input :social
+      f.input :activities
+      f.input :community
+      f.input :consultancy
+      f.input :other_consultancy
+      f.input :comment
+      f.input :privacy_policy
+      f.input :other_working_policy
+      f.input :passport
       f.input :role, as: :select, collection: ['head_admin', 'teacher', 'manager', 'executive_admin', 'director_admin', 'mentor', 'student']
     end
     para "Press cancel to return to the list without saving."
@@ -112,5 +150,5 @@ ActiveAdmin.register User do
     redirect_to admin_users_path
   end
 
-  permit_params :email, :password, :first_name, :last_name, :phone, :city_id, :country_name, :city_name, :department_name, :university, :cgpa, :nationality, :occupation, :image, :dob, :nid, :address, :passport, :slug, :role
+  permit_params :full_name, :email, :password, :phone, :department_name, :nationality, :university, :cgpa, :occupation, :dob, :nid, :address, :city_name, :country_name, :skype, :whatsapp, :scholarship, :social, :activities, :community, :consultancy, :other_consultancy, :comment, :privacy_policy, :other_working_policy, :passport, :role
 end
