@@ -37,9 +37,11 @@
 #  reset_password_token   :string
 #  role                   :integer
 #  scholarship            :string
+#  skype                  :string
 #  slug                   :string
 #  social                 :string
 #  university             :string
+#  whatsapp               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  city_id                :integer
