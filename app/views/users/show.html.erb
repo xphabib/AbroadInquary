@@ -3,7 +3,7 @@
     <div class="col-md-7">
       <%= render 'user_descriptin' %>
       <%= render 'user_activity' if current_user.id == @user.id %>
-      <%= render 'user_schedules' unless current_user.id == @user.id %>
+      <%= render 'user_activity_and_schedules' unless current_user.id == @user.id %>
     </div>
 
     <div class="col-md-5">
