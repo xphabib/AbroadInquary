@@ -78,70 +78,63 @@
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">11. Please write your Skype number with dial code? </label>
-                  <%= f.text_field :skype, placeholder: 'Short answer text', class: 'c-input', required: true %>
-                </div>
-              </div>
-
-              <div class="col-lg-12 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input2">12. Please write your What's app number with dial code? </label>
+                  <label class="c-field__label" for="input2">11. Please write your What's app number with dial code? </label>
                   <%= f.text_field :whatsapp, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">13. Please give us your LinkedIn, Facebook ID's URL and Instagram username? </label>
+                  <label class="c-field__label" for="input2">12. Please give us your LinkedIn, Facebook ID's URL and Instagram username? </label>
                   <%= f.text_field :social, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">14. Do you have any Extra Curriculum Activities? If yes please tell us the name of ECA and activities in short? Perhaps your are involving with any student association or NGO. If so, then please describe about your responsibility details in short? </label>
+                  <label class="c-field__label" for="input2">13. Do you have any Extra Curriculum Activities? If yes please tell us the name of ECA and activities in short? Perhaps your are involving with any student association or NGO. If so, then please describe about your responsibility details in short? </label>
                   <%= f.text_field :activities, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">15. Are you involving with any community group for helping student for free or are you a higher study blogger? If yes, then write about it in short with possible link and proof. </label>
+                  <label class="c-field__label" for="input2">14. Are you involving with any community group for helping student for free or are you a higher study blogger? If yes, then write about it in short with possible link and proof. </label>
                   <%= f.text_field :community, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">16. Now are you working with any student consultancy firm and do you have any intention to work with any student consultancy firm in future while working with Abroad Inquiry? </label>
+                  <label class="c-field__label" for="input2">15. Now are you working with any student consultancy firm and do you have any intention to work with any student consultancy firm in future while working with Abroad Inquiry? </label>
                   <%= f.text_field :consultancy, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">17. Do you know what exactly Abroad Inquiry is doing and how does it different from other consultancy or contemporary organization? </label>
+                  <label class="c-field__label" for="input2">16. Do you know what exactly Abroad Inquiry is doing and how does it different from other consultancy or contemporary organization? </label>
                   <%= f.text_field :other_consultancy, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">18. Anything you would like to share with us or do you have any comment about Abroad Inquiry? </label>
+                  <label class="c-field__label" for="input2">17. Anything you would like to share with us or do you have any comment about Abroad Inquiry? </label>
                   <%= f.text_field :comment, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">19. Please tell us about yourself? </label>
+                  <label class="c-field__label" for="input2">18. Please tell us about yourself? </label>
                   <%= f.text_field :about, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input1">20. Select your image</label>
+                  <label class="c-field__label" for="input1">19. Select your image</label>
                   <%= f.file_field :image, class: 'c-input', required: true %>
                 </div>
               </div>
@@ -155,15 +148,16 @@
               <br>
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">Do you aware of our trams of use and privacy policy?</label>
-                  <%= f.text_field :privacy_policy, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                  <%= f.check_box :privacy_policy %>
+                  <span class="c-field__label" for="input2">Do you aware of our trams of use and privacy policy?</span>
                 </div>
               </div>
 
               <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input2">Do you agree to work with our conditions and other working policy?</label>
-                  <%= f.text_field :other_working_policy, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                  <%= f.check_box :other_working_policy %>
+                  <span class="c-field__label" for="input2">Do you agree to work with our conditions and other working policy?</span>
+
                 </div>
               </div>
               <div class="col-lg-12 u-mb-xsmall">
