@@ -6,10 +6,35 @@
       <div class="col-md-12 col-sm-12">
         <div class="page-heading">
           <h2 class="page-name text-capitalize">Scholarships</h2>
-          <!--          <a href="#" class="btn btn-default btn-primary">back to home</a>-->
           <%= link_to "Back to Home", root_path, class: "btn btn-default btn-primary" %>
         </div><!--/.page-heading-->
       </div><!--/.col-md-12-->
     </div><!--/.row-->
   </div><!--/.container-->
 </section><!--/.page-heading-area-->
+
+<div class="events-page page-wrapper s-pd4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="single-event">
+          <div class="row">
+            <% @scholarships.each_with_index do |scholarship, index| %>
+              <div class="col-lg-12 col-md-12 event-info">
+                <div class="event-header">
+                  <h3></h3>
+                  <div class="title">
+                    <h2>
+                      <%= link_to scholarship.title, scholarship_path(scholarship) %>
+                    </h2>
+                    <span class="time"> <i class="fa fa-clock-o"></i> Published on: <%= scholarship.created_at.strftime("%Y-%m-%d") %></span>
+                  </div>
+                </div>
+              </div><!--/.event-info-->
+            <% end %>
+          </div><!--/.row-->
+        </div><!--/.single-event-->
+      </div><!--/.col-md-12-->
+    </div><!--/.row-->
+  </div><!--/.contaienr-->
+</div>

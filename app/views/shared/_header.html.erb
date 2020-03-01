@@ -119,11 +119,14 @@
             </nav><!--/.menu-->
             <div class="register-contact-nav pull-right">
               <%#= link_to('Logout', destroy_user_session_path, method: :delete) if user_signed_in? %>
-              <div class="login">
-                <%= link_to 'Register', new_user_registration_path unless user_signed_in?%>
-                <%= link_to 'Login', new_user_session_path unless user_signed_in?%>
-              </div>
-              <a class="btn btn-default" href="/contact">contact</a>
+              <% unless user_signed_in? %>
+                <div class="login">
+                  <%= link_to 'Register', new_user_registration_path%>
+                  <%= link_to 'Login', new_user_session_path%>
+                </div>
+
+                <a class="btn btn-default" href="/contact">contact</a>
+              <% end %>
               <%= link_to 'Dashboard', '/dashboard', class: "btn btn-default" if user_signed_in?%>
             </div><!--/.register-contact-nav-->
           </div><!--/.logo-menu-wrap-->
