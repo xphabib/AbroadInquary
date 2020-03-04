@@ -88,6 +88,7 @@ ActiveAdmin.register User do
       f.input :password
       f.input :phone
       f.input :department_name
+      f.input :country_id, as: :select, :collection => Country.all
       f.input :nationality
       f.input :university
       f.input :cgpa
@@ -150,5 +151,5 @@ ActiveAdmin.register User do
     redirect_to admin_users_path
   end
 
-  permit_params :full_name, :email, :password, :phone, :department_name, :nationality, :university, :cgpa, :occupation, :dob, :nid, :address, :city_name, :country_name, :skype, :whatsapp, :scholarship, :social, :activities, :community, :consultancy, :other_consultancy, :comment, :privacy_policy, :other_working_policy, :passport, :role
+  permit_params :full_name, :email, :password, :phone, :department_name, :country_id, :nationality, :university, :cgpa, :occupation, :dob, :nid, :address, :city_name, :country_name, :skype, :whatsapp, :scholarship, :social, :activities, :community, :consultancy, :other_consultancy, :comment, :privacy_policy, :other_working_policy, :passport, :role
 end

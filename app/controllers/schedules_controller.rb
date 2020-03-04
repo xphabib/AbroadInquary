@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
   layout 'dashboard'
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
   def index
     @schedules = current_user.mentor_schedules if current_user.mentor?
     @schedules = Schedule.mentor_schedules if current_user.head_admin?

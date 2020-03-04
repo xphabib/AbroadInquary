@@ -1,133 +1,119 @@
-<nav class="c-tabs">
-  <div class="c-tabs__list nav nav-tabs" id="myTab" role="tablist">
-    <a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Personal Information</a>
-    <a class="c-tabs__link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Agreements</a>
-<!--    <a class="c-tabs__link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Notes</a>-->
-  </div>
-  <div class="c-tabs__content tab-content" id="nav-tabContent">
-    <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-      <div class="c-feed">
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Address</h6>
-            <p><%= current_user.address.present? ? current_user.address : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--success">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">City</h6>
-            <p><%= current_user.city_name.present? ? current_user.city_name : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Country</h6>
-            <p><%= current_user.country_name.present? ? current_user.country_name : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--fancy">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Department</h6>
-            <p><%= current_user.department_name.present? ? current_user.department_name : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--danger">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Date of birth</h6>
-            <p><%= current_user.dob.present? ? current_user.dob : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--warning">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Nationality</h6>
-            <p><%= current_user.nationality.present? ? current_user.nationality : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Nid</h6>
-            <p><%= current_user.nid.present? ? current_user.nid : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--danger">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Occupation</h6>
-            <p><%= current_user.occupation.present? ? current_user.occupation : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--warning">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Passport</h6>
-            <p><%= current_user.passport.present? ? current_user.passport : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Date of birth</h6>
-            <p><%= current_user.dob.present? ? current_user.dob : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Phone</h6>
-            <p><%= current_user.phone.present? ? current_user.phone : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Privacy Policy</h6>
-            <p><%= current_user.privacy_policy.present? ? current_user.privacy_policy : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--danger">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Role</h6>
-            <p><%= current_user.role.present? ? current_user.role : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--warning">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Refer code</h6>
-            <p><%= current_user.slug.present? ? current_user.slug : 'Na' %></p>
-          </div>
-        </div>
+<div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+  <div class="c-feed">
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Address</h6>
+        <p><%= @user.address.present? ? @user.address : 'Na' %></p>
       </div>
     </div>
 
-    <div class="c-tabs__pane" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-      <div class="c-feed">
-        <div class="c-feed__item">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Consultancy</h6>
-            <p><%= current_user.consultancy.present? ? current_user.consultancy : 'Na' %></p>
-          </div>
-        </div>
-
-        <div class="c-feed__item c-feed__item--success">
-          <div class="c-feed__item-content">
-            <h6 class="u-text-small">Other Consultancy</h6>
-            <p><%= current_user.other_consultancy.present? ? current_user.other_consultancy : 'Na' %></p>
-          </div>
-        </div>
+    <div class="c-feed__item c-feed__item--success">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">City</h6>
+        <p><%= @user.city_name.present? ? @user.city_name : 'Na' %></p>
       </div>
     </div>
-<!--    <div class="c-tabs__pane" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">-->
-<!--      optio, laborum enim ipsum dolorum, voluptatem ducimus quam fuga, vero atque, error laboriosam odio provident eveniet n-->
-<!--      emo reicienoptio, laborum enim ipsum dolorum, voluptatem ducimus quam fuga, vero atque, error laboriosam odio provident eveniet nemo reic-->
-<!--      ien-->
-<!--    </div>-->
+
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Country</h6>
+        <p><%= @user.country_name.present? ? @user.country_name : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--fancy">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Department</h6>
+        <p><%= @user.department_name.present? ? @user.department_name : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--danger">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Date of birth</h6>
+        <p><%= @user.dob.present? ? @user.dob : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--warning">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Nationality</h6>
+        <p><%= @user.nationality.present? ? @user.nationality : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Nid</h6>
+        <p><%= @user.nid.present? ? @user.nid : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--danger">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Occupation</h6>
+        <p><%= @user.occupation.present? ? @user.occupation : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--warning">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Passport</h6>
+        <p><%= @user.passport.present? ? @user.passport : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Date of birth</h6>
+        <p><%= @user.dob.present? ? @user.dob : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Phone</h6>
+        <p><%= @user.phone.present? ? @user.phone : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Privacy Policy</h6>
+        <p><%= @user.privacy_policy.present? ? @user.privacy_policy : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--danger">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Role</h6>
+        <p><%= @user.role.present? ? @user.role : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--warning">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Refer code</h6>
+        <p><%= @user.slug.present? ? @user.slug : 'Na' %></p>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
+
+<div class="c-tabs__pane" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+  <div class="c-feed">
+    <div class="c-feed__item">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Consultancy</h6>
+        <p><%= @user.consultancy.present? ? @user.consultancy : 'Na' %></p>
+      </div>
+    </div>
+
+    <div class="c-feed__item c-feed__item--success">
+      <div class="c-feed__item-content">
+        <h6 class="u-text-small">Other Consultancy</h6>
+        <p><%= @user.other_consultancy.present? ? @user.other_consultancy : 'Na' %></p>
+      </div>
+    </div>
+  </div>
+</div>
