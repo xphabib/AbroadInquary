@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_020814) do
+ActiveRecord::Schema.define(version: 2020_03_04_183910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_020814) do
     t.integer "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -154,6 +155,14 @@ ActiveRecord::Schema.define(version: 2020_03_01_020814) do
     t.datetime "updated_at", null: false
     t.string "user_skype"
     t.string "user_phone_no"
+    t.string "whatsapp"
+    t.string "cgpa"
+    t.string "english_proficiency_score"
+    t.string "publication"
+    t.string "job_experience"
+    t.string "fund_spend"
+    t.string "apply_for_country"
+    t.string "possible_questions"
   end
 
   create_table "scholarships", force: :cascade do |t|

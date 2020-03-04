@@ -46,20 +46,17 @@
                     <!--Single Course Item Start-->
                     <div class="single-course-item border-radius">
                       <div class="course-content" style="border-top: 1px solid #d7d7d7; border-radius: 5px 5px 5px 5px;">
-                        <div class="trainer-profile clearfix">
-                          <%#= image_tag mentor.image_url, class: "rounded-circle", alt: "img" %>
-                          <%= image_tag mentor.image_url, class: "rounded-circle", alt: "img" %>
-                          <div class="trainer-info">
-                            <h3><%= mentor.full_name %></h3>
-                            <p><%= mentor.dob %></p>
-                          </div>
-                          <div class="course-cat text-capitalize text-right">
-                            <!--                            <a href="courses.html#">Schedules</a>-->
-                            <%= link_to user_path(mentor) do %>
-                              Schedules
-                            <% end %>
-                          </div>
-                        </div><!--/.trainer-profile-->
+                        <%= link_to user_path(mentor) do %>
+                          <div class="trainer-profile clearfix">
+                            <%= image_tag mentor.image_url, class: "rounded-circle", alt: "img" if mentor.image.present?%>
+                            <div class="trainer-info">
+                              <h3><%= mentor.full_name %></h3>
+                              <h3>Program: <%= mentor.occupation %></h3>
+                              <p>City: <%= mentor.city_name %></p>
+                              <p>University: <%= mentor.university %></p>
+                            </div>
+                          </div><!--/.trainer-profile-->
+                        <% end %>
                       </div><!--/.course-content-->
                     </div><!--/.single-course-item-end-->
                   </div><!--/.col-lg-6-->

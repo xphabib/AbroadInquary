@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource.role = 'student'
     resource.admin_confirmation = true
-    resource.save
+    resource.save!
     # flash[:success] = resource.errors.full_messages
     yield resource if block_given?
     if resource.persisted?

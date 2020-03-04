@@ -21,10 +21,25 @@
         <p class="u-text-xsmall">Phone: <b><%= @schedule.user_phone_no %></b></p>
       </div>
     <% else %>
-      <div class="c-badge c-badge--primary">
-        <%= link_to 'Book now', booking_schedule_path(schedule_id: schedule.id), id: "schedule_id_#{schedule.id}", class: "u-text-xsmall", remote: true if current_user.student?%>
-      </div>
+      <% if current_user.student? %>
+        <div class="c-badge c-badge--primary">
+          <%= link_to 'Book now', booking_schedule_path(schedule_id: schedule.id), id: "schedule_id_#{schedule.id}", class: "u-text-xsmall", remote: true%>
+        </div>
+      <% end %>
     <% end %>
   </div>
+  <% if @schedule.student.present? %>
+    <div class="c-card">
+      <h3>Student Details</h3>
+      <p>What’s app number: <%= @schedule.whatsapp %></p>
+      <p>Previous educations with CGPA: <%= @schedule.cgpa %></p>
+      <p>English proficiency Score on IELTS/TOEFL/GRE/GMAT/SAT: <%= @schedule.english_proficiency_score %></p>
+      <p>Publication or Extra Curricular Activities: <%= @schedule.publication %></p>
+      <p>Job Experiences: <%= @schedule.job_experience %></p>
+      <p>Fund Spend: <%= @schedule.fund_spend %></p>
+      <p>Apply For the Country: <%= @schedule.apply_for_country %></p>
+      <p>Possible Questions: <%= @schedule.possible_questions %></p>
+    </div>
+  <% end %>
 </div>
 

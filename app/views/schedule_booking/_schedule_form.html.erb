@@ -5,13 +5,70 @@
       <div class="col-lg-12 u-mb-xsmall">
         <div class="c-field">
           <label class="c-field__label" for="input1">Skype</label>
-          <%= text_field_tag :skype, nil, class: "c-input", placeholder: 'Enter your skype'%>
+          <%= text_field_tag 'schedules[user_skype]', nil, class: "c-input", placeholder: 'Enter your skype'%>
         </div>
       </div>
+
       <div class="col-lg-12 u-mb-xsmall">
         <div class="c-field">
           <label class="c-field__label" for="input1">Phone</label>
-          <%= text_field_tag :phone, nil, class: "c-input", placeholder: 'Enter your phone' %>
+          <%= text_field_tag 'schedules[user_phone_no]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">What’s app number with a dial code.</label>
+          <%= text_field_tag 'schedules[whatsapp]', nil, class: "c-input", placeholder: 'Enter text here' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">Previous educations with CGPA?</label>
+          <%= text_field_tag 'schedules[cgpa]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">English proficiency Score on IELTS/TOEFL/GRE/GMAT/SAT.</label>
+          <%= text_field_tag 'schedules[english_proficiency_score]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">If you have any publication, Extra Curricular Activities.</label>
+          <%= text_field_tag 'schedules[publication]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">If you have any job experiences.</label>
+          <%= text_field_tag 'schedules[job_experience]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">How much fund you can spend when you will study abroad as a fees paying student?</label>
+          <%= text_field_tag 'schedules[fund_spend]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">Which country do you want to apply?</label>
+          <%= text_field_tag 'schedules[apply_for_country]', nil, class: "c-input", placeholder: 'Write in a short text' %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 u-mb-xsmall">
+        <div class="c-field">
+          <label class="c-field__label" for="input1">What are your possible questions to our mentor?</label>
+          <%= text_field_tag 'schedules[possible_questions]', nil, class: "c-input", placeholder: 'Write in a short text' %>
         </div>
       </div>
     </div>

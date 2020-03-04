@@ -5,11 +5,11 @@
         <thead class="c-table__head">
         <tr class="c-table__row">
           <th class="c-table__cell c-table__cell--head">Student</th>
-          <th class="c-table__cell c-table__cell--head">Country</th>
           <th class="c-table__cell c-table__cell--head">Time Slot</th>
           <th class="c-table__cell c-table__cell--head">Date</th>
           <th class="c-table__cell c-table__cell--head">Skype</th>
           <th class="c-table__cell c-table__cell--head">Phone</th>
+          <th class="c-table__cell c-table__cell--head">Show</th>
         </tr>
         </thead>
 
@@ -29,13 +29,17 @@
                 </div>
               </div>
             </td>
-            <td class="c-table__cell"><%= schedule.student.occupation %></td>
             <th class="c-table__cell"><%= schedule.start_time.strftime("%H:%M") %> - <%= schedule.end_time.strftime("%H:%M") %></th>
-            <td class="c-table__cell">19-11-2018</td>
+            <td class="c-table__cell">
+              <%= schedule.start_time.strftime("%d-%m-%Y") %>
+            </td>
             <td class="c-table__cell">
               <a class="c-badge c-badge--small c-badge--info" href="#"><%= schedule.user_skype %></a>
             </td>
             <td class="c-table__cell"> <%= schedule.user_phone_no%> </td>
+            <td class="c-table__cell">
+              <%= link_to 'Show', schedule_path(schedule), class: "c-badge c-badge--small c-badge--info"%>
+            </td>
           </tr>
         <% end %>
         </tbody>

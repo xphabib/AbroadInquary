@@ -47,7 +47,7 @@
       <div class="col-lg-4 col-md-4">
         <div class="single-service text-center">
           <div class="icon">
-            <%= image_tag 'icon/Logo-for-online-guidance.jpeg', size: '50x50', alt: 'icon' %>
+            <%= image_tag 'icon/PASSPORT ICON -02.png', size: '50x50', alt: 'icon' %>
           </div>
           <h3>Online Guidance Service</h3>
           <p class="services">Here you will get the full guidance and information for your selected country and you can book an
@@ -65,7 +65,7 @@
       <div class="col-lg-4 col-md-4">
         <div class="single-service text-center">
           <div class="icon">
-            <%= image_tag 'icon/Logo-for-admission-and-visa.jpeg', size: '50x50', alt: 'icon' %>
+            <%= image_tag 'icon/PASSPORT ICON -01.png', size: '50x50', alt: 'icon' %>
           </div><!--/.row-->
           <h3>Admission and Visa Service</h3>
           <p class="services">
@@ -80,7 +80,7 @@
       <div class="col-lg-4 col-md-4">
         <div class="single-service text-center">
           <div class="icon">
-            <%= image_tag 'icon/Logo-for-scholarship-and-visa.jpeg', size: '50x50', alt: 'icon' %>
+            <%= image_tag 'icon/PASSPORT ICON -03.png', size: '50x50', alt: 'icon' %>
           </div><!--/.row-->
           <h3>Scholarship and Visa Service</h3>
           <p class="services">
@@ -131,8 +131,8 @@
                 <div class="trainer-profile clearfix">
                   <%= image_tag "author/author-1.jpg", class: "rounded-circle", alt: "img" %>
                   <div class="trainer-info">
-                    <h3><%= country.users.mentors.first.full_name %></h3>
-                    <p><%= country.users.mentors.first.dob %></p>
+                    <h3><%= country.users.active_mentors.first.full_name %></h3>
+                    <p><%= country.users.active_mentors.first.dob %></p>
                   </div>
                   <div class="course-cat text-capitalize text-right">
                     <!--                            <a href="courses.html#">Schedules</a>-->

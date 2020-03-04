@@ -10,6 +10,7 @@
 #  updated_at       :datetime         not null
 #  paymentable_id   :integer
 #  transaction_id   :integer
+#  user_id          :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

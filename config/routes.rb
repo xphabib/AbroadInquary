@@ -48,6 +48,7 @@ Rails.application.routes.draw do
         get :booked_users
       end
     end
+    resources :payments, only: :index
   end
 
   get 'request-mentorship', to: 'users#request_for_new_mentorship', as: :request_for_new_mentorship

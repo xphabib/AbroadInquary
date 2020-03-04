@@ -5,30 +5,46 @@ ActiveAdmin.register User do
     id_column
     column :full_name
     column :email
-    column :phone
-    column :role
-    column :department_name
-    column :nationality
-    column :university
-    column :cgpa
-    column :occupation
-    column :dob
-    column :nid
-    column :address
-    column :city_name
-    column :country_name
-    column :skype
-    column :whatsapp
-    column :scholarship
-    column :social
+    column :about
     column :activities
-    column :community
-    column :consultancy
-    column :other_consultancy
+    column :address
+    column :admin_confirmation
+    column :cgpa
+    column :city_name
     column :comment
-    column :privacy_policy
+    column :community
+    column :confirmation_sent_at
+    column :confirmation_token
+    column :confirmed_at
+    column :consultancy
+    column :country_name
+    column :department_name
+    column :dob
+    column :encrypted_password
+    column :image
+    column :nationality
+    column :nid
+    column :occupation
+    column :other_consultancy
     column :other_working_policy
     column :passport
+    column :phone
+    column :privacy_policy
+    column :remember_created_at
+    column :reset_password_sent_at
+    column :reset_password_token
+    column :role
+    column :scholarship
+    column :skype
+    column :slug
+    column :social
+    column :university
+    column :whatsapp
+    column :created_at
+    column :updated_at
+    column :city_id
+    column :country_id
+
     column :login_as do |user|
       link_to "Login", login_as_admin_user_path(user)
     end
@@ -52,31 +68,46 @@ ActiveAdmin.register User do
   show do
     attributes_table do
       row :full_name
-      row :email
-      row :phone
-      row :role
-      row :department_name
-      row :nationality
-      row :university
-      row :cgpa
-      row :occupation
-      row :dob
-      row :nid
-      row :address
-      row :city_name
-      row :country_name
-      row :skype
-      row :whatsapp
-      row :scholarship
-      row :social
+      row :about
       row :activities
-      row :community
-      row :consultancy
-      row :other_consultancy
+      row :address
+      row :admin_confirmation
+      row :cgpa
+      row :city_name
       row :comment
-      row :privacy_policy
+      row :community
+      row :confirmation_sent_at
+      row :confirmation_token
+      row :confirmed_at
+      row :consultancy
+      row :country_name
+      row :department_name
+      row :dob
+      row :email
+      row :encrypted_password
+      row :image
+      row :nationality
+      row :nid
+      row :occupation
+      row :other_consultancy
       row :other_working_policy
       row :passport
+      row :phone
+      row :privacy_policy
+      row :remember_created_at
+      row :reset_password_sent_at
+      row :reset_password_token
+      row :role
+      row :scholarship
+      row :skype
+      row :slug
+      row :social
+      row :university
+      row :whatsapp
+      row :created_at
+      row :updated_at
+      row :city_id
+      row :country_id
     end
   end
 
@@ -93,7 +124,7 @@ ActiveAdmin.register User do
       f.input :university
       f.input :cgpa
       f.input :occupation
-      f.input :dob
+      f.input :dob, start_year: 1970
       f.input :nid
       f.input :address
       f.input :city_name
