@@ -185,5 +185,5 @@ ActiveAdmin.register User do
     redirect_to admin_users_path
   end
 
-  permit_params :full_name, :email, :password, :phone, :department_name, :country_id, :nationality, :university, :cgpa, :occupation, :dob, :nid, :address, :city_name, :country_name, :skype, :whatsapp, :scholarship, :social, :activities, :community, :consultancy, :other_consultancy, :comment, :privacy_policy, :other_working_policy, :passport, :role
+  permit_params :full_name, :email, :password, :phone, :department_name, :country_id, :country_of_origin, :nationality, :university, :cgpa, :occupation, :dob, :nid, :address, :city_name, :country_name, :skype, :whatsapp, :scholarship, :social, :activities, :community, :consultancy, :other_consultancy, :comment, :privacy_policy, :other_working_policy, :passport, :role
 end
