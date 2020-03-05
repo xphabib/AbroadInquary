@@ -160,6 +160,19 @@ ActiveAdmin.register User do
     end
   end
 
+  controller do
+
+    def update
+      model = :user
+
+      if params[model][:password].blank?
+        %w(password password_confirmation).each { |p| params[model].delete(p) }
+      end
+
+      super
+    end
+  end
+
   member_action :login_as, :method => :get do
     # sign_out current_admin_user
     sign_in(:user, User.friendly.find(params[:id]), { :bypass => true })
