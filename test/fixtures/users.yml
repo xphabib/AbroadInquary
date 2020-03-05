@@ -16,6 +16,7 @@
 #  confirmed_at           :datetime
 #  consultancy            :string
 #  country_name           :string
+#  country_of_origin      :string
 #  department_name        :string
 #  dob                    :date
 #  email                  :string           default(""), not null

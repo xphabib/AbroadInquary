@@ -18,6 +18,7 @@ ActiveAdmin.register User do
     column :confirmed_at
     column :consultancy
     column :country_name
+    column :country_of_origin
     column :department_name
     column :dob
     column :encrypted_password
@@ -81,6 +82,7 @@ ActiveAdmin.register User do
       row :confirmed_at
       row :consultancy
       row :country_name
+      row :country_of_origin
       row :department_name
       row :dob
       row :email
@@ -128,6 +130,7 @@ ActiveAdmin.register User do
       f.input :nid
       f.input :address
       f.input :city_name
+      f.input :country_of_origin
       f.input :country_name
       f.input :skype
       f.input :whatsapp
