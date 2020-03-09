@@ -119,7 +119,7 @@
     <!--      </div>-->
     <!--    </div>-->
     <div class="row courses-item-content">
-      <% @countries.first(3).each do |country| %>
+      <% @popular_countries.each_with_index do |country, index| %>
         <div class="col-lg-4 col-sm-6 design photography">
           <!--Single Course Item Start-->
           <div class="single-course-item border-radius">
@@ -128,19 +128,22 @@
                 <%= link_to country.name, mentor_schedules_path(country: country.id) %>
               </h2>
               <% if country.users.present? %>
+
                 <div class="trainer-profile clearfix">
-                  <%= image_tag "author/author-1.jpg", class: "rounded-circle", alt: "img" %>
+                  <%= image_tag @popular_country_mentors[index].image_url, class: "rounded-circle", alt: "img" if @popular_country_mentors[index].image.present?%>
                   <div class="trainer-info">
-                    <h3><%= country.users.active_mentors.first.full_name %></h3>
-                    <p><%= country.users.active_mentors.first.dob %></p>
+                    <h3><%= @popular_country_mentors[index].full_name %></h3>
+                    <h3>Program: <%= @popular_country_mentors[index].occupation %></h3>
+                    <p>City: <%= @popular_country_mentors[index].city_name %></p>
+                    <p>University: <%= @popular_country_mentors[index].university %></p>
                   </div>
                   <div class="course-cat text-capitalize text-right">
                     <!--                            <a href="courses.html#">Schedules</a>-->
-                    <%= link_to user_path(country.users.mentors.first) do %>
+                    <%= link_to user_path(@popular_country_mentors[index]) do %>
                       Schedules
                     <% end %>
                   </div>
-                </div><!--/.trainer-profile-->
+                </div>
               <% else %>
                 <div class="trainer-profile clearfix">
                   <%= image_tag "author/author-1.jpg", class: "rounded-circle", alt: "img" %>
