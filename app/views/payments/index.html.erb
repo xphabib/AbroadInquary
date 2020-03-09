@@ -1,3 +1,39 @@
-<h1>
-  comming soon...
-</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="c-card">
+      <h4 class="c-card__title">Current Balance: <b><%= @current_balance %></b> Taka</h4>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <h5 class="u-mb-small">Transaction History</h5>
+  </div>
+  <div class="col-12">
+    <div class="c-table-responsive@wide">
+      <table class="c-table">
+        <thead class="c-table__head">
+        <tr class="c-table__row">
+          <th class="c-table__cell c-table__cell--head">Transaction id</th>
+          <th class="c-table__cell c-table__cell--head">Payment Type</th>
+          <th class="c-table__cell c-table__cell--head">Amount</th>
+          <th class="c-table__cell c-table__cell--head">Date</th>
+          <th class="c-table__cell c-table__cell--head">Time</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @payments.each do |payment| %>
+          <tr class="c-table__row">
+            <td class="c-table__cell"><%= payment.transaction_id %></td>
+            <td class="c-table__cell"><%= payment.payment_type %></td>
+            <td class="c-table__cell"><%= payment.amount %></td>
+            <td class="c-table__cell"><%= payment.created_at.strftime("%d/%m/%Y") %></td>
+            <td class="c-table__cell"><%= payment.created_at.strftime("%I:%M %p") %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

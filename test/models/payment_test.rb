@@ -4,6 +4,7 @@
 #
 #  id               :bigint           not null, primary key
 #  amount           :float
+#  payment_type     :string
 #  paymentable_type :string
 #  status           :string
 #  created_at       :datetime         not null

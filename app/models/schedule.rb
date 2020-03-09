@@ -27,7 +27,7 @@
 #
 
 class Schedule < ApplicationRecord
-  has_many :payments, as: :paymentable
+  # has_many :payments, as: :paymentable
   belongs_to :student, class_name: 'User', optional: true
   belongs_to :mentor, class_name: 'User'
   scope :mentor_schedules, -> { where.not(mentor_id: nil) }

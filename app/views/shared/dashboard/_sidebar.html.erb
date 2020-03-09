@@ -80,6 +80,13 @@
 <!--          </li>-->
         <% end %>
 
+
+        <li>
+          <%= link_to payments_path, class: "c-sidebar__link #{current_class?(payments_path)}" do %>
+            <i class="c-sidebar__icon fa fa-money"></i>Payments
+          <% end %>
+        </li>
+
 <!--        <li>-->
           <%#= link_to users_path, class: "c-sidebar__link #{current_class_same_path?(users_path, params[:type], nil)}" do %>
 <!--            <i class="c-sidebar__icon feather icon-user"></i></i>Users-->

@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :lock_user_check
+  # before_action :balance_check
+  # attr_reader :current_balance
   # check_authorization unless: :devise_controller?
 
   protected
@@ -15,6 +17,10 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  # def balance_check
+  #   @current_balance = Payment.current_balance(current_user) if current_user.present?
+  # end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :email, :password] )
