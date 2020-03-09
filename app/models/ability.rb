@@ -21,7 +21,7 @@ class Ability
     elsif user.student?
       can :read, Country
       can :read, Schedule
-      can :read, StudentApplication
+      can :create, StudentApplication
     else
       can :read, :all
     end
