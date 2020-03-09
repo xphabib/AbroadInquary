@@ -10,131 +10,168 @@
     <div class="row u-mb-medium">
       <div class="col-12">
         <div class="c-card">
-          <%= form_for @user, url: user_path, method: :patch, multiple: true do |f| %>
+          <%= form_for @user, method: :patch, multiple: true do |f| %>
 
             <div class="row u-mb-medium">
-              <div class="col-lg-3 u-mb-xsmall">
+              <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input1">First Name</label>
-                  <%= f.text_field :first_name, placeholder: :first_name, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input2">Last Name</label>
-                  <%= f.text_field :last_name, placeholder: :last_name, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Phone</label>
-                  <%= f.text_field :phone, placeholder: :phone, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Email</label>
-                  <%= f.text_field :email, placeholder: :email, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Password</label>
-                  <%= f.text_field :password, placeholder: :password, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">City Name</label>
-                  <%= f.text_field :city_name, placeholder: :city_name, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Country Name</label>
-                  <%= f.text_field :country_name, placeholder: :city_id, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">CGPA</label>
-                  <%= f.text_field :cgpa, placeholder: :cgpa, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">University</label>
-                  <%= f.text_field :university, placeholder: :university, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Occupation</label>
-                  <%= f.text_field :occupation, placeholder: :occupation, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">User Type</label>
-                  <%= f.select :role, options_for_select(['mentor', 'student']), {}, {placeholder: :user_type, class: 'c-input'} %>
+                  <label class="c-field__label" for="input1">1. What is your full name?</label>
+                  <%= f.text_field :full_name, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
-              <div class="col-lg-3 u-mb-xsmall">
+              <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input3">Address</label>
-                  <%= f.text_field :address, placeholder: :address, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Department Name</label>
-                  <%= f.text_field :department_name, placeholder: :department_name, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Date of birth</label>
-                  <%= f.text_field :dob, placeholder: 'Date of birth', class: 'c-input datetimepicker' %>
+                  <label class="c-field__label" for="input3">2. Which country are you studying or working currently?</label>
+                  <%= f.select :country_id, @countries.collect{|c| [c.name, c.id]}, {prompt: "Select Country",}, {class: 'c-input', required: true} %>
                 </div>
               </div>
 
-              <div class="col-lg-3 u-mb-xsmall">
+              <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input3">Nationality</label>
-                  <%= f.text_field :nationality, placeholder: :nationality, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Nid</label>
-                  <%= f.text_field :nid, placeholder: :nid, class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">Passport</label>
-                  <%= f.text_field :passport, placeholder: 'Passport', class: 'c-input' %>
-                </div>
-              </div>
-              <div class="col-lg-3 u-mb-xsmall">
-                <div class="c-field">
-                  <label class="c-field__label" for="input3">University</label>
-                  <%= f.text_field :university, placeholder: 'University', class: 'c-input' %>
+                  <label class="c-field__label" for="input3">3. Name of your institution?</label>
+                  <%= f.text_field :university, placeholder: 'Short answer text', class: 'c-input', required: true %>
                 </div>
               </div>
 
-              <div class="col-lg-3 u-mb-xsmall">
+              <div class="col-lg-12 u-mb-xsmall">
                 <div class="c-field">
-                  <label class="c-field__label" for="input3">Image</label>
-                  <%= f.file_field :image, placeholder: :image, class: 'c-input' %>
+                  <label class="c-field__label" for="input2">4. Which program are you studying or what is your current position of your company? </label>
+                  <%= f.text_field :occupation, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">5. Previous education that you have successfully completed? </label>
+                  <%= f.text_field :department_name, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">6. Do you have or had awarded any scholarship? If yes then which scholarship? </label>
+                  <%= f.text_field :scholarship, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">7. Where do you currently live in? </label>
+                  <%= f.text_field :city_name, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">8. Country of origin? </label>
+                  <%= f.text_field :country_of_origin, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">9. Please write your email address? </label>
+                  <%= f.text_field :email, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">10. Please write your phone number with dial code? </label>
+                  <%= f.text_field :phone, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">11. Please write your What's app number with dial code? </label>
+                  <%= f.text_field :whatsapp, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">12. Please give us your LinkedIn, Facebook ID's URL and Instagram username? </label>
+                  <%= f.text_field :social, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">13. Do you have any Extra Curriculum Activities? If yes please tell us the name of ECA and activities in short? Perhaps your are involving with any student association or NGO. If so, then please describe about your responsibility details in short? </label>
+                  <%= f.text_field :activities, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">14. Are you involving with any community group for helping student for free or are you a higher study blogger? If yes, then write about it in short with possible link and proof. </label>
+                  <%= f.text_field :community, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">15. Now are you working with any student consultancy firm and do you have any intention to work with any student consultancy firm in future while working with Abroad Inquiry? </label>
+                  <%= f.text_field :consultancy, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">16. Do you know what exactly Abroad Inquiry is doing and how does it different from other consultancy or contemporary organization? </label>
+                  <%= f.text_field :other_consultancy, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">17. Anything you would like to share with us or do you have any comment about Abroad Inquiry? </label>
+                  <%= f.text_field :comment, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">18. Please tell us about yourself? </label>
+                  <%= f.text_field :about, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input1">19. Select your image</label>
+                  <%= f.file_field :image, class: 'c-input' %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <label class="c-field__label" for="input2">After completing your application please send us your papers via Abroadinquiry100@gmail.com: 1. Passport information pages, 2. Resident permit copy of both parts, 3. A copy of your Picture(Linkedin Standard) (If you are applying from the Netherlands you need to submit KVK, BSN and TAX ID number to us) Thank you.  </label>
+                  <%#= f.text_field :last_name, placeholder: 'Short answer text', class: 'c-input', required: true %>
+                </div>
+              </div>
+              <br>
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <%= f.check_box :privacy_policy %>
+                  <span class="c-field__label" for="input2">Do you aware of our trams of use and privacy policy?</span>
+                </div>
+              </div>
+
+              <div class="col-lg-12 u-mb-xsmall">
+                <div class="c-field">
+                  <%= f.check_box :other_working_policy %>
+                  <span class="c-field__label" for="input2">Do you agree to work with our conditions and other working policy?</span>
+
                 </div>
               </div>
             </div>
 
             <div class="c-field">
-              <%= link_to 'Cancel', users_path, class: "c-btn c-btn--secondary u-mb-xsmall" %>
-              <%= f.submit class: "c-btn c-btn--secondary u-mb-xsmall" %>
+              <%= link_to 'Cancel', root_path, class: "c-btn c-btn--secondary u-mb-xsmall" %>
+              <%= f.submit 'Update', class: "c-btn c-btn--secondary u-mb-xsmall" %>
             </div>
 
           <% end %>

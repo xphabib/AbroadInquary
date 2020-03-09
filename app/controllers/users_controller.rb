@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def my_profile ;end
   def edit_my_profile
+    @countries = Country.all.order(:name)
   end
 
   def update_my_profile
@@ -64,6 +65,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @countries = Country.all.order(:name)
   end
 
   def create
@@ -77,7 +79,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit ;end
+  def edit
+    @countries = Country.all.order(:name)
+  end
 
   def update
     if @user.update!(set_params)
