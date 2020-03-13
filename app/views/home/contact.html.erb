@@ -19,26 +19,27 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10">
-          <form class="contact-form-area border-radius" id="contact-form">
+          <%= form_tag(submit_contact_info_home_index_path, class: "contact-form-area border-radius", id:"contact-form") do %>
             <h3>Direct Message</h3>
             <div class="form-group">
-              <input type="text" class="form-control" id="name" placeholder="Your Full Name">
+              <%= text_field_tag 'contact[name]', nil, class:"form-control", id:"name", placeholder: "Your Full Name", required: true %>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" id="email" placeholder="Your Email">
+              <%= email_field_tag 'contact[email]', nil, class:"form-control", id:"email", placeholder: "Your Email", required: true %>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" id="subject" placeholder="Your Subject">
+              <%= text_field_tag 'contact[subject]', nil, class:"form-control", id:"subject", placeholder: "Your Subject", required: true %>
             </div>
             <div class="form-group">
-              <textarea class="form-control" id="message" placeholder="Message"></textarea>
+              <%= text_area_tag 'contact[message]', nil, class:"form-control", id:"message", placeholder: "Message", required: true %>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
-          </form><!--/.contact-form-area-->
-        </div><!--/.col-md-10-->
-      </div><!--/.row-->
-    </div><!--/.container-->
-  </section><!--/.contact-form-section-->
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section class="contact-info-section s-pd100">
     <div class="container">
@@ -48,7 +49,7 @@
             <span class="fa fa-envelope"></span>
             <h3>Email</h3>
             <p><a href="http://bdevs.net/cdn-cgi/l/email-protection#cba2a5ada48bb8bca7aaa9b8e5a8a4a6">
-              <span class="__cf_email__" data-cfemail="bed7d0d8d1fecdc9d2dfdccd90ddd1d3">abroadInquiry100@gmail.com</span></a>
+              <span class="__cf_email__" data-cfemail="bed7d0d8d1fecdc9d2dfdccd90ddd1d3">abroadinquiry.bd@gmail.com </span></a>
             </p>
           </div><!--/.single-contact-info-->
         </div><!--/.col-lg-3-->

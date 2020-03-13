@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    </head>
+  <body>
+    <h1><%= @msg_info[:name] %> want to contact with admin!</h1>
+    <p>
+      Email:
+      <b>
+        <%= @msg_info[:email] %>
+      </b>
+    </p>
+    <p>
+      Subject:
+      <b>
+        <%= @msg_info[:subject] %>
+      </b>
+    </p>
+    <p>
+      <%= @msg_info[:message] %>
+    </p>
+  </body>
+</html>

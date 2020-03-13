@@ -15,6 +15,12 @@ class HomeController < ApplicationController
 
   def contact ;end
 
+  def submit_contact_info
+    ContactUsMailer.welcome_email(contact_params).deliver
+    flash[:success] = 'Message has sent successfully!'
+    redirect_to '/contact'
+  end
+
   def faq ;end
 
   def about_us ;end
@@ -22,5 +28,10 @@ class HomeController < ApplicationController
   def privacy_and_policy; end
   def refund_policy; end
   def terms_and_condition; end
+
+  private
+  def contact_params
+    params.require(:contact).permit(:name, :email, :subject, :message)
+  end
 
 end

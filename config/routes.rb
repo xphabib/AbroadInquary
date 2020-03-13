@@ -12,7 +12,15 @@ Rails.application.routes.draw do
           unlocks: 'users/unlocks',
           omniquth: 'users/omniquth'
       }
-  get 'home/index'
+
+  # get 'home/index'
+
+  resources :home, only: :index do
+    collection do
+      post :submit_contact_info
+    end
+  end
+
   get '/contact', to: 'home#contact'
   get '/faq', to: 'home#faq'
   get '/about-us', to: 'home#about_us', as: 'about_us'
