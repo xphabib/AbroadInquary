@@ -19,15 +19,15 @@
       <div class="col-lg-4 col-md-6 col-sm-8">
         <div class="login-form-area">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-            <div id="socila-login" class="social-login-area">
-              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-              <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
-              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
+            <h2>LOGIN</h2>
+<!--            <div id="socila-login" class="social-login-area">-->
+<!--              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>-->
+<!--              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>-->
+<!--              <a class="google" href="#"><i class="fa fa-google-plus"></i></a>-->
+<!--              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>-->
+<!--            </div>-->
             <div class="divider-or text-center">
-              <span>or</span>
+<!--              <span>or</span>-->
             </div>
             <p>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Username / Email", class: "form-control", id: "user_login" %>
