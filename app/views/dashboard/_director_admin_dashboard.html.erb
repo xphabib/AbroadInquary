@@ -1,32 +1,38 @@
 <div class="row">
   <div class="col-md-6 col-xl-3">
-    <div class="c-card">
+    <%= link_to schedules_path do %>
+      <div class="c-card">
       <span class="c-icon c-icon--info u-mb-small">
         <i class="feather icon-activity"></i>
       </span>
-      <h3 class="c-text--subtitle">Total Schedule</h3>
-      <h1><%= @total_schedules %></h1>
-    </div>
+        <h3 class="c-text--subtitle">Total Schedule</h3>
+        <h1><%= @total_schedules %></h1>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-md-6 col-xl-3">
-    <div class="c-card">
+    <%= link_to student_applications_path do %>
+      <div class="c-card">
       <span class="c-icon c-icon--danger u-mb-small">
         <i class="feather icon-shopping-cart"></i>
       </span>
-      <h3 class="c-text--subtitle">Total Application</h3>
-      <h1><%= @total_applications %></h1>
-    </div>
+        <h3 class="c-text--subtitle">Total Application</h3>
+        <h1><%= @total_applications %></h1>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-md-6 col-xl-3">
-    <div class="c-card">
+    <%= link_to users_path(type: :student) do %>
+      <div class="c-card">
       <span class="c-icon c-icon--success u-mb-small">
         <i class="feather icon-users"></i>
       </span>
-      <h3 class="c-text--subtitle">Total Students</h3>
-      <h1><%= @total_students %></h1>
-    </div>
+        <h3 class="c-text--subtitle">Total Students</h3>
+        <h1><%= @total_students %></h1>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-md-6 col-xl-3">
@@ -34,7 +40,7 @@
       <span class="c-icon c-icon--warning u-mb-small">
         <i class="feather icon-zap"></i>
       </span>
-      <h3 class="c-text--subtitle">Head Admin</h3>
+      <h3 class="c-text--subtitle">Admin</h3>
       <h1><%= @total_admins %></h1>
     </div>
   </div>
