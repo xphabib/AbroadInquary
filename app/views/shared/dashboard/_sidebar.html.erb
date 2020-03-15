@@ -40,7 +40,8 @@
             <% end %>
           </li>
         <% end %>
-        <% if can? :read, Schedule %>
+        <%# if can? :read, Schedule %>
+        <% unless current_user.student?  %>
           <li>
             <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
               <i class="c-sidebar__icon feather icon-clock"></i>Schedules
