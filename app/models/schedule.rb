@@ -33,4 +33,35 @@ class Schedule < ApplicationRecord
   scope :mentor_schedules, -> { where.not(mentor_id: nil) }
   scope :student_schedules, -> { where.not(student_id: nil) }
   scope :todays_schedules, -> { where("updated_at = ?", Date.today) }
+
+  after_update :mentor_student_confirmation, if: :student_id
+
+  def cancel
+    self.update(
+         apply_for_country: '',
+         cgpa: '',
+         created_by: '',
+         english_proficiency_score: '',
+         fund_spend: '',
+         job_experience: '',
+         possible_questions: '',
+         publication: '',
+         status: '',
+         user_phone_no: '',
+         user_skype: '',
+         whatsapp: '',
+         student_id: '',
+    )
+  end
+
+  def mentor_student_confirmation
+    start_time = self.start_time
+    end_time = self.end_time
+    schedule_cost = self.schedule_cost
+    mentor_email = self.mentor.email
+    student_email = self.student.email
+    ScheduleMailer.mentor_confirmation(mentor_email, start_time, end_time, schedule_cost).deliver
+    ScheduleMailer.student_confirmation(student_email, start_time, end_time, schedule_cost).deliver
+  end
+
 end

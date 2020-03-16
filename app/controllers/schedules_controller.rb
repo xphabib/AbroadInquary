@@ -40,6 +40,13 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def cancel_schedule
+    schedule = Schedule.find_by(id: params[:id])
+    schedule.cancel
+    flash[:success] = 'Schedule Canceled.'
+    redirect_to schedules_path
+  end
+
   def destroy
     @schedule.destroy
     redirect_back(fallback_location: root_path)

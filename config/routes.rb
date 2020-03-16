@@ -54,6 +54,7 @@ Rails.application.routes.draw do
       collection do
         get :booking_schedule
         get :booked_users
+        get :cancel_schedule
       end
     end
     resources :payments, only: :index

@@ -1,16 +1,31 @@
-<nav class="c-tabs">
-  <div class="c-tabs__list nav nav-tabs" id="myTab" role="tablist">
-    <a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Personal Information</a>
-    <a class="c-tabs__link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Agreements</a>
-    <% unless @user.id == current_user.id or current_user.head_admin? or current_user.mentor? or current_user.teacher? or current_user.manager? or current_user.executive_admin? or current_user.director_admin?%>
+<% unless current_user.student? %>
+
+  <nav class="c-tabs">
+    <div class="c-tabs__list nav nav-tabs" id="myTab" role="tablist">
+      <a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Personal Information</a>
+      <a class="c-tabs__link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Agreements</a>
+      <% unless @user.id == current_user.id or current_user.head_admin? or current_user.mentor? or current_user.teacher? or current_user.manager? or current_user.executive_admin? or current_user.director_admin?%>
+        <a class="c-tabs__link " id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Schedule</a>
+      <% end %>
+    </div>
+    <div class="c-tabs__content tab-content" id="nav-tabContent">
+      <%= render 'user_activity' %>
+      <%= render 'schedule', active: '' unless @user.id == current_user.id or current_user.head_admin? or current_user.mentor? or current_user.teacher? or current_user.manager? or current_user.executive_admin? or current_user.director_admin?%>
+    </div>
+  </nav>
+
+<% else %>
+
+  <nav class="c-tabs">
+    <div class="c-tabs__list nav nav-tabs" id="myTab" role="tablist">
       <a class="c-tabs__link " id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Schedule</a>
-    <% end %>
-  </div>
-  <div class="c-tabs__content tab-content" id="nav-tabContent">
-    <%= render 'user_activity' %>
-    <%= render 'schedule' unless @user.id == current_user.id or current_user.head_admin? or current_user.mentor? or current_user.teacher? or current_user.manager? or current_user.executive_admin? or current_user.director_admin?%>
-  </div>
-</nav>
+    </div>
+    <div class="c-tabs__content tab-content" id="nav-tabContent">
+      <%= render 'schedule', active: 'active'%>
+    </div>
+  </nav>
+
+<% end %>
 
 <%= content_for :custom_js do %>
   <script type="text/javascript" charset="utf-8">
