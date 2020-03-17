@@ -1,3 +1,13 @@
+<% if can? :create, User %>
+  <div class="row u-mt-xlarge#">
+    <div class="col-12">
+      <h3 class="u-mb-small">
+        <%= link_to 'New User', new_user_path, class: 'c-badge c-badge--small# c-badge--info' %>
+      </h3>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-12">
     <div class="c-table-responsive@wide">
@@ -34,7 +44,25 @@
             <td class="c-table__cell">   <%= user.nationality %></td>
 
             <td class="c-table__cell">
-              <%= link_to 'Show', user_path(user), class: "c-badge c-badge--small c-badge--info" %>
+              <% if can? :read, User %>
+                <% if current_user.student? %>
+                  <%= link_to 'Select', user_path(user), class: "c-badge c-badge--small c-badge--info" %>
+                <% else %>
+                  <%= link_to 'Show', user_path(user), class: "c-badge c-badge--small c-badge--info" %>
+                <% end %>
+              <% end %>
+
+              <% if can? :update, User  %>
+                <%= link_to 'Edit', edit_user_path(user),class: "c-badge c-badge--small c-badge--info" %>
+              <% end %>
+
+              <% if can? :destroy, User  %>
+                <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+              <% end %>
+              <% if can? :update, User  %>
+                <%= link_to 'Lock', '#', data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+                <%= link_to 'Unlock', '#', data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+              <% end %>
             </td>
           </tr>
         <% end %>

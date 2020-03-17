@@ -1,5 +1,7 @@
-<div class="o-page__sidebar js-page-sidebar">
+`<div class="o-page__sidebar js-page-sidebar">
   <aside class="c-sidebar">
+
+    <!--for all user-->
     <div class="c-sidebar__brand">
       <a href="/dashboard">
         <%= image_tag 'abroad-inquery-logo.png', style: 'width: 52px; height: 50px; margin-left: 70px', alt: "Neat" %>
@@ -8,31 +10,41 @@
 
     <div class="c-sidebar__body">
       <ul class="c-sidebar__list">
+        <!--for all user-->
         <li>
           <a class="c-sidebar__link <%= current_class?("/dashboard") %>" href="/dashboard">
             <i class="c-sidebar__icon feather icon-home"></i>Dashboards
           </a>
         </li>
 
+        <!--for all user-->
         <li>
           <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'mentor') %>" href="<%= users_path(:type => 'mentor') %>">
             <i class="c-sidebar__icon feather icon-user-check"></i>Mentors
           </a>
         </li>
 
+        <!--only who can show user profile-->
         <% if can? :read, User%>
-          <li>
-            <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'student') %>" href="<%= users_path(:type => 'student') %>">
-              <i class="c-sidebar__icon feather icon-user"></i>Students
-            </a>
-          </li>
+          <% unless current_user.student? %>
+            <li>
+              <a class="c-sidebar__link <%= current_class_same_path?(users_path, params[:type], 'student') %>" href="<%= users_path(:type => 'student') %>">
+                <i class="c-sidebar__icon feather icon-user"></i>Students
+              </a>
+            </li>
+          <% end %>
         <% end %>
 
+        <!--only who can read student application-->
+        <% if can? :read, StudentApplication %>
           <li>
             <%= link_to student_applications_path, class: "c-sidebar__link #{current_class?(student_applications_path)}" do %>
               <i class="c-sidebar__icon feather icon-file-text"></i>Student Applications
             <% end %>
           </li>
+        <% end %>
+
+        <!--only who can create student application-->
         <% if can? :create, StudentApplication %>
           <li>
             <%= link_to new_student_application_path, class: "c-sidebar__link #{current_class?(new_student_application_path)}" do %>
@@ -40,7 +52,8 @@
             <% end %>
           </li>
         <% end %>
-        <%# if can? :read, Schedule %>
+
+        <!--only student can not show this-->
         <% unless current_user.student?  %>
           <li>
             <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
@@ -48,13 +61,18 @@
             <% end %>
           </li>
         <% end %>
-        <% if can? :manage, Schedule %>
+
+        <!--only who can Create Schedule-->
+        <% if can? :create, Schedule %>
           <li>
             <%= link_to new_schedule_path, class: "c-sidebar__link #{current_class?(new_schedule_path)} " do %>
               <i class="c-sidebar__icon feather icon-edit"></i>New Schedule
             <% end %>
           </li>
+        <% end %>
 
+        <!--only who can Read Schedule-->
+        <% if can? :read, Schedule %>
           <li>
             <%= link_to booked_users_schedules_path, class: "c-sidebar__link #{current_class?(booked_users_schedules_path)}" do %>
               <i class="c-sidebar__icon feather icon-users"></i>Booked User
@@ -62,45 +80,29 @@
           </li>
         <% end %>
 
+        <!--only Student Can show this-->
         <% if current_user.student? %>
-
           <li>
             <%= link_to schedules_path, class: "c-sidebar__link #{current_class?(schedules_path)}" do %>
               <i class="c-sidebar__icon far fa-clock"></i>Booked Schedule
             <% end %>
           </li>
-
-<!--          <li>-->
-<!--            <a class="c-sidebar__link" href="#">-->
-<!--              <i class="c-sidebar__icon fab fa-accusoft"></i>My Booked Schedule List-->
-<!--            </a>-->
-<!--          </li>-->
-
-<!--          <li>-->
-<!--            <a class="c-sidebar__link" href="#">-->
-<!--              <i class="c-sidebar__icon fab fa-avianex"></i>Accepted Schedule List-->
-<!--            </a>-->
-<!--          </li>-->
         <% end %>
 
-
+        <!--For All User-->
         <li>
           <%= link_to payments_path, class: "c-sidebar__link #{current_class?(payments_path)}" do %>
             <i class="c-sidebar__icon fa fa-money"></i>Payments
           <% end %>
         </li>
-
-<!--        <li>-->
-          <%#= link_to users_path, class: "c-sidebar__link #{current_class_same_path?(users_path, params[:type], nil)}" do %>
-<!--            <i class="c-sidebar__icon feather icon-user"></i></i>Users-->
-          <%# end %>
-<!--        </li>-->
       </ul>
     </div>
+
     <% if user_signed_in? %>
+      <!--Only Signed in user can see this-->
       <%= link_to destroy_user_session_path, method: :delete, class: "c-sidebar__footer" do %>
         Logout <i class="c-sidebar__footer-icon feather icon-power"></i>
       <% end %>
     <% end %>
   </aside>
-</div>
+</div>`

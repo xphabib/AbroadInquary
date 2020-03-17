@@ -1,6 +1,5 @@
-<%= render 'users_table_for_head_admin' if current_user.head_admin?%>
-<%= render 'users_table_for_mentor' if current_user.mentor?%>
-<%= render 'users_table_for_student' if current_user.student? or current_user.teacher? or current_user.manager? or current_user.executive_admin? or current_user.director_admin?%>
+<%= render 'users_table'%>
+
 <div style="float: right; margin: 5px 0 0 0;">
   <ul class="c-pagination u-mb-medium float-right">
     <li>

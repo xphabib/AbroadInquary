@@ -4,12 +4,17 @@ class UsersController < ApplicationController
   layout 'dashboard'
   # layout 'application', only: [:request_for_new_mentorship]
 
-  def my_profile ;end
+  def my_profile;
+
+  end
+
   def edit_my_profile
+    authorize! :update, User
     @countries = Country.all.order(:name)
   end
 
   def update_my_profile
+    authorize! :update, User
     unless current_user.student?
       current_user.admin_confirmation = false
       if current_user.update!(set_params)
@@ -26,11 +31,16 @@ class UsersController < ApplicationController
 
 
   def index
+    authorize! :read, User
     if params[:type].present? && params[:type] == 'student'
+      if current_user.student?
+        authorize! :manage, User
+      end
       @users = User.students.order(:first_name).page(params[:page]).per(10)
     elsif params[:type].present? && params[:type] == 'mentor'
       @users = User.mentors.order(:first_name).page(params[:page]).per(10)
     else
+      authorize! :manage, User
       @users = User.all.order(:first_name).page(params[:page]).per(10)
     end
     #
@@ -53,43 +63,43 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      p '<<<<<<<<<<<<<<<@user.inspect>>>>>>>>>>>>>>>'
-      p @user.errors.full_messages.to_sentence
-      p ">>>>>>>>>>"
       flash[:error] = @user.errors.full_messages.to_sentence
       redirect_to request_for_new_mentorship_path
     end
   end
 
-  def show ;end
+  def show
+    authorize! :read, @user
+  end
 
   def new
     @user = User.new
     @countries = Country.all.order(:name)
+    authorize! :create, @user
   end
 
   def create
+    authorize! :create, User
     if @user = User.create!(set_params)
       redirect_to user_path(@user)
     else
-      p @user.inspect
-      p @user.errors.full_messages.to_sentence
-      p ">>>>>>>>>>"
-
     end
   end
 
   def edit
+    authorize! :update, User
     @countries = Country.all.order(:name)
   end
 
   def update
+    authorize! :update, User
     if @user.update!(set_params)
       redirect_to user_path(@user)
     end
   end
 
   def destroy
+    authorize! :destroy, User
     if @user.destroy!
       redirect_to users_path
     end
