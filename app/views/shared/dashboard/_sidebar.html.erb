@@ -72,7 +72,7 @@
         <% end %>
 
         <!--only who can Read Schedule-->
-        <% if can? :read, Schedule %>
+        <% if can? :read, Schedule and !current_user.student? %>
           <li>
             <%= link_to booked_users_schedules_path, class: "c-sidebar__link #{current_class?(booked_users_schedules_path)}" do %>
               <i class="c-sidebar__icon feather icon-users"></i>Booked User

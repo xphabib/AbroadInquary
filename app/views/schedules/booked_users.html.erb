@@ -18,13 +18,12 @@
           <tr class="c-table__row">
             <td class="c-table__cell">
               <div class="o-media">
-                <div class="o-media__img u-mr-xsmall">
-                  <div class="c-avatar c-avatar--small">
-                    <%= image_tag 'avatar1-72.jpg', class: "c-avatar__img", alt: "user name" %>
-                  </div>
-                </div>
                 <div class="o-media__body">
-                  <h6><%= schedule.student.full_name %></h6>
+                  <h6>
+                    <%= link_to user_path(schedule.student.id) do%>
+                      <%= schedule.student.full_name %>
+                    <% end %>
+                  </h6>
                   <p><%= schedule.student.occupation %></p>
                 </div>
               </div>

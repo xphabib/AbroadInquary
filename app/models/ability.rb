@@ -36,28 +36,31 @@ class Ability
       can :create, User
       can :update, User
       can :read, User
-
-
+      can :read, Schedule
 
     elsif user.executive_admin?
       can :read, User
+      can :update, User
       can :create, User
+      can :read, Schedule
 
     elsif user.director_admin?
       can :read, User
       can :create, User
+      can :read, Schedule
 
     elsif user.mentor?
-      can :manage, Schedule
       can :read, User
+      can :manage, Schedule
       can :manage, StudentApplication
 
     elsif user.student?
       can :read, User
-      # can :update, User, user_id: user.id
+      can :update, User
       can :read, Country
       can :read, Schedule
       can :update, Schedule
+
       can :create, StudentApplication
       can :read, StudentApplication
 

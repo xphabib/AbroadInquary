@@ -1,24 +1,34 @@
 class SchedulesController < ApplicationController
   layout 'dashboard'
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+
   def index
-    @schedules = current_user.mentor_schedules if current_user.mentor?
-    @schedules = Schedule.mentor_schedules if current_user.head_admin?
-    @schedules = current_user.student_schedules if current_user.student?
+    authorize! :read, Schedule
+    if current_user.mentor?
+      @schedules = current_user.mentor_schedules
+    elsif current_user.student?
+      @schedules = current_user.student_schedules
+    else
+      @schedules = Schedule.mentor_schedules
+    end
   end
 
   def new
+    authorize! :create, Schedule
     @schedule = Schedule.new
   end
 
   def show
+    authorize! :read, Schedule
   end
 
   def edit
+    authorize! :update, Schedule
+    raise CanCan::AccessDenied.new("Not authorized!", :update, Schedule) if current_user.student?
   end
 
   def create
+    authorize! :create, Schedule
     if current_user.mentor?
       @schedule = current_user.mentor_schedules.new(schedule_params)
     elsif current_user.head_admin?
@@ -33,6 +43,8 @@ class SchedulesController < ApplicationController
   end
 
   def update
+    authorize! :update, Schedule
+    raise CanCan::AccessDenied.new("Not authorized!", :update, Schedule) if current_user.student?
     if @schedule.update(schedule_params)
       redirect_to @schedule
     else
@@ -48,6 +60,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, Schedule
     @schedule.destroy
     redirect_back(fallback_location: root_path)
   end
@@ -57,7 +70,12 @@ class SchedulesController < ApplicationController
   end
 
   def booked_users
-    @schedules = current_user.mentor_schedules.where.not(student_id: nil)
+    raise CanCan::AccessDenied.new("Not authorized!", :update, Schedule) if current_user.student?
+    if current_user.mentor?
+      @schedules = current_user.mentor_schedules.where.not(student_id: nil)
+    else
+      @schedules = Schedule.where.not(student_id: nil)
+    end
   end
 
   private

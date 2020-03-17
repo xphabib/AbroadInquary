@@ -52,17 +52,20 @@
                 <% end %>
               <% end %>
 
-              <% if can? :update, User  %>
-                <%= link_to 'Edit', edit_user_path(user),class: "c-badge c-badge--small c-badge--info" %>
+              <% unless current_user.student? %>
+                <% if can? :update, User  %>
+                  <%= link_to 'Edit', edit_user_path(user),class: "c-badge c-badge--small c-badge--info" %>
+                <% end %>
+
+                <% if can? :destroy, User  %>
+                  <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+                <% end %>
+                <% if can? :update, User  %>
+                  <%= link_to 'Lock', '#', data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+                  <%= link_to 'Unlock', '#', data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+                <% end %>
               <% end %>
 
-              <% if can? :destroy, User  %>
-                <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
-              <% end %>
-              <% if can? :update, User  %>
-                <%= link_to 'Lock', '#', data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
-                <%= link_to 'Unlock', '#', data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
-              <% end %>
             </td>
           </tr>
         <% end %>
