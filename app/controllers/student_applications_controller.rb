@@ -4,29 +4,37 @@ class StudentApplicationsController < ApplicationController
   # GET /student_applications
   # GET /student_applications.json
   def index
-    @student_applications = StudentApplication.all if current_user.head_admin?
-    @my_applications = current_user.student_applications if current_user.student?
-    @my_applications = current_user.mentor_applications if current_user.mentor?
+    authorize! :read, StudentApplication
+    if current_user.mentor?
+      @student_applications = current_user.mentor_applications
+    elsif current_user.student?
+      @student_applications = current_user.student_applications
+    else
+      @student_applications = StudentApplication.all
+    end
   end
 
   # GET /student_applications/1
   # GET /student_applications/1.json
   def show
-
+    authorize! :read, StudentApplication
   end
 
   # GET /student_applications/new
   def new
+    authorize! :create, StudentApplication
     @student_application = StudentApplication.new
   end
 
   # GET /student_applications/1/edit
   def edit
+    authorize! :update, StudentApplication
   end
 
   # POST /student_applications
   # POST /student_applications.json
   def create
+    authorize! :create, StudentApplication
     @student_application = StudentApplication.new(student_application_params)
     @student_application.student_id = current_user.id if current_user.student?
     @student_application.mentor_id = current_user.id if current_user.mentor?
@@ -45,6 +53,7 @@ class StudentApplicationsController < ApplicationController
   # PATCH/PUT /student_applications/1
   # PATCH/PUT /student_applications/1.json
   def update
+    authorize! :update, StudentApplication
     respond_to do |format|
       if @student_application.update(student_application_params)
         format.html { redirect_to @student_application, notice: 'Student application was successfully updated.' }
@@ -59,6 +68,7 @@ class StudentApplicationsController < ApplicationController
   # DELETE /student_applications/1
   # DELETE /student_applications/1.json
   def destroy
+    authorize! :destroy, StudentApplication
     @student_application.destroy
     respond_to do |format|
       format.html { redirect_to student_applications_url, notice: 'Student application was successfully destroyed.' }

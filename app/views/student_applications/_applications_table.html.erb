@@ -28,15 +28,17 @@
             <td class="c-table__cell">   <%= student_application.application_status %></td>
 
             <td class="c-table__cell">
-              <%= link_to 'Show', student_application, class: "c-badge c-badge--small c-badge--info" %>
-
-              <%= link_to 'Edit', edit_student_application_path(student_application),class: "c-badge c-badge--small c-badge--info" %>
-
-              <%= link_to 'Delete', student_application, method: :delete, data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+              <% if can? :read, StudentApplication %>
+                <%= link_to 'Show', student_application, class: "c-badge c-badge--small c-badge--info" %>
+              <% end %>
+              <% if can? :update, StudentApplication %>
+                <%= link_to 'Edit', edit_student_application_path(student_application),class: "c-badge c-badge--small c-badge--info" %>
+              <% end %>
+              <% if can? :destroy, StudentApplication %>
+                <%= link_to 'Delete', student_application, method: :delete, data: {confirm: 'are you sure'},class: "c-badge c-badge--small c-badge--fancy" %>
+              <% end %>
             </td>
-
           </tr>
-
         <% end %>
         </tbody>
       </table>

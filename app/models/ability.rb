@@ -29,25 +29,27 @@ class Ability
       can :update, User
       can :read, User
       can :read, Schedule
-
-
+      can :read, StudentApplication
 
     elsif user.manager?
       can :create, User
       can :update, User
       can :read, User
       can :read, Schedule
+      can :read, StudentApplication
 
     elsif user.executive_admin?
       can :read, User
       can :update, User
       can :create, User
       can :read, Schedule
+      can :read, StudentApplication
 
     elsif user.director_admin?
       can :read, User
       can :create, User
       can :read, Schedule
+      can :read, StudentApplication
 
     elsif user.mentor?
       can :read, User
