@@ -62,4 +62,4 @@
 
 set :deploy_to, "/home/deployer/abroadinquiry"
 set :rails_env, "production"
-set :branch, 'master'
+set :branch, 'finalize'
