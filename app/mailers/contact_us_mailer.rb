@@ -3,6 +3,6 @@ class ContactUsMailer < ApplicationMailer
 
   def welcome_email(info)
     @msg_info = info
-    mail(from: info[:email], :to => 'xboxdriver420@gmail.com', :subject => "Welcome to My Awesome Site")
+    mail(from: info[:email], :to => 'abroadinquiry.bd@gmail.com', :subject => "Welcome to My Awesome Site")
   end
 end
