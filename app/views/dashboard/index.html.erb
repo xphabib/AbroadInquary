@@ -1,6 +1,3 @@
-<%= render 'head_admin_dashboard' if current_user.head_admin? %>
-<%= render 'executive_admin_dashboard' if current_user.executive_admin? %>
-<%= render 'director_admin_dashboard' if current_user.director_admin? %>
-<%= render 'manager_dashboard' if current_user.manager? %>
+<%= render 'admin_dashboard' unless current_user.mentor? or current_user.student? %>
 <%= render 'mentor_dashboard' if current_user.mentor? %>
 <%= render 'student_dashboard' if current_user.student? %>

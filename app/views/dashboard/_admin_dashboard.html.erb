@@ -34,16 +34,19 @@
       </div>
     <% end %>
   </div>
-
-  <div class="col-md-6 col-xl-3">
-    <div class="c-card">
+  <% if can? :update, User%>
+    <div class="col-md-6 col-xl-3">
+      <%= link_to unconfirmed_user_users_path do %>
+        <div class="c-card">
       <span class="c-icon c-icon--warning u-mb-small">
         <i class="feather icon-zap"></i>
       </span>
-      <h3 class="c-text--subtitle">Admin</h3>
-      <h1><%= @total_admins %></h1>
+          <h3 class="c-text--subtitle">Unconfirm Users</h3>
+          <h1><%= @total_unconfirmed_users %></h1>
+        </div>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="row">
@@ -75,7 +78,9 @@
         <h4>Today's Applications</h4>
         <p>Activity from <%= Time.now.strftime("%d/%h/%y") %> 12:00 AM To <%= Time.now.strftime("%H:%M %P")  %></p>
 
-        <span class="u-h1">3</span>
+        <span class="u-h1">
+          <%= @todays_applications %>
+        </span>
       </div>
 
       <div class="u-p-medium">

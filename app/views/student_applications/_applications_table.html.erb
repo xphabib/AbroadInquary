@@ -4,14 +4,13 @@
       <table class="c-table">
         <thead class="c-table__head">
         <tr class="c-table__row">
+          <th class="c-table__cell c-table__cell--head">Start Date</th>
           <th class="c-table__cell c-table__cell--head">Country</th>
           <th class="c-table__cell c-table__cell--head">Desire program</th>
           <th class="c-table__cell c-table__cell--head">Student</th>
           <th class="c-table__cell c-table__cell--head">Mentor</th>
           <th class="c-table__cell c-table__cell--head">University name</th>
           <th class="c-table__cell c-table__cell--head">Application status</th>
-          <!--          <th class="c-table__cell c-table__cell--head">Date</th>-->
-          <!--          <th class="c-table__cell c-table__cell--head">Tags</th>-->
           <th class="c-table__cell c-table__cell--head">Actions</th>
         </tr>
         </thead>
@@ -20,10 +19,11 @@
 
         <% @student_applications.each do |student_application| %>
           <tr class="c-table__row">
+            <td class="c-table__cell">  <%= student_application.created_at.strftime('%d/%m/%Y') %> </td>
             <td class="c-table__cell">  <%= student_application.country.name %> </td>
             <td class="c-table__cell">  <%= student_application.desire_program %> </td>
-            <td class="c-table__cell">  <%#= student_application.student.first_name %> </td>
-            <td class="c-table__cell">   <%#= student_application.mentor.first_name %></td>
+            <td class="c-table__cell">  <%= link_to student_application.student.full_name, user_path(student_application.student.id) %> </td>
+            <td class="c-table__cell">   <%= link_to student_application.mentor.full_name, user_path(student_application.mentor.id) %></td>
             <td class="c-table__cell">   <%= student_application.university_name %></td>
             <td class="c-table__cell">   <%= student_application.application_status %></td>
 

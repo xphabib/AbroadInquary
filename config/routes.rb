@@ -46,8 +46,14 @@ Rails.application.routes.draw do
         get :my_profile
         get :edit_my_profile
         post :update_my_profile
+        get :unconfirmed_user
         # get :request_for_new_mentorship
         # post :create_request_for_new_mentorship
+      end
+      member do
+        get :lock
+        get :unlock
+        get :confirm
       end
     end
     resources :schedules do

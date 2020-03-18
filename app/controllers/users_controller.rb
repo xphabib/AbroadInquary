@@ -38,7 +38,11 @@ class UsersController < ApplicationController
       end
       @users = User.students.order(:first_name).page(params[:page]).per(10)
     elsif params[:type].present? && params[:type] == 'mentor'
-      @users = User.mentors.order(:first_name).page(params[:page]).per(10)
+      if current_user.student?
+        @users = User.mentors.confirmed_users.order(:first_name).page(params[:page]).per(10)
+      else
+        @users = User.mentors.order(:first_name).page(params[:page]).per(10)
+      end
     else
       authorize! :manage, User
       @users = User.all.order(:first_name).page(params[:page]).per(10)
@@ -70,6 +74,9 @@ class UsersController < ApplicationController
 
   def show
     authorize! :read, @user
+    if @user.id == current_user.id
+      redirect_to my_profile_users_path
+    end
   end
 
   def new
@@ -103,6 +110,31 @@ class UsersController < ApplicationController
     if @user.destroy!
       redirect_to users_path
     end
+  end
+
+  def unconfirmed_user
+    authorize! :update, User
+    @users = User.unconfirmed_users
+  end
+
+  def lock
+    authorize! :update, User
+    user = User.friendly.find(params[:id])
+    user.update(admin_confirmation: false)
+    redirect_to user_path(user)
+  end
+
+  def unlock
+  authorize! :update, User
+  user = User.friendly.find(params[:id])
+    user.update(admin_confirmation: true)
+    redirect_to user_path(user)
+  end
+
+  def confirm
+    user = User.friendly.find(params[:id])
+    user.update(admin_confirmation: true)
+    redirect_to user_path(user)
   end
 
   private

@@ -67,6 +67,8 @@ class User < ApplicationRecord
   scope :students, -> { where(role: 'student') }
   scope :admins, -> { where.not(role: 'student') }
   scope :mentors, -> { where(role: 'mentor') }
+  scope :unconfirmed_users, -> { where(admin_confirmation: false) }
+  scope :confirmed_users, -> { where(admin_confirmation: true) }
   scope :active_mentors, -> { where("role = ? AND admin_confirmation=?",5, true) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

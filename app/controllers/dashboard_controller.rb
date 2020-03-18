@@ -5,10 +5,13 @@ class DashboardController < ApplicationController
     @total_schedules = Schedule.all.count
     @total_applications = StudentApplication.all.count
     @total_students = User.students.count
-    @total_admins = User.admins.count
+    # @total_admins = User.admins.count
+    @total_unconfirmed_users = User.unconfirmed_users.count
 
-    @todays_schedules = Schedule.where("created_at=?", Date.today).count
-    @todays_applications = StudentApplication.where("created_at=?", Date.today).count
+    # @todays_schedules = Schedule.where("created_at=?", Date.today).count
+    # @todays_applications = StudentApplication.where("created_at=?", Date.today).count
+    @todays_schedules = Schedule.where(created_at: 1.days.ago..Time.current).count
+    @todays_applications = StudentApplication.where(created_at: 1.days.ago..Time.current).count
 
     #only for mentor dashboard
     @mentor_total_schedules = current_user.mentor_schedules.count if current_user.mentor?
