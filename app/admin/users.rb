@@ -22,7 +22,10 @@ ActiveAdmin.register User do
     column :department_name
     column :dob
     column :encrypted_password
-    column :image
+    # column :image
+    column "Image" do |user|
+      image_tag user.image_url, size: '100x80' if user.image.present?
+    end
     column :nationality
     column :nid
     column :occupation
@@ -87,7 +90,10 @@ ActiveAdmin.register User do
       row :dob
       row :email
       row :encrypted_password
-      row :image
+      # row :image
+      row "Image" do |user|
+        image_tag user.image_url, size: '150x125' if user.image.present?
+      end
       row :nationality
       row :nid
       row :occupation

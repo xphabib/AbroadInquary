@@ -34,9 +34,18 @@ class StudentApplication < ApplicationRecord
   mount_uploader :bank_statement, ApplicationAttachmentUploader
   mount_uploader :bank_solvency_certificate, ApplicationAttachmentUploader
 
+  after_create :application_confirmation
+
   APPLICATION_STATUS = [
       'File Open',
       'Acceptence Later',
       'Visa Reject'
   ]
+
+  def application_confirmation
+    mentor_email = self.mentor.email
+    student_email = self.student.email
+    StudentApplicationMailer.mentor_confirmation(mentor_email).deliver if mentor_email.present?
+    StudentApplicationMailer.student_confirmation(student_email).deliver if student_email.present?
+  end
 end

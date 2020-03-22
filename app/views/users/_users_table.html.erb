@@ -15,9 +15,21 @@
         <thead class="c-table__head">
         <tr class="c-table__row">
           <th class="c-table__cell c-table__cell--head">Profile</th>
-          <th class="c-table__cell c-table__cell--head">phone</th>
-          <th class="c-table__cell c-table__cell--head">email</th>
-          <th class="c-table__cell c-table__cell--head">nationality</th>
+          <th class="c-table__cell c-table__cell--head">
+            <% if current_user.student? %>
+              University
+            <% else %>
+              Phone
+            <% end %>
+          </th>
+          <th class="c-table__cell c-table__cell--head">
+            <% if current_user.student? %>
+              City
+            <% else %>
+              email
+            <% end %>
+          </th>
+          <th class="c-table__cell c-table__cell--head">Nationality</th>
           <th class="c-table__cell c-table__cell--head">Actions</th>
         </tr>
         </thead>
@@ -39,8 +51,21 @@
                 </div>
               </div>
             </td>
-            <td class="c-table__cell">  <%= user.phone %> </td>
-            <td class="c-table__cell">   <%= user.email %></td>
+            <td class="c-table__cell">
+              <% if current_user.student? %>
+                <%= user.university %>
+              <% else %>
+                <%= user.phone %>
+              <% end %>
+            </td>
+            <td class="c-table__cell">
+              <% if current_user.student? %>
+                <%= user.city_name %>
+              <% else %>
+                <%= user.email %>
+              <% end %>
+
+            </td>
             <td class="c-table__cell">   <%= user.nationality %></td>
 
             <td class="c-table__cell">
